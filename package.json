@@ -18,7 +18,11 @@
     "url": "https://github.com/SonGlad/tasty-treats-team-project/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "axios": "^1.4.0",
+    "hbs": "^4.2.0",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6",
+    "parcel-transformer-handlebars": "^1.0.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
