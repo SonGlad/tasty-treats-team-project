@@ -1,0 +1,149 @@
+.event-list{
+  overflow: hidden;
+  padding: 0 0 0 20px;
+  @media screen and (min-width: 768px) {
+    padding: 0 0 0 32px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 0 0 0 100px;
+    display: flex;}
+}
+
+.event-description{
+  margin-bottom: 48px;
+  width: 335px;
+  @media screen and (min-width: 768px) {
+    width: 446px;
+    margin-bottom: 64px;
+    margin-right: 32px;
+  }
+}
+
+.event-title{
+  width: 335px;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 120%;
+  @media screen and (min-width: 768px) {
+    width: 446px;
+    font-size: 36px;
+  }
+  // @media screen and (min-width: 1200px) {
+  //   display: flex;}
+}
+
+.tasty-treats{
+  font-style:oblique;
+  color: var(--green);
+  font-weight: 400;
+}
+
+.event-text{
+  margin: 14px 0 28px;
+  font-size: 14px;
+  line-height: 18px;
+  @media screen and (min-width: 768px) {
+    margin: 16px 0 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.event-order{
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 2px solid var(--green);
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--white-d);
+  @media screen and (min-width: 768px) {
+    padding: 14px 28px;
+    }
+
+}
+
+.events{
+  display: flex;
+}
+
+.event{
+  display: flex;
+}
+
+.cook{
+  display: block;
+  height: 280px;
+  width: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  @media screen and (min-width: 768px) {
+    height: 442px;
+    width: 137px;}
+  }
+
+
+.preview-deash-card{
+  display: flex;
+  margin: 0 8px;
+  height: 280px;
+  width: 200px;
+  background-color: black;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    margin: 0 16px;
+    height: 442px;
+    width: 351px;}
+}
+.deash-name{
+  display: block;
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 18px;}
+}
+.deash-area{
+  display: block;
+  font-size: 8px;
+  line-height: 12px;
+  color: rgba(255, 255, 255, 0.2);
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 14px;}
+}
+
+.preview-deash{
+  display: block;
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+
+}
+
+
+.deash{
+  display: block;
+  height: 280px;
+  width: 185px;
+  background-size: cover;
+  border-radius: 15px;
+  background-position: center;
+  background-color: black;
+   @media screen and (min-width: 768px) {
+    height: 442px;
+    width: 351px;}
+}
+
