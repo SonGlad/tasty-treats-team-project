@@ -3,8 +3,9 @@
   @media screen and (min-width: 768px) {
     padding-top: 93px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 94px;
+    overflow: hidden;
   }
 }
 
@@ -21,6 +22,7 @@
   overflow: hidden;
   @media screen and (min-width: 1280px) {
     display: flex;
+    overflow: visible;
   }
 }
 
