@@ -19,6 +19,7 @@
 .header-items {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .header-icons {
@@ -42,6 +43,7 @@
     width: 100vw;
     max-width: 100%;
     position: fixed;
+    z-index: 999;
     top: 0;
     left: 0;
     transform: translateX(-100%);
