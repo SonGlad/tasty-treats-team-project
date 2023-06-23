@@ -147,3 +147,15 @@
     width: 351px;}
 }
 
+
+.crunch{
+  width: 497px;
+   @media screen and (min-width: 768px) {
+    width: 871px;}
+}
+
+.page{
+  margin: 24px 0 0 155px;
+  @media screen and (min-width: 768px) {
+    margin-left: 300px;}
+}
