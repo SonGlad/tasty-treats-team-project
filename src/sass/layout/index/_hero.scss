@@ -1,21 +1,26 @@
 .event-list{
-  overflow: hidden;
-  padding: 0 0 0 20px;
+  padding-top: 91px;
   @media screen and (min-width: 768px) {
-    padding: 0 0 0 32px;
+    padding-top: 93px;
   }
   @media screen and (min-width: 1200px) {
-    padding: 0 0 0 100px;
-    display: flex;}
+    padding-top: 94px;
+  }
 }
 
 .event-description{
   margin-bottom: 48px;
-  width: 335px;
   @media screen and (min-width: 768px) {
     width: 446px;
     margin-bottom: 64px;
     margin-right: 32px;
+  }
+}
+
+.hero-container{
+  overflow: hidden;
+  @media screen and (min-width: 1280px) {
+    display: flex;
   }
 }
 

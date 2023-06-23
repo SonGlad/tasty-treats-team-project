@@ -1,5 +1,15 @@
 /* Main Styles */
 
+.header{
+    padding-top: 24px;
+    @media screen and (min-width: 768px) {
+        padding-top: 28px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding-top: 40px;
+    }
+}
+
 .logo-first {
     color: var(--green);
     font-size: 16px;
