@@ -1,24 +1,24 @@
 :root {
-  --main-font: "Inter";
+  --main-font: 'Inter';
 
   --background-d: #161616;
-  --background-w: #F8F8F8;
+  --background-w: #f8f8f8;
 
   --black: #050505;
-  --green: #9BB537;
-  --white-w: #F8F8F8;
+  --green: #9bb537;
+  --white-w: #f8f8f8;
   --gray-title-w: rgba(5, 5, 5, 0.5);
   --gray-border-w: rgba(5, 5, 5, 0.2);
   --gray-ul-w: rgba(5, 5, 5, 0.3);
   --gray-descrip-w: rgba(5, 5, 5, 0.8);
-  --yellow-star: #EEA10C;
+  --yellow-star: #eea10c;
   --gray-star-w: rgba(248, 248, 248, 0.1);
   --gray-pagination-w: rgba(248, 248, 248, 0.5);
-  --gray-radiobtn-w: #CECDCD;
+  --gray-radiobtn-w: #cecdcd;
   --gray-slider-title-w: rgba(248, 248, 248, 0.6);
   --gray-slider-desc-w: rgba(248, 248, 248, 0.2);
 
-  --white-d: #FFF;
+  --white-d: #fff;
   --gray-slider-title-d: rgba(255, 255, 255, 0.6);
   --gray-slider-desc-d: rgba(255, 255, 255, 0.2);
   --gray-title-d: rgba(255, 255, 255, 0.5);
@@ -30,4 +30,3 @@
   --trns-general: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --trns-modal: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-  

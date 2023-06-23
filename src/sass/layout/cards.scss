@@ -1,0 +1,87 @@
+.card_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 335px;
+  height: 335px;
+  margin: 0 auto;
+}
+.card_favourites_btn {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 16;
+  right: 16;
+}
+.card_heart {
+  display: block;
+  fill: transparent;
+}
+.card_favourites_btn:hover .card_heart {
+  fill: #f8f8f8;
+}
+.card_favourites_btn:focus .card_heart {
+  fill: #f8f8f8;
+}
+.heart_use {
+  transition: fill var(--trns-general);
+}
+.card_background {
+  position: absolute;
+  z-index: -22;
+  bottom: 0;
+}
+.card_content-container {
+  margin-top: auto;
+  padding: 16px;
+}
+.card_text-container {
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+.card_title {
+  color: #f8f8f8;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.card_description {
+  color: #f8f8f8;
+
+  font-size: 12px;
+  line-height: 16px;
+}
+.card_footer-container {
+  display: flex;
+}
+.card_star-rating {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.star-rating_value {
+  color: #f8f8f8;
+  font-size: 14px;
+
+  font-weight: 500;
+  line-height: 18px;
+}
+.star {
+}
+.card_btn {
+  display: inline-block;
+  background-color: #9bb537;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 14px;
+  font-family: Inter;
+
+  color: #f8f8f8;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: auto;
+}
