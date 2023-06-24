@@ -1,0 +1,219 @@
+/* Main Styles */
+
+.header{
+    padding-top: 24px;
+    @media screen and (min-width: 768px) {
+        padding-top: 28px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding-top: 40px;
+    }
+}
+.navigation{
+    display: none;
+    @media screen and (min-width:768px) {
+        display: inline;
+
+    }
+}
+.btn-home{
+ color: #9BB537;
+ font-size: 12px;
+ font-weight: 500;
+ margin-right: 16px;
+}
+.btn-favorites{
+ color: #050505;
+ font-size: 12px;
+}
+
+.logo-first {
+ color: var(--green);
+ font-size: 16px;
+ font-weight: 600;
+ line-height: calc(18/16);
+ letter-spacing: -0.64px;
+  @media screen and (min-width:768px) {
+     font-size: 18px;
+     line-height: calc(20/18);
+     letter-spacing: -0.72px;
+  }
+}
+
+.logo-second {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18/16);
+    letter-spacing: -0.64px;
+    @media screen and (min-width:768px) {
+        font-size: 18px;
+        line-height: calc(20/18);
+        letter-spacing: -0.72px;
+    }
+}
+
+.header-items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media screen and (min-width:768px) {
+        justify-content: space-between;
+    }
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: 150px;
+    @media screen and (min-width:768px) {
+        margin-left: 0;
+    }
+}
+
+.mob-menu-btn {
+    border: none;
+    padding: 0;
+    margin: 0;
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+.header-switch {
+    display: none;
+    @media screen and(min-width:768px) {
+        position: relative;
+        display: inline-block;
+        width: 46px;
+        height: 20px;
+    }
+  }
+  
+  .header-switch input {
+    display: none;
+  }
+  
+  .header-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray-radiobtn-w);
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .header-slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--background-w);
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  .header-switch input:checked + .header-slider {
+    background: linear-gradient(#9BB537, #9BB537); // Изменили на linear-gradient(#9BB537, #9BB537)
+  }
+  
+  .header-switch input:checked + .header-slider:before {
+    transform: translateX(26px);
+  }
+
+/* Mobile Menu Styles */
+
+.mobile-menu {
+    background-color: var(--green);
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+.mob-menu-btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mob-menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding-top: 200px;
+    padding-bottom: 566px;
+}
+
+.list-item {
+    color: var(--white-d);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.switch {
+    position: absolute;
+    width: 60px;
+    height: 34px;
+    bottom: 30px;
+    left: 20px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray-radiobtn-w);
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--background-w);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background: linear-gradient(var(--green)), linear-gradient(var(--green));
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}

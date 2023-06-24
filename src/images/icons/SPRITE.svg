@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
   <defs>
     <!-- MOBILE MENU -->
-    <symbol id="icon-align-justify" viewBox="0 0 23 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.454" d="M20.364 10.061H2.909M20.364 6.182H2.909M20.364 13.939H2.909M20.364 17.818H2.909"/>
+    <symbol id="icon-align-justify" viewBox="0 0 23 24" >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke="black" stroke-width="1.454" d="M20.364 10.061H2.909M20.364 6.182H2.909M20.364 13.939H2.909M20.364 17.818H2.909"/>
     </symbol>
     <!-- ARROW DOWN -->
     <symbol id="icon-chevron-down" viewBox="0 0 24 24">
@@ -13,16 +13,16 @@
       <path d="M21.71 20.29 18 16.61a9.005 9.005 0 0 0-1.014-12.334A9 9 0 1 0 16.61 18l3.68 3.68a1.007 1.007 0 0 0 .71.296.998.998 0 0 0 .71-.296 1.003 1.003 0 0 0 0-1.39zM11 18a7.002 7.002 0 0 1-6.865-8.365 7.003 7.003 0 0 1 9.544-5.102A7 7 0 0 1 11 18z"/>
     </symbol>
     <!-- SHOPPING ICON -->
-    <symbol id="icon-shopping-cart-03" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 14h13.136c1.013 0 1.519 0 1.922-.189a2 2 0 0 0 .858-.768c.232-.38.288-.883.4-1.89l.585-5.265c.034-.307.051-.461.002-.58a.498.498 0 0 0-.22-.246C21.57 5 21.416 5 21.106 5H4.5M2 2h1.248c.265 0 .397 0 .5.05a.5.5 0 0 1 .217.203c.057.1.065.232.081.496l.906 14.5c.016.264.025.396.081.496.05.088.125.159.217.204.104.05.236.05.5.05h13.248M7.5 21.5h.01m8.99 0h.01M8 21.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm9 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+    <symbol id="icon-shopping-cart-03" viewBox="0 0 24 24" fill="none">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke="black" stroke-width="1.5" d="M5 14h13.136c1.013 0 1.519 0 1.922-.189a2 2 0 0 0 .858-.768c.232-.38.288-.883.4-1.89l.585-5.265c.034-.307.051-.461.002-.58a.498.498 0 0 0-.22-.246C21.57 5 21.416 5 21.106 5H4.5M2 2h1.248c.265 0 .397 0 .5.05a.5.5 0 0 1 .217.203c.057.1.065.232.081.496l.906 14.5c.016.264.025.396.081.496.05.088.125.159.217.204.104.05.236.05.5.05h13.248M7.5 21.5h.01m8.99 0h.01M8 21.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm9 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
     </symbol>
     <!-- STAR ICON -->
     <symbol id="icon-Star-1" viewBox="0 0 24 24">
       <path d="M10.37 2.446c.513-1.579 2.748-1.579 3.261 0l1.449 4.459a1.715 1.715 0 0 0 1.63 1.185h4.688c1.661 0 2.351 2.125 1.008 3.101l-3.793 2.756a1.715 1.715 0 0 0-.623 1.917l1.449 4.459c.513 1.579-1.294 2.893-2.638 1.917l-3.793-2.756a1.716 1.716 0 0 0-2.015 0L7.2 22.24c-1.344.976-3.151-.337-2.638-1.917l1.449-4.459a1.716 1.716 0 0 0-.623-1.917l-3.793-2.755C.251 10.216.942 8.091 2.603 8.091h4.688c.743 0 1.401-.478 1.63-1.185l1.449-4.459z"/>
     </symbol>
     <!-- CLOSE ICON -->
-    <symbol id="icon-x" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6 6 18M6 6l12 12"/>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke="black" stroke-width="2" d="M18 6 6 18M6 6l12 12"/>
     </symbol>
     <!-- DOUBLE ARROW RIGHT -->
     <symbol id="icon-chevrons-right" viewBox="0 0 24 24">

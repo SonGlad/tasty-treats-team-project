@@ -8,7 +8,14 @@
 
 
 // LAYOUT ///
+
 @import './layout/index/search.scss';
+
+@import './layout/header';
+@import './layout/index/hero.scss';
+@import './layout/index/hero_modal';
+@import './layout/index/allcategories.scss';
+
 
 // UTILS ///
 @import './utils/variable.scss';
