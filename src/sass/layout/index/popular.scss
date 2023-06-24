@@ -1,0 +1,43 @@
+.popularRecipes{
+    color: #050505;
+    font-size: 18px;
+    font-family: Inter;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+.popular{
+
+}
+
+
+.recipes{
+
+}
+
+
+.popular-img{
+width: 64px;
+height: 64px;
+}
+
+
+.popular-title{
+    color: #050505;
+    font-size: 14px;
+    font-family: Inter;
+    font-weight: 600;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.popular-text{
+    overflow: hidden;
+    color: rgba(5, 5, 5, 0.80);
+    text-overflow: ellipsis;
+    whitespace: nowrap;
+    font-size: 12px;
+    font-family: Inter;
+    line-height: 16px;
+}
