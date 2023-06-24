@@ -16,7 +16,7 @@ fetchEvent()
       const swiper = new Swiper('.swiper',
         {
           modules: [Pagination],
-
+          allowSlideNext: true,
           // If we need pagination
           pagination: {
             el: '.page',
