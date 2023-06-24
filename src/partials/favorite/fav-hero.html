@@ -1,7 +1,6 @@
-<section>
-  <div class="favorite-hero container">
-    Hello
-    <picture>
+<section class="section-fav-hero">
+  <div class="container container-hero">
+    <picture class="favorite-image">
       <source
         media="(min-width:1280px)"
         srcset="
@@ -11,6 +10,20 @@
       />
       <source
         media="(min-width:1280px)"
+        srcset="
+          ./images/favorites_hero/favorites-hero-desk-1x.png 1x,
+          ./images/favorites_hero/favorites-hero-desk-2x.png 2x
+        "
+      />
+      <source
+        media="(min-width:1024px)"
+        srcset="
+          ./images/favorites_hero/favorites-hero-desk-1x.webp 1x,
+          ./images/favorites_hero/favorites-hero-desk-2x.webp 2x
+        "
+      />
+      <source
+        media="(min-width:1024px)"
         srcset="
           ./images/favorites_hero/favorites-hero-desk-1x.png 1x,
           ./images/favorites_hero/favorites-hero-desk-2x.png 2x
@@ -45,7 +58,7 @@
         "
       />
 
-      <img
+      <img class="image-fav"
         src="./images/favorites_hero/favorites-hero-mob-1x.png"
         alt="Favorite food"
         loading="lazy"
