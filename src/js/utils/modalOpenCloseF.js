@@ -28,7 +28,10 @@ const modalOpenClose = () => {
   });
 
   function toggleModal() {
-  refs.modal.classList.toggle("is-hidden");
+    refs.modal.classList.toggle("is-hidden");
+    if (refs.modal.classList.contains("is-hidden")) {
+      document.body.style.overflow = ""
+    } else {document.body.style.overflow = "hidden"}
   }
 };
 
