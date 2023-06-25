@@ -1,10 +1,4 @@
-// select.item {
-//     -webkit-appearance: none;
-//     -moz-appearance: none;
-//     appearance: none;
-//     padding-right: 20px;
-    
-//   }
+
 .con-search{
   margin-bottom: 14px;
   @media screen and (min-width: 768px) {
@@ -12,6 +6,12 @@
   }
 }
 
+.search-arrow{
+  fill: rgba(5, 5, 5, 0.5);
+}
+.svg-search{
+  fill: rgba(5, 5, 5, 0.5);
+}
 .text-search{
   color: rgba(5, 5, 5, 0.50);
   font-size: 14px;
@@ -26,6 +26,8 @@
 }
 
 .inp-search {
+  width: 100%;
+  outline: 0;
   max-width: 335px;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -83,7 +85,7 @@
 
 .ingredients{
   margin-top: 14px;
-  // width: 168px;
+  
 }
 
 
@@ -118,35 +120,9 @@
     margin-top: 0;
   }
 }
-
-
-// .custom-select {
-//     position: relative;
-//     display: inline-block;
-//   }
-  
-//   .custom-select select {
-//     appearance: none;
-//     outline: 0;
-  
-//     font-size: inherit;
-//   }
-  
-//   .custom-select .selected-option {
-//     position: absolute;
-//     top: 3px;
-//     right: 18px;
-//     bottom: 0;
-//     display: flex;
-//     align-items: center;
-//     pointer-events: none;
-//   }
-  
-//   .custom-select .selected-option span {
-//     margin-left: 5px;
-//   }
-//   
-
+.selected-option{
+  background-color: #FFF;
+}
 .custom-select {
   position: relative;
   display: inline-block;
@@ -191,27 +167,25 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
   
-
   list-style: none;
   background-color: #fff;
-  border: 1px solid #ccc;
+ 
   border-top: none;
   display: none;
 }
 
 .custom-select .options-list {
+  
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
   z-index: 9;
-  max-height: 176px; /* Определите максимальную высоту списка */
-  overflow-y: auto; /* Включите вертикальную прокрутку */
+ 
   list-style: none;
   background-color: rgba(255, 255, 255, 1);
-  border: 1px solid #ccc;
+  
   border-top: none;
   display: none;
 }
@@ -221,10 +195,11 @@
 }
 
 .item-ingridienst{
+  background-color: #FFF;
   width: 188px;
   max-width: 100%;
   border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.20);
+  
   padding: 14px 18px;
   cursor: pointer;
   border: 1px solid #ccc;
@@ -233,17 +208,37 @@
 }
 
 .custom-select.open .options-list {
+  border-top: 8px solid rgba(0, 0, 0, 0);
+  border-bottom: 8px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
   display: block;
 }
   
 .options-list{
-  padding-top: 14px;
+  
+  overflow-y:auto;
+  position: absolute;
+  
+  height: 124px;
+  padding-top: 6px;
   padding-left: 18px;
-  padding-bottom: 14px;
+  padding-bottom: 6px;
   border-radius: 14px;
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
 }
+.option-item{
+  color: rgba(5, 5, 5, 0.30);
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.option-item:hover{
+  color: #050505;
+}
+
 
 .selected-option{
   padding: 14px 18px;
@@ -269,4 +264,33 @@
 
 .option:not(:last-child){
   margin-bottom: 8px;
+}
+
+@media screen and (max-width: 374px) {
+  .custom-select .selected-option{
+    width: 100%;
+    max-width: none;
+  }
+  .con-select{
+    display: block;
+  }
+  .custom-select{
+    width: 100%;
+  }
+  .time{
+    margin-right: 0;
+    margin-bottom: 14px;
+
+  }
+  .item-ingridienst{
+    width: 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(5, 5, 5, 0.1);
 }
