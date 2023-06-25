@@ -64,7 +64,7 @@
   font-size: 14px;
   font-weight: 500;
   background-color: var(--white-w);
-  transition: transform var(--trns-general);
+  transition: all var(--trns-general);
   &:hover,&:focus{
     background-color: var(--green);
     color: var(--white-w);}

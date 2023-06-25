@@ -4,13 +4,10 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 // import Swiper and modules styles
 import 'swiper/swiper-bundle.min.css';
 
-
-
 const parentContainer = document.querySelector('.events');
 
 fetchEvent()
   .then(data => {
-    console.log(data);
     parentContainer.insertAdjacentHTML('beforeend', TemplateArticles(data));
     setTimeout(() => {
       const swiper = new Swiper('.swiper',
