@@ -1,90 +1,89 @@
 .category-container {
-    max-height: 402px;
+  max-height: 402px;
 }
 
 .all-category-button {
-    width: 176px;
-    height: 50px;
-    border: 1px solid var(--gray-border-w);
-    background-color: var(--background-w);
-    border-radius: 15px; 
-    font-family: var(--main-font);
-    font-weight: 500;
-    font-size: 18px;
-    color: var(--gray-ul-w);
-    margin-bottom: 24px;
-    cursor: pointer;
+  width: 176px;
+  height: 50px;
+  border: 1px solid var(--gray-border-w);
+  background-color: var(--background-w);
+  border-radius: 15px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--gray-ul-w);
+  margin-bottom: 24px;
+  cursor: pointer;
 }
 
 .all-category-button.active {
-    background-color: var(--active-green);
-    color: var(--active-white-w);
+  border: none;
+  background-color: var(--green);
+  color: var(--white-w);
 }
 
-.category-list{
-    width: 326px;
-    height: 198px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    overflow-y: scroll;
+.category-list {
+  width: 326px;
+  height: 198px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: scroll;
 }
 
 .category-btn {
-    border: none;
-    background-color: transparent;
-    color:var(--gray-ul-w);
-    font-size: 14px;
-    font-weight: 500;
-    font-family: var(--main-font);
-    cursor: pointer;
-   
+  border: none;
+  background-color: transparent;
+  color: var(--gray-ul-w);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--main-font);
+  cursor: pointer;
 }
 
 .category-btn.active {
-    color: var(--active-green);
+  color: var(--green);
+}
+.onFocus {
+  color: #9bb537;
+  background-color: #9bb537;
 }
 
-
-// ========== tablet =========== 
+// ========== tablet ===========
 @media screen and (min-width: 768px) {
+  .category-container {
+    max-height: 496px;
+    max-width: 176px;
+  }
 
-    .category-container {
-        max-height: 496px;
-        max-width: 176px;       
-    }
+  .all-category-button {
+    margin-bottom: 30px;
+  }
 
-    .all-category-button {
-        margin-bottom: 30px;
-    }
-
-    .category-list {
-        width: 176px;
-        height: 416px;
-            gap: 24px;   
-    }
+  .category-list {
+    width: 176px;
+    height: 416px;
+    gap: 24px;
+  }
 }
 
 // ===================================/
 
-
 // =============== desktop=============/
 
 @media screen and (min-width: 1280px) {
+  .category-container {
+    max-height: 540px;
+    max-width: 174px;
+  }
 
-    .category-container {
-        max-height: 540px;
-        max-width: 174px;
-    }
+  .all-category-button {
+    width: 174px;
+  }
 
-    .all-category-button{
-         width: 174px;
-    }
-
-    .category-list {
-        width: 235px;
-    }
-
+  .category-list {
+    width: 235px;
+  }
 }
 // ===================/
 // .categories-container::-webkit-scrollbar {

@@ -1,20 +1,31 @@
-// import axios from 'axios';
-// import TemplateArticles from '../templates/articles.hbs';
-// const BASE_URl =
-//   'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9';
-// const refs = {
-//   ratingValue: document.querySelector('.star-rating_value'),
-//   ratingValue: document.querySelector('.star-rating_value'),
-// };
+import axios from 'axios';
+import Handlebars from 'handlebars';
+import TemplateArticles from '../../templates/cards.hbs';
+import { fetchAllRecipes } from '../API_request/defaultRequest';
 
-// async function getRecipes() {
-//   const response = await axios.get(BASE_URl);
+const refs = {
+  cardsList: document.querySelector('.cards_list'),
+  ratingValue: document.querySelector('.star-rating_value'),
+  ratingValue: document.querySelector('.star-rating_value'),
+};
+const FetchAllRecipes = new fetchAllRecipes();
+async function renderCards() {
+  FetchAllRecipes.setLimitValue();
+  const response = await FetchAllRecipes.fetchRecipes();
+  const results = response.results;
+  //   const data = {
+  //     recipes: results,
+  //     svgContent: `<use href="./images/icons/SPRITE.svg#icon-Star-1"></use>`,
+  //   };
 
-//   return response.data;
-// }
+  //   const template = Handlebars.compile(TemplateArticles());
+  //   const html = template(data);
 
-// function renderCards() {}
-
+  //   refs.cardsList.insertAdjacentHTML('beforeend', html);
+  console.log(results);
+  refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
+}
+renderCards();
 // getRecipes().then(res => {
 //   console.log(res);
 //   const { results } = res;
