@@ -1,10 +1,7 @@
-import { fetchEvent } from '../../js/API_request/fechEvent'
+import { fetchEvent } from '../../js/API_request/fechEvent';
 import TemplateArticles from '../../templates/Hero-events.hbs';
-import Swiper, { Navigation, Pagination } from 'swiper';
-// import Swiper and modules styles
+import Swiper, { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
-
-
 
 const parentContainer = document.querySelector('.events');
 
@@ -12,18 +9,18 @@ fetchEvent()
   .then(data => {
     console.log(data);
     parentContainer.insertAdjacentHTML('beforeend', TemplateArticles(data));
-    setTimeout(() => {
-      const swiper = new Swiper('.swiper',
-        {
-          modules: [Pagination],
-          allowSlideNext: true,
-          // If we need pagination
-          pagination: {
-            el: '.page',
-            clickable: true,
 
-          },
-
-        });
-    }, 1000);
+    const swiper = new Swiper('.swiper', {
+      modules: [Pagination, Navigation, Autoplay],
+      allowSlideNext: true,
+      pagination: {
+        el: '.page',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 1500,
+      },
+      speed: 800,
+      loop: true,
+    });
   });
