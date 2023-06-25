@@ -1,3 +1,17 @@
+@media screen and (min-width: 768px) {
+  .cards_list {
+    max-width: 496px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    row-gap: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .cards_list {
+    max-width: 782px;
+  }
+}
 .card_container {
   position: relative;
   display: flex;
@@ -6,6 +20,23 @@
   max-width: 335px;
   height: 335px;
   margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .card_container {
+    margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card_container {
+    max-width: calc((100% - 16px) / 2);
+    height: 264px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .card_container {
+    max-width: calc((100% - 32px) / 3);
+    height: 287px;
+  }
 }
 .card_favourites_btn {
   width: 22px;
@@ -31,6 +62,7 @@
   position: absolute;
   z-index: -22;
   bottom: 0;
+  min-height: 100%;
 }
 .card_content-container {
   margin-top: auto;
@@ -71,6 +103,7 @@
   line-height: 18px;
 }
 .star {
+  fill: rgba(248, 248, 248, 0.1);
 }
 .card_btn {
   display: inline-block;
@@ -84,4 +117,7 @@
   font-size: 12px;
   font-weight: 500;
   margin-left: auto;
+}
+.filled {
+  fill: rgba(238, 161, 12, 1);
 }
