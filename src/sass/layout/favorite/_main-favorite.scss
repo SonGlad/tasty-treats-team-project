@@ -1,0 +1,27 @@
+.no-recipe-icon {
+    display: flex;
+    justify-content: center;
+  
+    margin-bottom: 24px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .no-recipe-icon {
+      margin-bottom: 32px;
+    }
+  }
+  
+  .no-recipes {
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 auto;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .no-recipes {
+      width: 481px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
