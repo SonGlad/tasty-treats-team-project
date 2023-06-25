@@ -1,17 +1,30 @@
+.container-popular1{
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.container-popular2{
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
 .container-popular {
   padding-top: 80px;
   margin-bottom: 80px;
   @media screen and (min-width: 768px) {
     padding-top: 64px;
-    max-width: 176px;
+    width: 176px;
+ 
   }
   @media screen and (min-width: 1280px) {
     padding-top: 64px;
-    max-width: 235px;
-    gap: 32px;
+    width: 235px;
+
   }
-  outline: 2px solid red;
-  outline-offset: -2px;
+  // outline: 2px solid red;
+  // outline-offset: -2px;
 }
 
 .popular-recipes {
@@ -31,13 +44,19 @@
 }
 
 .container-recipies {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
+}
 
+.container-recipies1 {
   @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
     gap: 16px;
   }
   @media screen and (min-width: 1280px) {
+    display: flex;
     gap: 32px;
   }
 }
