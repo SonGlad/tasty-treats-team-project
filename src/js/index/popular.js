@@ -1,13 +1,12 @@
 // Импорт функции TemplateArticles из соответствующего модуля
-import TemplatePopular  from '../../templates/popular_receipts.hbs';
+import TemplatePopular from '../../templates/popular_receipts.hbs';
 
 import { fetchPopular } from '../API_request/fetchpopular';
 
-const popular = document.querySelector(".popular");
+const popular = document.querySelector('.container-recipies');
 console.log(popular);
 
 fetchPopular().then(date => {
-    console.log(date);
-    popular.insertAdjacentHTML('beforeend', TemplatePopular(date));
+  console.log(date);
+  popular.insertAdjacentHTML('beforeend', TemplatePopular(date));
 });
-
