@@ -1,117 +1,127 @@
-import Handlebars from 'handlebars';
+// import TemplateCatogories from '../../templates/categories.hbs';
 
-// Function for rendering categories
-function renderCategories(categories) {
-  const categoryList = document.querySelector('.category-list');
+// // const categoryList = document.querySelector('.category-list');
+// // const categoryButton = document.querySelector('.category-btn')
 
-  categories.forEach((category) => {
-    const categoryButton = document.createElement('button');
-    categoryButton.classList.add('category-btn');
-    categoryButton.textContent = category.name;
+// // function renderCategories(categories){
+// //   categories.forEach((category) => {
+// //     categoryButton.textContent = category.name
+// //     categoryList .insertAdjacentHTML('beforeend', TemplateCatogories(categories));
+// //   })
+// // };
 
-    categoryButton.addEventListener('click', () => {
-      setActiveCategory(categoryButton);
-    });
+// // Function for rendering categories
+// function renderCategories(categories) {
+//   const categoryList = document.querySelector('.category-list');
 
-    categoryList.appendChild(categoryButton);
-  });
-}
+//   categories.forEach((category) => {
+//     const categoryButton = document.createElement('button');
+//     categoryButton.classList.add('category-btn');
+//     categoryButton.textContent = category.name;
 
-// Function for setting the active category
-function setActiveCategory(categoryButton) {
-  const categoryButtons = document.querySelectorAll('.category-btn');
-  const allCategoryButton = document.querySelector('.all-category-button');
+//     categoryButton.addEventListener('click', () => {
+//       setActiveCategory(categoryButton);
+//     });
 
-  // Remove 'active' class from "All categories" button
-  allCategoryButton.classList.remove('active');
+//     categoryList.appendChild(categoryButton);
+//   });
+// }
 
-  // Remove 'active' class from all category buttons
-  categoryButtons.forEach((button) => {
-    button.classList.remove('active');
-  });
+// // Function for setting the active category
+// function setActiveCategory(categoryButton) {
+//   const categoryButtons = document.querySelectorAll('.category-btn');
+//   const allCategoryButton = document.querySelector('.all-category-button');
 
-  // Add 'active' class to the selected category button
-  categoryButton.classList.add('active');
-}
+//   // Remove 'active' class from "All categories" button
+//   allCategoryButton.classList.remove('active');
 
-// Function for setting the active state of the "All categories" button
-function setActiveAllCategory() {
-  const allCategoryButton = document.querySelector('.all-category-button');
-  const categoryButtons = document.querySelectorAll('.category-btn');
+//   // Remove 'active' class from all category buttons
+//   categoryButtons.forEach((button) => {
+//     button.classList.remove('active');
+//   });
 
-  if (allCategoryButton.classList.contains('active')) {
-    // If the "All categories" button is already active, remove the active state
-    allCategoryButton.classList.remove('active');
-  } else {
-    // If the "All categories" button is not active, add the active state and remove it from other buttons
-    allCategoryButton.classList.add('active');
-    categoryButtons.forEach((button) => {
-      button.classList.remove('active');
-    });
-  }
-}
+//   // Add 'active' class to the selected category button
+//   categoryButton.classList.add('active');
+// }
 
-// Click handler for the "All categories" button
-const allCategoryButton = document.querySelector('.all-category-button');
-allCategoryButton.addEventListener('click', () => {
-  setActiveAllCategory();
-});
+// // Function for setting the active state of the "All categories" button
+// function setActiveAllCategory() {
+//   const allCategoryButton = document.querySelector('.all-category-button');
+//   const categoryButtons = document.querySelectorAll('.category-btn');
 
-// Helper function to determine the active category
-Handlebars.registerHelper('isActive', function (category) {
-  const activeCategory = document.querySelector('.all-category-button.active');
+//   if (allCategoryButton.classList.contains('active')) {
+//     // If the "All categories" button is already active, remove the active state
+//     allCategoryButton.classList.remove('active');
+//   } else {
+//     // If the "All categories" button is not active, add the active state and remove it from other buttons
+//     allCategoryButton.classList.add('active');
+//     categoryButtons.forEach((button) => {
+//       button.classList.remove('active');
+//     });
+//   }
+// }
 
-  if (activeCategory && activeCategory.textContent === category.name) {
-    return 'active';
-  }
+// // Click handler for the "All categories" button
+// const allCategoryButton = document.querySelector('.all-category-button');
+// allCategoryButton.addEventListener('click', () => {
+//   setActiveAllCategory();
+// });
 
-  return '';
-});
+// // Helper function to determine the active category
+// TemplateCatogories.registerHelper('isActive', function (category) {
+//   const activeCategory = document.querySelector('.all-category-button.active');
 
-// App initialization
-async function initApp() {
-  // Fetch categories from the backend
-  try {
-    const response = await fetch('https://tasty-treats-backend.p.goit.global/api/categories');
-    const categories = await response.json();
+//   if (activeCategory && activeCategory.textContent === category.name) {
+//     return 'active';
+//   }
 
-    // Render categories
-    renderCategories(categories);
-  } catch (error) {
-    console.error('Error fetching categories:', error);
-  }
-}
+//   return '';
+// });
 
-// Function to fetch recipes by category from the backend
-async function fetchRecipesByCategory(categoryId) {
-  try {
-    const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes?category=${categoryId}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching recipes:', error);
-  }
-}
+// // App initialization
+// async function initApp() {
+//   // Fetch categories from the backend
+//   try {
+//     const response = await fetch('https://tasty-treats-backend.p.goit.global/api/categories');
+//     const categories = await response.json();
 
-// Function for rendering recipes for the selected category
-function renderRecipes(recipes) {
-  // Clear previous recipes
-  const recipeList = document.querySelector('.recipe-list');
-  recipeList.innerHTML = '';
+//     // Render categories
+//     renderCategories(categories);
+//   } catch (error) {
+//     console.error('Error fetching categories:', error);
+//   }
+// }
 
-  recipes.forEach((recipe) => {
-    // Create recipe element and populate with data
-    const recipeItem = document.createElement('div');
-    recipeItem.classList.add('recipe-item');
-    recipeItem.innerHTML = `
-      <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image">
-      <h3 class="recipe-name">${recipe.name}</h3>
-      <p class="recipe-description">${recipe.description}</p>
-    `;
+// // // Function to fetch recipes by category from the backend
+// // async function fetchRecipesByCategory(categoryId) {
+// //   try {
+// //     const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes?category=${categoryId}`);
+// //     const data = await response.json();
+// //     return data;
+// //   } catch (error) {
+// //     console.error('Error fetching recipes:', error);
+// //   }
+// // }
 
-    recipeList.appendChild(recipeItem);
-  });
-}
+// // // Function for rendering recipes for the selected category
+// // function renderRecipes(recipes) {
+// //   // Clear previous recipes
+// //   const recipeList = document.querySelector('.recipe-list');
+// //   recipeList.innerHTML = '';
 
-// Run the app after the page is fully loaded
-window.addEventListener('load', initApp);
+// //   recipes.forEach((recipe) => {
+// //     // Create recipe element and populate with data
+// //     const recipeItem = document.createElement('div');
+// //     recipeItem.classList.add('recipe-item');
+// //     recipeItem.innerHTML = `
+// //       <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image">
+// //       <h3 class="recipe-name">${recipe.name}</h3>
+// //       <p class="recipe-description">${recipe.description}</p>
+// //     `;
+
+// //     recipeList.appendChild(recipeItem);
+// //   });
+// // }
+
+// // Run the app after the page is fully loaded
+// window.addEventListener('load', initApp);

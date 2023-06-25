@@ -7,8 +7,7 @@
     height: 50px;
     border: 1px solid var(--gray-border-w);
     background-color: var(--background-w);
-    border-radius: 15px;
-   
+    border-radius: 15px; 
     font-family: var(--main-font);
     font-weight: 500;
     font-size: 18px;
@@ -28,12 +27,10 @@
     display: flex;
     flex-direction: column;
     gap: 18px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .category-btn {
-   
-   
     border: none;
     background-color: transparent;
     color:var(--gray-ul-w);
@@ -47,6 +44,8 @@
 .category-btn.active {
     color: var(--active-green);
 }
+
+
 // ========== tablet =========== 
 @media screen and (min-width: 768px) {
 
@@ -54,6 +53,7 @@
         max-height: 496px;
         max-width: 176px;       
     }
+
     .all-category-button {
         margin-bottom: 30px;
     }
@@ -83,33 +83,38 @@
 
     .category-list {
         width: 235px;
-        height: 460px;
     }
 
 }
 // ===================/
-.categories-container::-webkit-scrollbar {
-    width: 6px;
-}
+// .categories-container::-webkit-scrollbar {
+//     width: -6px;
+// }
 
-.categories-container::-webkit-scrollbar-track {
-    background: transparent;
+// .categories-container::-webkit-scrollbar-track {
+//     background: transparent;
 
-}
+// }
 
-.categories-container::-webkit-scrollbar-thumb {
-    background: #91c559;
+// .categories-container::-webkit-scrollbar-thumb {
+//     background: #91c559;
 
-}
+// }
 
-.categories-container::-webkit-scrollbar-thumb:hover {
-    background: #9b9720;
+// .categories-container::-webkit-scrollbar-thumb:hover {
+//     background: #9b9720;
 
-}
+// }
 
-.categories-container {
+// .categories-container {
+//     width: 326px;
+//     height: 198px;
+//     overflow-y: auto;
+//     @media screen and (min-width: 768px){
+//         width: 176px;
+//     }
+//     @media screen and (min-width: 1280px){
+//         width: 235px;
+//     }
 
-    width: 326px;
-    height: 198px;
-    overflow-y: auto;
-}
+// }
