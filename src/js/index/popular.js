@@ -4,9 +4,7 @@ import TemplatePopular from '../../templates/popular_receipts.hbs';
 import { fetchPopular } from '../API_request/fetchpopular';
 
 const popular = document.querySelector('.container-recipies');
-console.log(popular);
 
-fetchPopular().then(date => {
-  console.log(date);
-  popular.insertAdjacentHTML('beforeend', TemplatePopular(date));
+fetchPopular().then((recipes) => {
+  popular.insertAdjacentHTML('beforeend', TemplatePopular(recipes));
 });
