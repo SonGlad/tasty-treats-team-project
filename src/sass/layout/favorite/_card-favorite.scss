@@ -1,0 +1,22 @@
+.section-fav-hero {
+    padding-bottom: 64px;
+    padding-top: 52px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .section-fav-hero {
+      padding-top: 50px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .section-fav-hero {
+      padding-top: 40px;
+    }
+  }
+
+
+  @media screen and (min-width: 1024px) {
+    .image-fav {
+      height: 356px;
+    }
+  }

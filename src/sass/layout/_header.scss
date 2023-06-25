@@ -1,11 +1,62 @@
 /* Main Styles */
 
+.header{
+    padding-top: 24px;
+    @media screen and (min-width: 768px) {
+        padding-top: 28px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding-top: 40px;
+    }
+}
+.navigation{
+    display: none;
+    @media screen and (min-width:768px) {
+        display: inline;
+        position: relative;
+
+    }
+}
+.navigation a {
+    position: relative;
+}
+.navigation a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--green); /* Цвет полоски */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.navigation a:hover::after,
+.navigation a:focus::after {
+  transform: scaleX(1);
+}
+.btn-home{
+ color: #9BB537;
+ font-size: 12px;
+ font-weight: 500;
+ margin-right: 16px;
+}
+.btn-favorites{
+ color: #050505;
+ font-size: 12px;
+}
+
 .logo-first {
-    color: var(--green);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: calc(18/16);
-    letter-spacing: -0.64px;
+ color: var(--green);
+ font-size: 16px;
+ font-weight: 600;
+ line-height: calc(18/16);
+ letter-spacing: -0.64px;
+  @media screen and (min-width:768px) {
+     font-size: 18px;
+     line-height: calc(20/18);
+     letter-spacing: -0.72px;
+  }
 }
 
 .logo-second {
@@ -14,11 +65,20 @@
     font-weight: 600;
     line-height: calc(18/16);
     letter-spacing: -0.64px;
+    @media screen and (min-width:768px) {
+        font-size: 18px;
+        line-height: calc(20/18);
+        letter-spacing: -0.72px;
+    }
 }
 
 .header-items {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    @media screen and (min-width:768px) {
+        justify-content: space-between;
+    }
 }
 
 .header-icons {
@@ -26,13 +86,71 @@
     align-items: center;
     gap: 14px;
     margin-left: 150px;
+    @media screen and (min-width:768px) {
+        margin-left: 0;
+    }
+}
+.header-order-btn{
+    width: 24px;
+    height: 24px;
 }
 
 .mob-menu-btn {
     border: none;
     padding: 0;
     margin: 0;
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
 }
+.header-switch {
+    display: none;
+    @media screen and(min-width:768px) {
+        position: relative;
+        display: flex;
+        width: 46px;
+        height: 20px;
+    }
+  }
+  
+  .header-switch input {
+    display: none;
+  }
+  
+  .header-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray-radiobtn-w);
+    transition: 0.4s;
+    border-radius: 34px;
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
+}
+
+.header-slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--background-w);
+    transition: 0.4s; 
+    border-radius: 50%;
+  }
+  
+  .header-switch input:checked + .header-slider {
+    background: linear-gradient(#9BB537, #9BB537);
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
+  }
+  
+  .header-switch input:checked + .header-slider:before {
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
+    transform: translateX(26px);
+  }
 
 /* Mobile Menu Styles */
 
@@ -42,10 +160,15 @@
     width: 100vw;
     max-width: 100%;
     position: fixed;
+    z-index: 999;
     top: 0;
     left: 0;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
 }
 
 .mobile-menu.open {
@@ -59,7 +182,17 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
+.mob-menu-btn-close .mob-menu-close {
+    transition: transform 0.3s ease-in-out;
+}
+.mob-menu-btn-close:hover {
+    transform: rotate(45deg);
+}
+.mob-menu-btn-close:hover .mob-menu-close {
+    transform: scale(1.2);
+  }
 
 .mob-menu-list {
     display: flex;
@@ -77,10 +210,11 @@
     font-weight: 500;
 }
 
+
 .switch {
     position: absolute;
-    width: 60px;
-    height: 34px;
+    width: 46px;
+    height: 20px;
     bottom: 30px;
     left: 20px;
 }
@@ -104,10 +238,10 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 15px;
+    width: 15px;
     left: 4px;
-    bottom: 4px;
+    bottom: 3px;
     background-color: var(--background-w);
     transition: 0.4s;
     border-radius: 50%;
@@ -119,4 +253,5 @@ input:checked+.slider {
 
 input:checked+.slider:before {
     transform: translateX(26px);
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
 }
