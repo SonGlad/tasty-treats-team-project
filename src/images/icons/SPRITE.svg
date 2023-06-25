@@ -26,7 +26,7 @@
     </symbol>
     <!-- CLOSE ICON -->
     <symbol id="icon-x" viewBox="0 0 24 24" fill="none">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke="black" stroke-width="2" d="M18 6 6 18M6 6l12 12"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke="white" stroke-width="2" d="M18 6 6 18M6 6l12 12"/>
     </symbol>
     <!-- DOUBLE ARROW RIGHT -->
     <symbol id="icon-chevrons-right" viewBox="0 0 24 24">
