@@ -23,6 +23,7 @@
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "parcel-transformer-handlebars": "^1.0.0",
+    "tui-pagination": "^3.4.1"
     "swiper": "^9.4.1"
   },
   "devDependencies": {
