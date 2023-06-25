@@ -1,1 +1,2 @@
-import "./js/mobMenu";
+import './js/mobMenu';
+import './js/pagination';
