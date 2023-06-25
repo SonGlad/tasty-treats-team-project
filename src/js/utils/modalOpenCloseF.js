@@ -1,6 +1,5 @@
 const modalOpenClose = () => {
   const refs = {
-    openModalBtn: document.querySelector('.event-order'),
     closeModalBtn: document.querySelector('.close'),
     modal: document.querySelector("[data-modal]"),
     modalContent: document.querySelector('.modal'),
@@ -9,7 +8,6 @@ const modalOpenClose = () => {
 
   refs.buttonToSimulateClick.addEventListener('click', toggleModal);
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
   refs.closeModalBtn.addEventListener("click", (event) => {
     event.stopPropagation()
       toggleModal()
