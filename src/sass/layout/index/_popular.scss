@@ -85,6 +85,11 @@
 }
 
 .popular-title {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   color: #050505;
   font-size: 14px;
   font-family: Inter;

@@ -2,28 +2,24 @@
 @import './base/common.scss';
 @import './base/reset.scss';
 
-
 // COMPONENTS ///
 @import './components/container.scss';
-
 
 // LAYOUT ///
 
 @import './layout/header.scss';
 @import './layout/index/hero.scss';
 
-
 @import './layout/index/main-section.scss';
 @import './layout/index/allcategories.scss';
 @import './layout/index/popular.scss';
 @import './layout/index/search.scss';
+@import './layout/index/cards.scss';
 
 
 @import './layout/index/hero_modal.scss';
 @import './layout/footer.scss';
 
-
 // UTILS ///
 @import './utils/variable.scss';
 @import './utils/vh.scss';
-
