@@ -23,11 +23,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   </head>
 
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
+  <body> 
+    
+    <!-- Header -->
     <include src="./partials/header.html"></include>
+    
+    
+    <!-- MODAL -->
+    <include src="./partials/index/hero_modal.html"></include>
+    
+    
+    <!-- MAIN CONTENT -->
     <include src="./partials/index/hero.html"></include>
-    <include src="./partials/index/popularRecipes.html"></include>
+
+
+    
+    
+    <section class="main-section">
+      <div class="container section-container">
+        <div class="left-contaier">
+          <include src="./partials/index/main_section/all_categories.html"></include>
+          <include src="./partials/index/popularRecipes.html"></include>
+        </div>
+        <div class="right-container">
+          <include src="./partials/index/main_section/search.html" ></include>
+          <!-- <include src="./partials/index/main_section/all_categories.html"></include> -->
+          <!-- <include src="./partials/index/main_section/all_categories.html"></include> -->
+        </div>
+        <include src="./partials/index/popularRecipes.html"></include>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <include src="./partials/footer.html"></include>
+
 
     <script type="module" src="./index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
