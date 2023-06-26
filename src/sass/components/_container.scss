@@ -5,13 +5,13 @@
   padding: 0 20px;
 
   outline: 2px solid red;
-  outline-offset: -2px; 
+  outline-offset: -2px;
 }
 
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 764px;
+    max-width: 768px;
     padding: 0 32px;
   }
 }
@@ -23,5 +23,4 @@
   }
 
 }
-  
-  
+

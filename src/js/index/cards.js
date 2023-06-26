@@ -2,6 +2,7 @@
 // import Handlebars from 'handlebars';
 import TemplateArticles from '../../templates/cards.hbs';
 import { fetchAllRecipes } from '../API_request/defaultRequest';
+import setLocalStorage from '../utils/setLocalStor';
 
 const refs = {
   cardsList: document.querySelector('.cards_list'),
@@ -21,8 +22,10 @@ async function renderCards() {
 
   refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
 
+  setLocalStorage();
   fillStars();
   cardHearts();
+
 }
 renderCards();
 function fillStars() {
