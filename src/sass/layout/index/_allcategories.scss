@@ -16,10 +16,17 @@
   margin-bottom: 24px;
   cursor: pointer;
   padding: 14px 10px;
+  transition: var(--trns-general);
+}
+
+.all-category-button:hover{
+  background-color: var(--green);
+  color: var(--white-w);
+  border: 1px solid var(--green);
 }
 
 .all-category-button.active {
-  border: none;
+  border: 1px solid var(--green);
   background-color: var(--green);
   color: var(--white-w);
 }
@@ -41,9 +48,14 @@
   font-family: var(--main-font);
   cursor: pointer;
   padding: 0;
+  transition: var(--trns-general);
   @media screen and (min-width: 768px){
     font-size: 16px;
   }
+}
+
+.category-btn:hover{
+  color: var(--green);
 }
 
 .category-btn.active {

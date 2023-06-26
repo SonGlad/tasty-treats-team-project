@@ -1,5 +1,5 @@
 .container-popular1{
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
@@ -11,24 +11,21 @@
 }
 
 .container-popular {
-  padding-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  padding-bottom: 80px;
   @media screen and (min-width: 768px) {
-    padding-top: 64px;
+    margin-top: 64px;
     width: 176px;
- 
+    padding-bottom: 0;
   }
   @media screen and (min-width: 1280px) {
-    padding-top: 64px;
     width: 235px;
 
   }
-  // outline: 2px solid red;
-  // outline-offset: -2px;
 }
 
 .popular-recipes {
-  color: #050505;
+  color: var(--black);
   font-size: 18px;
   font-family: Inter;
   font-weight: 600;
@@ -62,8 +59,6 @@
 }
 
 .recipes {
-  // margin-left: 20px;
-  // margin-right: 23px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -90,7 +85,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  color: #050505;
+  color: var(--black);
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
@@ -107,7 +102,7 @@
 
 .popular-text {
   overflow: hidden;
-  color: rgba(5, 5, 5, 0.8);
+  color: var(--gray-descrip-w);
   text-overflow: ellipsis;
   font-size: 12px;
   font-family: Inter;
