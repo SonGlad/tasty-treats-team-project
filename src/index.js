@@ -16,4 +16,9 @@ import './js/index/popular';
 
 import './js/index/hero_modal';
 
-import './js/pagination'
+import './js/index/area';
+
+
+
+
+// import './js/pagination';
