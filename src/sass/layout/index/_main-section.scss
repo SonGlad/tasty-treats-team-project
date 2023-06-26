@@ -9,6 +9,13 @@
     }
 }
 
+@media screen and (min-width: 1280px) {
+    .section-container{
+        display: flex;
+        gap: 64px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .left-contaier{
         padding-top: 26px;
