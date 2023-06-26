@@ -7,7 +7,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  transition: all var(--trns-modal);
+  transition: opacity var(--trns-modal), visibility var(--trns-modal);
   }
 
 .backdrop.is-hidden{
@@ -20,7 +20,7 @@
 .modal {
   background: #FFF;
   margin: auto;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -37,13 +37,13 @@
     padding: 40px;
     width: 440px;
     height: 632px;}
-}
-
-.backdrop.is-hidden .modal{
-    transform: scale(0.75) translate(-65%, -65%);
-    opacity: 0;
-    transition-delay: 0ms;
-}
+  }
+  
+  .backdrop.is-hidden .modal{
+      transform: scale(0.75) translate(-65%, -65%);
+      opacity: 0;
+      transition-delay: 0ms;
+  }
 
 
 .close {
