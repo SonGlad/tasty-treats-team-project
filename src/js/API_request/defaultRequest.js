@@ -10,6 +10,7 @@ export class fetchAllRecipes {
     this.time = '';
     this.ingredients = '';
     this.category = '';
+    this.title = '';
   }
   async fetchRecipes() {
     const url = BASE_URL;
@@ -20,6 +21,7 @@ export class fetchAllRecipes {
       time: this.time,
       area: this.area,
       ingredients: this.ingredients,
+      title: this.title,
     };
 
     const Allrecipes = await axios.get(url, {params});
@@ -27,7 +29,7 @@ export class fetchAllRecipes {
   }
 
   setSearchValue(query) {
-    this.query = query;
+    this.title = query;
   }
   setCategoryValue(category) {
     this.category = category;
@@ -36,7 +38,7 @@ export class fetchAllRecipes {
     this.time = time;
   }
   setAreaValue(area) {
-    this.time = area;
+    this.area = area;
   }
   setIngredientsValue(ingredients) {
     this.ingredients = ingredients;

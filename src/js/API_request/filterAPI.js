@@ -19,4 +19,5 @@ export class  searchAPI {
         return ingredients.data
     }
     
+    
 };

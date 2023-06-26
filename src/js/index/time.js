@@ -14,7 +14,7 @@ function createTimerBtns(){
         button.classList.add('option-item')
 
         button.textContent = i + ' min';
-
+        
         li.appendChild(button);
         timer.appendChild(li);
     }
