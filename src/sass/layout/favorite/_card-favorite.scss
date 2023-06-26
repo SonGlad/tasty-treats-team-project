@@ -1,8 +1,13 @@
 .section-fav-hero {
+  margin-top: 52px;
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
+    margin-top: 50px;
     margin-bottom: 64px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 40px;
   }
 }
 
