@@ -15,3 +15,5 @@ import './js/index/allCategories';
 import './js/index/popular';
 
 import './js/index/hero_modal';
+
+import './js/pagination'
