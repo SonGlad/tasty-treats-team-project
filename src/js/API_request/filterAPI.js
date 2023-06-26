@@ -14,6 +14,9 @@ export class  searchAPI {
         const area = await axios.get(this.areaUrl)
         return area.data
     }
-    getIngredients(){
+    async getIngredients(){
+        const ingredients = await axios.get(this.ingredientsUrl)  
+        return ingredients.data
     }
+    
 };
