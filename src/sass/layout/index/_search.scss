@@ -241,6 +241,7 @@
 
 .option-item:hover{
   color: var(--black);
+  transition: var(--trns-general);
 }
 
 
@@ -298,3 +299,4 @@
   border-radius: 5px;
   background-color: var(--gray-border-w);
 }
+
