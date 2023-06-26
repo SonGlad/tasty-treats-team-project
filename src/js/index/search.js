@@ -21,7 +21,8 @@ document.addEventListener('click', function(event) {
   const option = event.target.closest('.option');
   if (option) {
     const customSelect = option.closest('.custom-select');
-    const selectedOption = customSelect.querySelector('.selected-option span');
+    const selectedOption = customSelect.querySelector('.js-for-selected span');
+
     selectedOption.textContent = option.textContent;
     customSelect.classList.remove('open');
   }
