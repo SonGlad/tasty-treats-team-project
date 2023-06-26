@@ -18,7 +18,8 @@ import './js/index/hero_modal';
 
 import './js/index/area';
 
+import './js/index/ingredients'
 
-
+import './js/index/time'
 
 // import './js/pagination';
