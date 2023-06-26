@@ -1,0 +1,120 @@
+.container-popular1{
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.container-popular2{
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.container-popular {
+  padding-top: 80px;
+  margin-bottom: 80px;
+  @media screen and (min-width: 768px) {
+    padding-top: 64px;
+    width: 176px;
+ 
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 64px;
+    width: 235px;
+
+  }
+  // outline: 2px solid red;
+  // outline-offset: -2px;
+}
+
+.popular-recipes {
+  color: #050505;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.container-recipies {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.container-recipies1 {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+.recipes {
+  // margin-left: 20px;
+  // margin-right: 23px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.popular-img {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+  margin-right: 16px;
+  }
+}
+
+.popular-title {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #050505;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.popular-text {
+  overflow: hidden;
+  color: rgba(5, 5, 5, 0.8);
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-family: Inter;
+  line-height: 16px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3; 
+  -webkit-box-orient: vertical;
+}

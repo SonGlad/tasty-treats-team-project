@@ -13,17 +13,36 @@
     display: none;
     @media screen and (min-width:768px) {
         display: inline;
+        position: relative;
 
     }
 }
+.navigation a {
+    position: relative;
+}
+.navigation a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--green); /* Цвет полоски */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.navigation a:hover::after,
+.navigation a:focus::after {
+  transform: scaleX(1);
+}
 .btn-home{
- color: #9BB537;
+ color: var(--green);
  font-size: 12px;
  font-weight: 500;
  margin-right: 16px;
 }
 .btn-favorites{
- color: #050505;
+ color: var(--black);
  font-size: 12px;
 }
 
@@ -56,7 +75,6 @@
 .header-items {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     @media screen and (min-width:768px) {
         justify-content: space-between;
     }
@@ -66,7 +84,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-left: 150px;
+    margin-left: auto;
     @media screen and (min-width:768px) {
         margin-left: 0;
     }
@@ -84,9 +102,11 @@
     display: none;
     @media screen and(min-width:768px) {
         position: relative;
-        display: inline-block;
-        width: 46px;
+        display: flex;
+        width: 47px;
         height: 20px;
+        border-radius: 10px;
+        box-shadow: 7px 5px 15px 0px #A09EA066;
     }
   }
   
@@ -104,25 +124,28 @@
     background-color: var(--gray-radiobtn-w);
     transition: 0.4s;
     border-radius: 34px;
-  }
-  
-  .header-slider:before {
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
+}
+
+.header-slider:before {
     position: absolute;
     content: "";
-    height: 15px;
-    width: 15px;
-    left: 4px;
-    bottom: 3px;
+    height: 17px;
+    width: 17px;
+    left: 2px;
+    bottom: 2px;
     background-color: var(--background-w);
-    transition: 0.4s;
+    transition: 0.4s; 
     border-radius: 50%;
   }
   
   .header-switch input:checked + .header-slider {
-    background: linear-gradient(#9BB537, #9BB537); // Изменили на linear-gradient(#9BB537, #9BB537)
+    background: linear-gradient(#9BB537, #9BB537);
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
   }
   
   .header-switch input:checked + .header-slider:before {
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
     transform: translateX(26px);
   }
 
@@ -130,9 +153,8 @@
 
 .mobile-menu {
     background-color: var(--green);
-    height: 100vh;
-    width: 100vw;
-    max-width: 100%;
+    height: 100%;
+    width: 100%;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -156,7 +178,17 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
+.mob-menu-btn-close .mob-menu-close {
+    transition: transform 0.3s ease-in-out;
+}
+.mob-menu-btn-close:hover {
+    transform: rotate(45deg);
+}
+.mob-menu-btn-close:hover .mob-menu-close {
+    transform: scale(1.2);
+  }
 
 .mob-menu-list {
     display: flex;
@@ -168,16 +200,18 @@
     padding-bottom: 566px;
 }
 
-.list-item {
+.header-list-item{
     color: var(--white-d);
     font-size: 12px;
     font-weight: 500;
+    justify-content: center;
 }
+
 
 .switch {
     position: absolute;
-    width: 60px;
-    height: 34px;
+    width: 46px;
+    height: 20px;
     bottom: 30px;
     left: 20px;
 }
@@ -201,10 +235,10 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 15px;
+    width: 15px;
     left: 4px;
-    bottom: 4px;
+    bottom: 3px;
     background-color: var(--background-w);
     transition: 0.4s;
     border-radius: 50%;
@@ -216,4 +250,5 @@ input:checked+.slider {
 
 input:checked+.slider:before {
     transform: translateX(26px);
+    box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
 }

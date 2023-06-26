@@ -1,7 +1,8 @@
 .event-list{
   padding-top: 91px;
   @media screen and (min-width: 768px) {
-    padding-top: 93px;}
+    padding-top: 93px;
+  }
   @media screen and (min-width: 1280px) {
     margin: 0 auto;
     max-width: 1280px;
@@ -15,7 +16,8 @@
   @media screen and (min-width: 768px) {
     width: 446px;
     margin-bottom: 64px;
-    margin-right: 32px;}
+    margin-right: 32px;
+  }
 }
 
 
@@ -25,18 +27,21 @@
   @media screen and (min-width: 1280px) {
     display: flex;
     overflow: visible;
-    align-items: center;}
+    align-items: center;
+  }
 }
 
 .event-title{
   width: 335px;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   line-height: 120%;
+  color: var(--black);
   @media screen and (min-width: 768px) {
     width: 446px;
-    font-size: 36px;}
+    font-size: 36px;
+  }
 }
 
 .tasty-treats{
@@ -49,33 +54,32 @@
   margin: 14px 0 28px;
   font-size: 14px;
   line-height: 18px;
+  color: var(--black);
   @media screen and (min-width: 768px) {
     margin: 16px 0 32px;
     font-size: 16px;
     line-height: 24px;
-    width: 408px;}
+    width: 408px;
+  }
 }
 
 .event-order{
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 15px;
-  border: 2px solid var(--green);
+  border: 1px solid var(--green);
   font-size: 14px;
   font-weight: 500;
   background-color: var(--white-w);
-  transition: transform var(--trns-general);
+  transition: all var(--trns-general);
+  color: var(--black);
   &:hover,&:focus{
     background-color: var(--green);
-    color: var(--white-w);}
-  &:active{
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);}
+    color: var(--white-w);
+  }
   @media screen and (min-width: 768px) {
-    padding: 14px 28px;}
-}
-.order-btn{
-  cursor: pointer;
+    padding: 14px 28px;
+  }
 }
 
 .events{
@@ -96,13 +100,14 @@
   border-radius: 15px;
   @media screen and (min-width: 768px) {
     height: 442px;
-    width: 137px;}
+    width: 137px;
   }
+}
 
 
 .preview-deash-card{
   display: flex;
-  margin: 0 8px;
+  margin: 0 10px;
   height: 280px;
   width: 200px;
   background-color: var(--black);
@@ -113,7 +118,8 @@
   @media screen and (min-width: 768px) {
     margin: 0 16px;
     height: 442px;
-    width: 351px;}
+    width: 351px;
+  }
 }
 .deash-name{
   display: block;
@@ -127,7 +133,8 @@
   @media screen and (min-width: 768px) {
     width: 276px;
     font-size: 14px;
-    line-height: 18px;}
+    line-height: 18px;
+  }
 }
 .deash-area{
   display: block;
@@ -136,7 +143,8 @@
   color: var(--gray-slider-desc-w);
   @media screen and (min-width: 768px) {
     font-size: 12px;
-    line-height: 14px;}
+    line-height: 14px;
+  }
 }
 
 .preview-deash{
@@ -149,10 +157,12 @@
   border-radius: 15px;
   @media screen and (min-width: 768px) {
     height: 262px;
-    width: 262px;}
+    width: 262px;
+  }
   @media screen and (min-width: 1280px) {
     height: 271px;
-    width: 304px;}
+    width: 304px;
+  }
 }
 
 
@@ -163,7 +173,7 @@
   background-size: 564px;
   border-radius: 15px;
   background-position:30%;
-  background-color: black;
+  background-color: var(--black);
   @media screen and (min-width: 768px) {
     background-size: 863px;
     height: 442px;
@@ -175,22 +185,24 @@
 .crunch{
   width: 515px;
   @media screen and (min-width: 768px) {
-    width: 889px;}
+    width: 889px;
+  }
 }
 
 .page{
   margin: 24px 0 0 155px;
   @media screen and (min-width: 768px) {
-    margin-left: 300px;}
+    margin-left: 300px;
+  }
 }
 
 
 span.swiper-pagination-bullet {
   opacity: 1;
-  background-color: black;
+  background-color: var(--black);
 }
 
 span.swiper-pagination-bullet-active{
   background: var(--green);
-   opacity: 1;
+  opacity: 1;
 }

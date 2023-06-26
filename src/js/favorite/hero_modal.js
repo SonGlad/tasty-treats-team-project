@@ -1,4 +1,4 @@
-const modalOpenClose = require('../utils/modalOpenClose').default;
+const modalOpenClose = require('../utils/modalOpenCloseF').default;
 const validateInput = require('../utils/validation').default;
 
 
