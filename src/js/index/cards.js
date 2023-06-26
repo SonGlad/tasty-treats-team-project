@@ -1,5 +1,5 @@
-import axios from 'axios';
-import Handlebars from 'handlebars';
+// import axios from 'axios';
+// import Handlebars from 'handlebars';
 import TemplateArticles from '../../templates/cards.hbs';
 import { fetchAllRecipes } from '../API_request/defaultRequest';
 
@@ -8,7 +8,9 @@ const refs = {
   ratingValue: document.querySelector('.star-rating_value'),
   ratingValue: document.querySelector('.star-rating_value'),
 };
+
 const FetchAllRecipes = new fetchAllRecipes();
+
 async function renderCards() {
   FetchAllRecipes.setLimitValue();
   const response = await FetchAllRecipes.fetchRecipes();
@@ -26,6 +28,11 @@ async function renderCards() {
   refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
 }
 renderCards();
+
+
+
+
+
 // getRecipes().then(res => {
 //   console.log(res);
 //   const { results } = res;

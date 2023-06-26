@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 export class fetchAllRecipes {
@@ -11,9 +12,17 @@ export class fetchAllRecipes {
     this.category = '';
   }
   async fetchRecipes() {
-    const Allrecipes = await axios.get(
-      `${BASE_URL}?category=${this.category}&page=${this.page}&limit=${this.limit}&time=${this.time}&area=${this.area}&ingredients=${this.ingredients}`
-    );
+    const url = BASE_URL;
+    const params = {
+      category: this.category,
+      page: this.page,
+      limit: this.limit,
+      time: this.time,
+      area: this.area,
+      ingredients: this.ingredients,
+    };
+
+    const Allrecipes = await axios.get(url, {params});
     return Allrecipes.data;
   }
 
