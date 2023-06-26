@@ -1,7 +1,7 @@
-.container-cards{
- margin-top: 24px;
- @media screen and (min-width: 768px) {
-   margin-top: 32px;
+.container-cards {
+  margin-top: 24px;
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -29,6 +29,7 @@
   overflow: hidden;
   border-radius: 8px;
   background: var(--gallery-gradient);
+
 }
 @media screen and (max-width: 768px) {
   .card_container {
@@ -125,6 +126,8 @@
   line-height: 18px;
 }
 .star {
+  width: 18px;
+  height: 18px;
   fill: var(--gray-star-w);
 }
 .card_btn {
@@ -143,4 +146,7 @@
 .filled {
   fill: var(--yellow-star);
   opacity: 1;
+}
+.heart-filled {
+  fill: var(--background-w);
 }
