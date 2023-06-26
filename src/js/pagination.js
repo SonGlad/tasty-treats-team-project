@@ -38,6 +38,7 @@ async function ob() {
   const res = await api.getTreats(page);
   pagination.reset(res.data.totalPages);
 }
+
 ob();
 
 pagination.on('afterMove', async e => {
