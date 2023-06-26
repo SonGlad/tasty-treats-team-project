@@ -6,56 +6,59 @@ import { fetchAllRecipes } from '../API_request/defaultRequest';
 const refs = {
   cardsList: document.querySelector('.cards_list'),
   ratingValue: document.querySelector('.star-rating_value'),
-  ratingValue: document.querySelector('.star-rating_value'),
 };
 
 const FetchAllRecipes = new fetchAllRecipes();
 
 async function renderCards() {
   FetchAllRecipes.setLimitValue();
+
   const response = await FetchAllRecipes.fetchRecipes();
+
   const results = response.results;
-  //   const data = {
-  //     recipes: results,
-  //     svgContent: `<use href="./images/icons/SPRITE.svg#icon-Star-1"></use>`,
-  //   };
 
-  //   const template = Handlebars.compile(TemplateArticles());
-  //   const html = template(data);
-
-  //   refs.cardsList.insertAdjacentHTML('beforeend', html);
   console.log(results);
+
   refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
+
+  fillStars();
+  cardHearts();
 }
 renderCards();
+function fillStars() {
+  const starRatings = document.querySelectorAll('.card_star-rating');
+  starRatings.forEach(starRating => {
+    // Получаем рейтинг из элемента <p> с классом 'star-rating_value'
+    const rating = parseFloat(
+      starRating.querySelector('.star-rating_value').textContent
+    );
 
+    // Округляем рейтинг до ближайшего целого числа
+    const roundedRating = Math.round(rating);
 
+    // Получаем все звездочки (элементы <svg>) внутри текущего 'card_star-rating'
+    const stars = starRating.querySelectorAll('.star');
 
+    // Проходимся по каждой звезде и добавляем класс 'filled', если ее индекс меньше округленного рейтинга
+    stars.forEach((star, index) => {
+      if (index < roundedRating) {
+        star.classList.add('filled');
+      }
+    });
+  });
+}
+function cardHearts() {
+  const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
 
+  cardFavouritesBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const icons = button.querySelectorAll('.card_heart');
 
-// getRecipes().then(res => {
-//   console.log(res);
-//   const { results } = res;
-//   const rating = results.map(recipe => {
-//     const cardStarRatings = document.getElementsByClassName('card_star-rating');
-//     console.log(recipe.rating);
-//     const ratingFromBackend = recipe.rating;
+      icons.forEach(icon => {
+        icon.classList.toggle('heart-filled');
+      });
 
-//     const roundedRating = Math.round(ratingFromBackend);
-
-//     Array.from(cardStarRatings).forEach(cardStarRating => {
-//       const stars = cardStarRating.getElementsByClassName('star');
-
-//       const ratingValue = cardStarRating.querySelector('.star-rating_value');
-//       ratingValue.textContent = ratingFromBackend;
-
-//       Array.from(stars).forEach((star, index) => {
-//         if (index < roundedRating) {
-//           star.classList.add('filled');
-//         } else {
-//           star.classList.remove('filled');
-//         }
-//       });
-//     });
-//   });
-// });
+      button.blur();
+    });
+  });
+}
