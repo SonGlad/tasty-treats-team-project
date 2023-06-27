@@ -15,6 +15,7 @@ const refs = {
     ingredientsFilter: document.querySelector('#ingredients'),
     cardsList: document.querySelector('.cards_list'),
     categories: document.querySelector('.category-container'),
+    conCards: document.querySelector('.notfound-cook'),
 }
 
 
@@ -35,61 +36,100 @@ refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
 function searchFetch(query) {
-    // FetchByFilter.setLimitValue()
-    FetchByFilter.setSearchValue(query)
-    renderCards();
+    try {
+          FetchByFilter.setSearchValue(query)
+            renderCards(); 
+    } catch(err){
+
+    }
+    
+  
 }
 
 async function renderCards() {
-    const response = await FetchByFilter.fetchRecipes();
-    const results = response.results;
-    refs.cardsList.innerHTML = TemplateArticles(results);
-    setLocalStorage();
-    fillStars();
-    cardHearts();
 
+    try{
+    const response = await FetchByFilter.fetchRecipes();    
+        const results = response.results; 
+        refs.cardsList.innerHTML = TemplateArticles(results);
+        setLocalStorage();
+        fillStars();
+        cardHearts();    
+        console.log(results);
 
-    console.log(results);
+        if (results.length === 0){
+            throw new Error
+        }else{
+            refs.conCards.classList.add('visually-hidden')
+        }
+
+    }catch(err){
+        refs.conCards.classList.remove('visually-hidden')
+
+        console.log('No cards found');
+    }
+   
 }
 
 function timeFetch(event){
+    try {
     const time = parseInt(event.target.textContent);
+        
+        console.log(time);
+        FetchByFilter.setTimeValue(time);
+        renderCards();
+    }catch(err){
 
-    console.log(time);
-    FetchByFilter.setTimeValue(time);
-    renderCards();
+
+    }
+   
+
 }
 
 
 function areaFetch(event) {
-    const area = event.target.textContent;
+    try {
+          const area = event.target.textContent;
     FetchByFilter.setAreaValue(area);
     renderCards()
     console.log(area);
+    } catch(err){
+
+    }
+  
 
 }
 
 function ingredientsFetch(event) {
+    try {
     const ingredients = String(event.target.id);
+        
+        FetchByFilter.setIngredientsValue(ingredients);
+        renderCards()
+        console.log(ingredients);
+    } catch(err){
 
-    FetchByFilter.setIngredientsValue(ingredients);
-    renderCards()
-    console.log(ingredients);
+    }
+    
 }
 
 function categoriesFetch(event) {
+    try{
     const categories = event.target.textContent;
-    const allCategories = event.target.id;
-    console.log(allCategories);
-    if (allCategories === 'all-category-btn'){
-        FetchByFilter.resetCategorie();
+        const allCategories = event.target.id;
+        console.log(allCategories);
+        if (allCategories === 'all-category-btn'){
+            FetchByFilter.resetCategorie();
+            renderCards();
+            // console.log('click');
+            return;
+        }
+        FetchByFilter.setCategoryValue(categories);
+        
         renderCards();
-        // console.log('click');
-        return;
-    }
-    FetchByFilter.setCategoryValue(categories);
+    } catch(err){
 
-    renderCards();
+    }
 
 }
 
