@@ -66,4 +66,7 @@ export class fetchAllRecipes {
   resetPage() {
     this.page = 1;
   }
+  resetCategorie() {
+    this.category = ""
+     }
 }

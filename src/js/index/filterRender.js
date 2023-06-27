@@ -1,6 +1,11 @@
 import debounce from "lodash.debounce";
-import {fetchAllRecipes} from '../API_request/defaultRequest'
+import {fetchAllRecipes} from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
+import {fillStars} from '../utils/fill-stars';
+import {cardHearts} from '../utils/card-hearts';
+import setLocalStorage from '../utils/setLocalStor';
+
+// import { log } from "handlebars";
 const refs = {
     seacrhInp: document.querySelector('.inp-search'),
     searchBtn: document.querySelector('.btn-search'),
@@ -9,7 +14,6 @@ const refs = {
     ingredientsFilter: document.querySelector('#ingredients'),
     cardsList: document.querySelector('.cards_list'),
     categories: document.querySelector('.category-container'),
-    
 }
 
 
@@ -32,14 +36,16 @@ refs.categories.addEventListener('click', categoriesFetch);
 function searchFetch(query) {
     // FetchByFilter.setLimitValue()
     FetchByFilter.setSearchValue(query)
-    renderCards()
- 
+    renderCards(); 
 }
 
 async function renderCards() {
     const response = await FetchByFilter.fetchRecipes();    
     const results = response.results; 
-    refs.cardsList.innerHTML = TemplateArticles(results)    
+    refs.cardsList.innerHTML = TemplateArticles(results);
+    setLocalStorage();
+    fillStars();
+    cardHearts();    
     console.log(results);
 }
 
@@ -48,7 +54,7 @@ function timeFetch(event){
     
     console.log(time);
     FetchByFilter.setTimeValue(time);
-    renderCards()
+    renderCards();
 }
 
 
@@ -73,7 +79,9 @@ function categoriesFetch(event) {
     const allCategories = event.target.id;
     console.log(allCategories);
     if (allCategories === 'all-category-btn'){
+        FetchByFilter.resetCategorie();
         renderCards();
+        // console.log('click');
         return;
     }
     FetchByFilter.setCategoryValue(categories);
