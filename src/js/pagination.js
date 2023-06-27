@@ -1,11 +1,10 @@
-import axios from 'axios';
 import Pagination from 'tui-pagination';
-// import TestPagination from './API_request/testPagination';
+
 const container = document.getElementById('pagination');
 
 const options = {
   totalItems: 0,
-  itemsPerPage: 8,
+  itemsPerPage: 9,
   visiblePages: window.innerWidth < 768 ? 2 : 3,
   page: 1,
   centerAlign: true,
@@ -30,18 +29,5 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
-const testPagination = new TestPagination();
-const page = pagination.getCurrentPage();
 
-const api = testPagination;
-async function ob() {
-  const res = await api.getTreats(page);
-  pagination.reset(res.data.totalPages);
-}
-
-ob();
-
-pagination.on('afterMove', async e => {
-  const currentPage = e.page;
-  const res = await api.getTreats(currentPage);
-});
+export { pagination };

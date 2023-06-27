@@ -12,11 +12,11 @@ export class fetchAllRecipes {
     this.category = '';
     this.title = '';
   }
-  async fetchRecipes() {
+  async fetchRecipes(page) {
     const url = BASE_URL;
     const params = {
       category: this.category,
-      page: this.page,
+      page,
       limit: this.limit,
       time: this.time,
       area: this.area,
@@ -24,7 +24,7 @@ export class fetchAllRecipes {
       title: this.title,
     };
 
-    const Allrecipes = await axios.get(url, {params});
+    const Allrecipes = await axios.get(url, { params });
     return Allrecipes.data;
   }
 
@@ -67,6 +67,6 @@ export class fetchAllRecipes {
     this.page = 1;
   }
   resetCategorie() {
-    this.category = ""
-     }
+    this.category = '';
+  }
 }
