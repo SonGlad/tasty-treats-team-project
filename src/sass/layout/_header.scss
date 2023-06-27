@@ -17,6 +17,7 @@
 
     }
 }
+
 .navigation a {
     position: relative;
 }
@@ -35,6 +36,7 @@
 .navigation a:focus::after {
   transform: scaleX(1);
 }
+
 .btn-home{
  color: var(--green);
  font-size: 12px;

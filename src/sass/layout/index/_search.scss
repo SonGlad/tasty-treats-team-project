@@ -300,3 +300,38 @@
   background-color: var(--gray-border-w);
 }
 
+
+// !=========error card==============
+
+// .err-txt{
+//   background-color: tomato;
+  
+//   width: 50%;
+//   color: #050505;
+//   font-size: 36px;
+//   font-family: Inter;
+//   font-weight: 600;
+//   line-height: 120%;
+//   text-transform: uppercase;
+//   display: flex;
+//   justify-content: center;
+//   text-align: center;
+//   margin: auto;
+// }
+.err-txt {
+  
+  display: block;
+  text-align: center;
+ 
+  background-color: #f44336;
+  color: #fff;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+ margin: auto;
+}
+
+
+
