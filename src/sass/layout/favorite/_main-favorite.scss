@@ -1,0 +1,56 @@
+.no-recipe-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-recipe-icon {
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
+.no-recipes {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.29;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 481px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+
+.card_favourites {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 335px;
+  height: 335px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 224px;
+    height: 264px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 258px;
+    height: 287px;
+  }
+}
+
+.favorite-render-cards{
+   @media screen and (min-width: 768px) {
+    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  @media screen and (min-width: 1280px) {
+   gap: 32px 16px;
+  }
+
+}

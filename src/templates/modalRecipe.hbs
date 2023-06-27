@@ -1,0 +1,54 @@
+{{#each this}}
+
+  <div class='modal-recipe'>
+    {{!-- <span class="btn-close">X</span> --}}
+    <div class='wrap-recipe'>
+      <iframe
+        class='recipe-video'
+        id='vimeo-player'
+        src='{{yotubeNorm}}'
+        frameborder='0'
+        allow='autoplay; encrypted-media; fullscreen'
+      ></iframe>
+      <div class='recipe-container'>
+        <h2 class='title-recipe'>{{title}}</h2>
+        <div class='recipe-rating'>
+          <p class='rating'>{{rating}}</p>
+          <div class='card_star-rating'>
+            <svg class='star' width='12' height='12'>
+              <use href='./images/icons/SPRITE.svg#icon-Star-1'></use>
+            </svg>
+            <svg class='star' width='12' height='12'>
+              <use href='./images/icons/SPRITE.svg#icon-Star-1'></use>
+            </svg>
+            <svg class='star' width='12' height='12'>
+              <use href='./images/icons/SPRITE.svg#icon-Star-1'></use>
+            </svg>
+            <svg class='star' width='12' height='12'>
+              <use href='./images/icons/SPRITE.svg#icon-Star-1'></use>
+            </svg>
+            <svg class='star' width='12' height='12'>
+              <use href='./images/icons/SPRITE.svg#icon-Star-1'></use>
+            </svg>
+          </div>
+          <p class='time-cooking'>{{time}}</p>
+        </div>
+        <div class='overflow-scroll'>
+          <ul class='recipe-ingridient'>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class='tags'>
+
+    </ul>
+    <p class='recipe-text'>
+      {{instructions}}
+    </p>
+    <div class='btn'>
+      <button type='button' class='btn-addToFavorite'>Add to favorite</button>
+      <button type='button' class='btn-giveARating'>Give a rating</button>
+    </div>
+  </div>
+{{/each}}

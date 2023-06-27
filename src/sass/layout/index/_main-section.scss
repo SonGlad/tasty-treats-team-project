@@ -5,7 +5,14 @@
 @media screen and (min-width: 768px) {
     .section-container{
         display: flex;
-        gap: 22px;
+        gap: 32px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .section-container{
+        display: flex;
+        gap: 64px;
     }
 }
 

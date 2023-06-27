@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Favorites</title>
-        <link rel="stylesheet" href="./sass/_favorite.scss" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Favorites</title>
+    <link rel="stylesheet" href="./sass/_favorite.scss"/>
 
-        <!-- FAVICON -->
-        <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png"/>
-        <!-- <link rel="manifest" href="./favicon/site.webmanifest"> -->
-        <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5"/>
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png"/>
+    <!-- <link rel="manifest" href="./favicon/site.webmanifest"> -->
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-        <!-- BASE STYLES -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-
-    </head>
-    <body>
-
-        <!-- HEADER -->
-        <include src="./partials/header.html"></include>
+    <!-- BASE STYLES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  </head>
 
 
-        <!-- MAIN -->
+  <body>
+    <!-- HEADER -->
+    <include src="./partials/header.html"></include>
 
-          <!-- Footer -->
-         <include src="./partials/footer.html"></include>
-        
 
-        <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
-    </body>
+    <!-- MAIN -->
+    <include src="./partials/favorite/fav-hero.html"></include>
+    <include src="./partials/favorite/markup.html"></include>
+
+
+    <!-- MODAL -->
+    <include src="./partials/index/hero_modal.html"></include>
+    <!-- <include src="./partials/modal-recipe.html"></include> -->
+
+
+    <!-- Footer -->
+    <include src="./partials/footer.html"></include>
+
+    <script type="module" src="./favorites.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
+  </body>
 </html>

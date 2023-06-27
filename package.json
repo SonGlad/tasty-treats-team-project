@@ -20,19 +20,24 @@
   "dependencies": {
     "axios": "^1.4.0",
     "hbs": "^4.2.0",
+    "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "parcel-transformer-handlebars": "^1.0.0",
-    "swiper": "^9.4.1"
+    "swiper": "^9.4.1",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "@parcel/transformer-webmanifest": "^2.6.0",
     "buffer": "^6.0.3",
+    "events": "^3.3.0",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "parcel-transformer-hbs": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+    "path-browserify": "^1.0.1",
+    "posthtml-include": "^1.7.4",
+    "util": "^0.12.5"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
