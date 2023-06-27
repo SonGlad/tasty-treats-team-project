@@ -44,7 +44,7 @@ function rend() {
   cardHearts();
   filtrFavoriteCard()
   removeFavorites ()
-  console.log(dataArray)
+  // console.log(dataArray)
 }
 
 rend()
