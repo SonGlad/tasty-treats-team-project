@@ -1,4 +1,6 @@
 .container-cards {
+  min-height: 287px;
+  position: relative;
   margin-top: 24px;
   @media screen and (min-width: 768px) {
     margin-top: 32px;
