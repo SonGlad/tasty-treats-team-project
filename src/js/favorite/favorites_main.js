@@ -9,25 +9,21 @@ import { save, load, remove } from '../utils/localStorageJSON'
 
 const renderBox = document.querySelector('.favorite-render-cards')
 const favoriteButtonList = document.querySelector('.categories-list')
-
+const storedData = load('cardData');
 
 function rend() {
   const uniqueCategories = [];
   const categorySet = new Set();
   // const storedData = localStorage.getItem('cardData');
-  const storedData = load('cardData');
+
   const displayNone = document.querySelector('.no-recipe-content')
   if (storedData) {
     displayNone.style.display = "none"
   } else { displayNone.style.display = "flex" }
 
+  if (storedData) {
 
-  // dataArray = JSON.parse(storedData);
-  dataArray = storedData;
-  if (dataArray) {
-
-
-    dataArray.forEach(item => {
+    storedData.forEach(item => {
       if (!categorySet.has(item.category)) {
         categorySet.add(item.category);
         uniqueCategories.push({ category: item.category });
@@ -40,7 +36,7 @@ function rend() {
     uniqueCategories.unshift({ category: "All categories" });
   }
 
-  renderBox.insertAdjacentHTML('beforeend', favoriTesCards(dataArray));
+  renderBox.insertAdjacentHTML('beforeend', favoriTesCards(storedData));
   favoriteButtonList.insertAdjacentHTML('beforeend', favoritesCategory(uniqueCategories));
 
   setLocalStorage();
@@ -53,11 +49,9 @@ function rend() {
 
 rend()
 
-function filtrFavoriteCard(category) {
-  console.log(category)
+function filtrFavoriteCard() {
 
   const cardsListItems = document.querySelectorAll('.card_favourites');
-  console.log(cardsListItems)
   const cardsLisCategory = document.querySelectorAll('.categories-btn');
 
 
