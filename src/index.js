@@ -24,9 +24,7 @@ import './js/index/time'
 
 import './js/index/filterRender'
 
-
 import './js/pagination';
-
 
 import "./js/changeTheme"
 
