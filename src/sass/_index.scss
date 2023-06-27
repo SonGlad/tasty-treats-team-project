@@ -1,6 +1,7 @@
 //  BASE ///
 @import './base/common.scss';
 @import './base/reset.scss';
+@import './base/dark_theme.scss';
 
 // COMPONENTS ///
 @import './components/container.scss';
@@ -24,3 +25,4 @@
 // UTILS ///
 @import './utils/variable.scss';
 @import './utils/vh.scss';
+
