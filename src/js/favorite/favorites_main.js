@@ -44,7 +44,6 @@ function rend() {
   cardHearts();
   filtrFavoriteCard()
   removeFavorites ()
-  // console.log(dataArray)
 }
 
 rend()
@@ -71,12 +70,14 @@ function filtrFavoriteCard() {
 }
 
 function removeFavorites (){
-cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
+const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
 
 cardFavouritesBtns.forEach(button => {
   button.addEventListener('click', () => {
+
   renderBox.innerHTML = '';
   favoriteButtonList.innerHTML = '';
-    rend();
+
+  rend();
   });
 });}
