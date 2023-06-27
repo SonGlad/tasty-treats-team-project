@@ -8,7 +8,7 @@ export class fetchAllRecipes {
     this.query = '';
     this.area = '';
     this.time = '';
-    this.ingredient = '';
+    this.ingredients = '';
     this.category = '';
     this.title = '';
   }
@@ -20,7 +20,7 @@ export class fetchAllRecipes {
       limit: this.limit,
       time: this.time,
       area: this.area,
-      ingredient: this.ingredient,
+      ingredients: this.ingredients,
       title: this.title,
     };
 
@@ -40,8 +40,8 @@ export class fetchAllRecipes {
   setAreaValue(area) {
     this.area = area;
   }
-  setIngredientsValue(ingredient) {
-    this.ingredient = ingredient;
+  setIngredientsValue(ingredients) {
+    this.ingredients = ingredients;
   }
   setLimitValue() {
     if (window.innerWidth < 768) {

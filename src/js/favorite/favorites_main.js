@@ -9,9 +9,10 @@ import { save, load, remove } from '../utils/localStorageJSON'
 
 const renderBox = document.querySelector('.favorite-render-cards')
 const favoriteButtonList = document.querySelector('.categories-list')
-const storedData = load('cardData');
+let storedData = load('cardData');
 
 function rend() {
+  storedData = load('cardData');
   const uniqueCategories = [];
   const categorySet = new Set();
   // const storedData = localStorage.getItem('cardData');
@@ -44,7 +45,6 @@ function rend() {
   cardHearts();
   filtrFavoriteCard()
   removeFavorites ()
-  console.log(dataArray)
 }
 
 rend()
@@ -71,12 +71,14 @@ function filtrFavoriteCard() {
 }
 
 function removeFavorites (){
-cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
+const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
 
 cardFavouritesBtns.forEach(button => {
   button.addEventListener('click', () => {
+
   renderBox.innerHTML = '';
   favoriteButtonList.innerHTML = '';
-    rend();
+
+  rend();
   });
 });}

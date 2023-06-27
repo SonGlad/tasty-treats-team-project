@@ -1,24 +1,24 @@
-import debounce from 'lodash.debounce';
-import { fetchAllRecipes } from '../API_request/defaultRequest';
+import debounce from "lodash.debounce";
+import {fetchAllRecipes} from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
-import { fillStars } from '../utils/fill-stars';
+import {fillStars} from '../utils/fill-stars';
 import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { pagination } from '/src/js/pagination';
 // import { log } from "handlebars";
 const refs = {
-  seacrhInp: document.querySelector('.inp-search'),
-  searchBtn: document.querySelector('.btn-search'),
-  timeFilter: document.querySelector('#timesearch'),
-  areaFilter: document.querySelector('#arealist'),
-  ingredientsFilter: document.querySelector('#ingredients'),
-  cardsList: document.querySelector('.cards_list'),
-  categories: document.querySelector('.category-container'),
-  loader: document.querySelector('.loader'),
-};
+    seacrhInp: document.querySelector('.inp-search'),
+    searchBtn: document.querySelector('.btn-search'),
+    timeFilter: document.querySelector('#timesearch'),
+    areaFilter: document.querySelector('#arealist'),
+    ingredientsFilter: document.querySelector('#ingredients'),
+    cardsList: document.querySelector('.cards_list'),
+    categories: document.querySelector('.category-container'),
+    loader: document.querySelector('.loader'),
+    conCards: document.querySelector('.notfound-cook'),
+}
 
 const FetchByFilter = new fetchAllRecipes();
-
 FetchByFilter.setLimitValue();
 
 const page = pagination.getCurrentPage();
@@ -96,11 +96,15 @@ function timeFetch(event) {
 }
 
 function areaFetch(event) {
-  const area = event.target.textContent;
-  FetchByFilter.setAreaValue(area);
+    try {
+        const area = event.target.textContent;
+        FetchByFilter.setAreaValue(area);
+        renderCards(page)
+        resetPagination();
+        console.log(area);
+    } catch(err){
 
-  renderCards(page);
-  resetPagination();
+    }
 }
 
 function ingredientsFetch(event) {
@@ -116,8 +120,6 @@ function categoriesFetch(event) {
   const categories = event.target.textContent;
 
   const allCategories = event.target.id;
-
-  // console.log(allCategories);
 
   if (allCategories === 'all-category-btn') {
     FetchByFilter.resetCategorie();
