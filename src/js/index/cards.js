@@ -4,7 +4,6 @@ import setLocalStorage from '../utils/setLocalStor';
 import { fillStars } from '../utils/fill-stars';
 import { cardHearts } from '../utils/card-hearts';
 import { pagination } from '/src/js/pagination';
-import eventListener from '../modalRecipe';
 
 const refs = {
   cardsList: document.querySelector('.cards_list'),
@@ -29,7 +28,6 @@ async function renderCards() {
     setLocalStorage();
     fillStars();
     cardHearts();
-    eventListener();
   } catch (error) {
     console.log(error);
   }

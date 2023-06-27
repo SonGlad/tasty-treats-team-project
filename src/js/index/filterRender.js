@@ -5,7 +5,8 @@ import {fillStars} from '../utils/fill-stars';
 import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { pagination } from '/src/js/pagination';
-// import { log } from "handlebars";
+import {eventListener} from '../modalRecipe';
+
 const refs = {
     seacrhInp: document.querySelector('.inp-search'),
     searchBtn: document.querySelector('.btn-search'),
@@ -51,7 +52,6 @@ refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
 function searchFetch(query) {
-  // FetchByFilter.setLimitValue()
   FetchByFilter.setSearchValue(query);
   renderCards();
   resetPagination();
@@ -87,6 +87,7 @@ async function renderCards(page) {
     
       refs.loader.classList.add('visually-hidden');
     
+      eventListener();
       setLocalStorage();
       fillStars();
       cardHearts();
@@ -128,7 +129,7 @@ function ingredientsFetch(event) {
   renderCards();
   resetPagination();
   console.log(ingredient);
-}
+};
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;
@@ -142,18 +143,18 @@ function categoriesFetch(event) {
     return;
   }
   FetchByFilter.setCategoryValue(categories);
-
   renderCards(page);
-
   resetPagination();
-}
+};
+
 
 function resetCards() {
   refs.cardsList.innerHTML = '';
-}
+};
+
 
 function resetPagination() {
   renderCards().then(response =>
     pagination.reset(response.totalPages * response.perPage)
   );
-}
+};

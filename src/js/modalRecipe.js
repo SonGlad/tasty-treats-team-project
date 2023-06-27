@@ -9,33 +9,38 @@ const modalRecipe = document.querySelector('#modal-recipe');
 
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
 
+
 async function handleModalRecipe() {
   modalRecipeBackDrop.classList.remove('visible');
-
   const response = await fechFullRecipe.getRecipe();
-  response.data.youtubeNorm = response.data.youtube.replace(
-    /youtube.com/,
-    'youtube.com/embed'
-  );
-  const mass = [response.data]; //запихаємо в масив щоб передати у hbs
-  modalRecipe.innerHTML = cardModalRecipe(mass);
-
-  const ingridientsList = document.querySelector('.recipe-ingridient');
-  ingridientsList.innerHTML = listIngredients(response.data.ingredients);
-
-  const tags = document.querySelector('.tags');
-  tags.innerHTML = recipeTags(response.data.tags);
-
   
-  fillStars();
-  const btnClose = document.querySelector('.btn-close');
-  btnClose.addEventListener('click', () => {
+  response.data.youtubeNorm = response.data.youtube.replace(
+    /youtube\.com\/watch\?v=/,
+    'youtube.com/embed/'
+    );
+    console.log(response.data.youtubeNorm);
+    const mass = [response.data]; //запихаємо в масив щоб передати у hbs
+    modalRecipe.innerHTML = cardModalRecipe(mass);
+    
+    const player = document.getElementById('vimeo-player');
+    
+    const ingridientsList = document.querySelector('.recipe-ingridient');
+    ingridientsList.innerHTML = listIngredients(response.data.ingredients);
+    
+    const tags = document.querySelector('.tags');
+    tags.innerHTML = recipeTags(response.data.tags);
+    
+    
+    fillStars();
+    const btnClose = document.querySelector('.btn-close');
+    btnClose.addEventListener('click', () => {
     modalRecipeBackDrop.classList.add('visible');
+    player.src= '-';
+    
   });
+};
 
-}
-
-export default function eventListener() {
+export function eventListener() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
   btnOpenModal.forEach(event => {
     event.addEventListener('click', () => {
@@ -44,4 +49,4 @@ export default function eventListener() {
       handleModalRecipe();
     });
   });
-}
+};
