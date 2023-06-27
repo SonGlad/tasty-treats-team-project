@@ -58,33 +58,47 @@ function searchFetch(query) {
 }
 
 async function renderCards(page) {
-  resetCards();
-  refs.loader.classList.remove('visually-hidden');
+    try{
+      resetCards();
+      refs.loader.classList.remove('visually-hidden');
+    
+      FetchByFilter.setPage(page);
+    
+      const response = await FetchByFilter.fetchRecipes();
+    
+      const results = response.results;
 
-  FetchByFilter.setPage(page);
+      if (results.length === 0){
+          throw new Error
+        }else{
+            refs.conCards.classList.add('visually-hidden')
+        }
+    
+      const roundedData = results.map(result => {
+        const ratingValue = Math.round(result.rating * 10) / 10;
+        console.log(ratingValue);
+        // Округляем значение id
+        // Возвращаем новый объект с округленным значением id
+        return { ...result, rating: ratingValue };
+      });
+      results.splice(0, results.length, ...roundedData);
+    
+      refs.cardsList.innerHTML = TemplateArticles(results);
+    
+      refs.loader.classList.add('visually-hidden');
+    
+      setLocalStorage();
+      fillStars();
+      cardHearts();
 
-  const response = await FetchByFilter.fetchRecipes();
+       return response;
+    }catch(err){
+    refs.conCards.classList.remove('visually-hidden')
+    refs.loader.classList.add('visually-hidden');
 
-  const results = response.results;
-
-  const roundedData = results.map(result => {
-    const ratingValue = Math.round(result.rating * 10) / 10;
-    console.log(ratingValue);
-    // Округляем значение id
-    // Возвращаем новый объект с округленным значением id
-    return { ...result, rating: ratingValue };
-  });
-  results.splice(0, results.length, ...roundedData);
-
-  refs.cardsList.innerHTML = TemplateArticles(results);
-
-  refs.loader.classList.add('visually-hidden');
-
-  setLocalStorage();
-  fillStars();
-  cardHearts();
-  return response;
-}
+    console.log('No cards found');
+    }
+};
 
 function timeFetch(event) {
   const time = parseInt(event.target.textContent);
@@ -125,7 +139,6 @@ function categoriesFetch(event) {
     FetchByFilter.resetCategorie();
     renderCards();
     resetPagination();
-    // console.log('click');
     return;
   }
   FetchByFilter.setCategoryValue(categories);
