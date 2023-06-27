@@ -2,10 +2,11 @@ import debounce from "lodash.debounce";
 import {fetchAllRecipes} from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
 import {fillStars} from '../utils/fill-stars';
-import {cardHearts} from '../utils/card-hearts';
+import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 
 // import { log } from "handlebars";
+
 const refs = {
     seacrhInp: document.querySelector('.inp-search'),
     searchBtn: document.querySelector('.btn-search'),
@@ -22,9 +23,9 @@ const refs = {
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue()
 refs.seacrhInp.addEventListener('input', debounce(()=>{
-    
+
     const query = String(refs.seacrhInp.value.trim());
-    
+
     searchFetch(query)
     console.log(query);
 }, 300));
@@ -36,22 +37,24 @@ refs.categories.addEventListener('click', categoriesFetch);
 function searchFetch(query) {
     // FetchByFilter.setLimitValue()
     FetchByFilter.setSearchValue(query)
-    renderCards(); 
+    renderCards();
 }
 
 async function renderCards() {
-    const response = await FetchByFilter.fetchRecipes();    
-    const results = response.results; 
+    const response = await FetchByFilter.fetchRecipes();
+    const results = response.results;
     refs.cardsList.innerHTML = TemplateArticles(results);
     setLocalStorage();
     fillStars();
-    cardHearts();    
+    cardHearts();
+
+
     console.log(results);
 }
 
 function timeFetch(event){
     const time = parseInt(event.target.textContent);
-    
+
     console.log(time);
     FetchByFilter.setTimeValue(time);
     renderCards();
@@ -68,7 +71,7 @@ function areaFetch(event) {
 
 function ingredientsFetch(event) {
     const ingredients = String(event.target.id);
-    
+
     FetchByFilter.setIngredientsValue(ingredients);
     renderCards()
     console.log(ingredients);
@@ -85,9 +88,9 @@ function categoriesFetch(event) {
         return;
     }
     FetchByFilter.setCategoryValue(categories);
-    
+
     renderCards();
-    
+
 }
 
 

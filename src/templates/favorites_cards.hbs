@@ -1,5 +1,5 @@
 {{#each this}}
-  <li class='card_favourites'>
+  <li class='card_favourites' id="{{category}}">
     <button class='card_favourites_btn button'>
       <svg class='card_heart' width='22' height='22' viewBox='0 0 32 32'>
         <path
@@ -57,7 +57,7 @@
             />
           </svg>
         </div>
-        <button class='card_btn'>See recipe</button>
+        <button id="{{ident}}" class='card_btn'>See recipe</button>
       </div>
     </div>
   </li>
