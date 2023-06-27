@@ -18,18 +18,14 @@ import './js/index/hero_modal';
 
 import './js/index/area';
 
-import './js/index/ingredients'
+import './js/index/ingredients';
 
-import './js/index/time'
+import './js/index/time';
 
-import './js/index/filterRender'
-
+import './js/index/filterRender';
 
 import './js/pagination';
 
+import './js/changeTheme';
 
-import "./js/changeTheme"
-
-
-
-
+import './js/modalRecipe';
