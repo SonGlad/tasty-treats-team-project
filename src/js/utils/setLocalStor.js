@@ -1,3 +1,5 @@
+import { save, load, remove } from './localStorageJSON'
+
 export default function setLocalStorage() {
   const hearts = document.querySelectorAll('.card_favourites_btn');
   console.log(hearts);
@@ -9,20 +11,26 @@ export default function setLocalStorage() {
     const description = parentContainer.querySelector('.card_description').textContent;
     const starRating = parentContainer.querySelector('.star-rating_value').textContent;
     const category = parentContainer.id;
+    const ident = parentContainer.querySelector('.card_btn').id;
 
     const data = {
       category: category,
       src: src,
       title: title,
       description: description,
-      starRating: starRating
+      starRating: starRating,
+      ident: ident,
     };
+
+    console.log(data)
 
     let dataArray = [];
 
-    const storedData = localStorage.getItem('cardData');
+    // const storedData = localStorage.getItem('cardData');
+    const storedData = load('cardData');
     if (storedData) {
-      dataArray = JSON.parse(storedData);
+      console.log(storedData)
+      dataArray = storedData;
     }
 
     const index = dataArray.findIndex(item =>
@@ -36,16 +44,19 @@ export default function setLocalStorage() {
       dataArray.splice(index, 1);
 
       if (dataArray.length === 0) {
-        localStorage.removeItem('cardData');
+        // localStorage.removeItem('cardData');
+        remove('cardData')
       } else {
-        localStorage.setItem('cardData', JSON.stringify(dataArray));
+        // localStorage.setItem('cardData', JSON.stringify(dataArray));
+         save('cardData', dataArray);
       }
       return;
     }
 
     dataArray.push(data);
 
-    localStorage.setItem('cardData', JSON.stringify(dataArray));
+    // localStorage.setItem('cardData', JSON.stringify(dataArray));
+    save('cardData', dataArray);
 
     console.log(parentContainer);
   }

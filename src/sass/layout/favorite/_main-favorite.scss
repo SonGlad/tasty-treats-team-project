@@ -29,6 +29,9 @@
   width: 100%;
   max-width: 335px;
   height: 335px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--gallery-gradient);
   @media screen and (max-width: 767px) {
     margin-bottom: 24px;
   }
