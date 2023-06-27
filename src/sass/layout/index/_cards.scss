@@ -1,5 +1,9 @@
 .container-cards {
+  min-height: 287px;
+  position: relative;
+  pointer-events: none;
   margin-top: 24px;
+
   @media screen and (min-width: 768px) {
     margin-top: 32px;
   }
@@ -29,8 +33,6 @@
   overflow: hidden;
   border-radius: 8px;
   background: var(--gallery-gradient);
-
-
 }
 @media screen and (max-width: 768px) {
   .card_container {

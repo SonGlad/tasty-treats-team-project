@@ -1,13 +1,15 @@
-import debounce from "lodash.debounce";
-import {fetchAllRecipes} from '../API_request/defaultRequest';
+import debounce from 'lodash.debounce';
+import { fetchAllRecipes } from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
 import {fillStars} from '../utils/fill-stars';
+
 import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 
 // import { log } from "handlebars";
 
 const refs = {
+
     seacrhInp: document.querySelector('.inp-search'),
     searchBtn: document.querySelector('.btn-search'),
     timeFilter: document.querySelector('#timesearch'),
@@ -28,8 +30,10 @@ refs.seacrhInp.addEventListener('input', debounce(()=>{
     const query = String(refs.seacrhInp.value.trim());
 
     searchFetch(query)
+
     console.log(query);
-}, 300));
+  }, 300)
+);
 refs.timeFilter.addEventListener('click', timeFetch);
 refs.areaFilter.addEventListener('click', areaFetch);
 refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
@@ -86,8 +90,13 @@ function timeFetch(event){
 
 }
 
+  console.log(time);
+  FetchByFilter.setTimeValue(time);
+  renderCards();
+}
 
 function areaFetch(event) {
+
     try {
           const area = event.target.textContent;
     FetchByFilter.setAreaValue(area);
@@ -134,3 +143,9 @@ function categoriesFetch(event) {
 }
 
 
+
+  renderCards();
+}
+function resetCards() {
+  refs.cardsList.innerHTML = '';
+}
