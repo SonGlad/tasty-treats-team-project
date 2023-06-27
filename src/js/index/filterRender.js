@@ -58,13 +58,13 @@ async function renderCards() {
 
         if (results.length === 0){
             throw new Error
+        }else{
+            refs.conCards.classList.add('visually-hidden')
         }
 
     }catch(err){
         refs.conCards.classList.remove('visually-hidden')
-        
 
-      
         console.log('No cards found');
     }
    
