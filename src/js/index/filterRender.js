@@ -2,10 +2,11 @@ import debounce from "lodash.debounce";
 import {fetchAllRecipes} from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
 import {fillStars} from '../utils/fill-stars';
-import {cardHearts} from '../utils/card-hearts';
+import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 
 // import { log } from "handlebars";
+
 const refs = {
     seacrhInp: document.querySelector('.inp-search'),
     searchBtn: document.querySelector('.btn-search'),
@@ -23,9 +24,9 @@ const refs = {
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue()
 refs.seacrhInp.addEventListener('input', debounce(()=>{
-    
+
     const query = String(refs.seacrhInp.value.trim());
-    
+
     searchFetch(query)
     console.log(query);
 }, 300));
@@ -58,13 +59,13 @@ async function renderCards() {
 
         if (results.length === 0){
             throw new Error
+        }else{
+            refs.conCards.classList.add('visually-hidden')
         }
 
     }catch(err){
         refs.conCards.classList.remove('visually-hidden')
-        
 
-      
         console.log('No cards found');
     }
    
@@ -82,6 +83,7 @@ function timeFetch(event){
 
     }
    
+
 }
 
 
@@ -128,8 +130,7 @@ function categoriesFetch(event) {
     } catch(err){
 
     }
-    
-    
+
 }
 
 

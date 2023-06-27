@@ -27,15 +27,20 @@ async function renderCards() {
 
     refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
 
+    setLocalStorage();
+    fillStars();
+    cardHearts();
     pagination.reset(response.totalPages * response.perPage);
   } catch (error) {
     console.log(error);
   }
 
+
   setLocalStorage();
   fillStars();
   cardHearts();
   eventListener();
+
 }
 renderCards();
 pagination.on('afterMove', async event => {
@@ -43,12 +48,14 @@ pagination.on('afterMove', async event => {
 
   try {
     const response = await FetchAllRecipes.fetchRecipes(currentPage);
-
     refs.cardsList.innerHTML = '';
     refs.cardsList.insertAdjacentHTML(
       'beforeend',
       TemplateArticles(response.results)
-    );
+      );
+      setLocalStorage();
+      fillStars();
+      cardHearts();
   } catch (error) {
     console.log(error);
   }
