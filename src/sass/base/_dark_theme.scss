@@ -1,0 +1,36 @@
+// BODY-DARK-THEME //
+body.dark-theme{
+    background-color: var(--background-d);
+}
+
+
+// HEADER-DARK-THEME //
+
+.dark-theme .logo-second {
+    color: var(--white-d);
+}
+.dark-theme .btn-favorites{
+    color: var(--white-d);
+}
+.dark-theme .shopping-icon{
+    stroke: var(--white-d);
+}
+
+// HERO-DARK-THEME // 
+
+.dark-theme .event-title{
+    color: var(--white-d);
+}
+.dark-theme .event-text{
+    color: var(--white-d);
+}
+.dark-theme .event-order{
+    background-color: transparent;
+    color: var(--white-d);
+}
+.dark-theme span.swiper-pagination-bullet{
+    background-color: var(--white-d);
+}
+.dark-theme span.swiper-pagination-bullet-active{
+    background: var(--green);
+}
