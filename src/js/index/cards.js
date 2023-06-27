@@ -30,16 +30,12 @@ async function renderCards() {
     setLocalStorage();
     fillStars();
     cardHearts();
+    eventListener();
     pagination.reset(response.totalPages * response.perPage);
   } catch (error) {
     console.log(error);
   }
 
-
-  setLocalStorage();
-  fillStars();
-  cardHearts();
-  eventListener();
 
 }
 renderCards();

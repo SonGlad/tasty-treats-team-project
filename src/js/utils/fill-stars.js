@@ -10,7 +10,7 @@ export function fillStars() {
       const roundedRating = Math.round(rating);
   
       // Получаем все звездочки (элементы <svg>) внутри текущего 'card_star-rating'
-      const stars = starRating.querySelectorAll('.star');
+      const stars = starRating.querySelectorAll('#all-stars');
   
       // Проходимся по каждой звезде и добавляем класс 'filled', если ее индекс меньше округленного рейтинга
       stars.forEach((star, index) => {

@@ -9,9 +9,10 @@ import { save, load, remove } from '../utils/localStorageJSON'
 
 const renderBox = document.querySelector('.favorite-render-cards')
 const favoriteButtonList = document.querySelector('.categories-list')
-const storedData = load('cardData');
+let storedData = load('cardData');
 
 function rend() {
+  storedData = load('cardData');
   const uniqueCategories = [];
   const categorySet = new Set();
   // const storedData = localStorage.getItem('cardData');

@@ -55,5 +55,18 @@
   @media screen and (min-width: 1280px) {
    gap: 32px 16px;
   }
+}
 
+.star-favorite {
+  width: 18px;
+  height: 18px;
+  fill: var(--gray-star-w);
+  @media screen and (min-width: 768px) {
+    width: 14px;
+    height: 14px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 18px;
+    height: 18px;
+  }
 }
