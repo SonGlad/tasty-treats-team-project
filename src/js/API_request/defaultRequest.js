@@ -12,11 +12,11 @@ export class fetchAllRecipes {
     this.category = '';
     this.title = '';
   }
-  async fetchRecipes(page) {
+  async fetchRecipes() {
     const url = BASE_URL;
     const params = {
       category: this.category,
-      page,
+      page: this.page,
       limit: this.limit,
       time: this.time,
       area: this.area,
@@ -59,8 +59,8 @@ export class fetchAllRecipes {
     }
   }
 
-  incrementPage() {
-    this.page += 1;
+  setPage(page) {
+    this.page = page;
   }
 
   resetPage() {
