@@ -15,7 +15,9 @@ const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
 
 async function handleModalRecipe(favoritData) {
   try{
+    disableScroll()
     modalRecipeBackDrop.classList.remove('visible');
+    
     const response = await fechFullRecipe.getRecipe();
     const IDForFavorite = response.data._id
     const storedData = load('cardData');
@@ -55,14 +57,16 @@ async function handleModalRecipe(favoritData) {
       btnClose.addEventListener('click', () => { 
       modalRecipeBackDrop.classList.add('visible');
       player.src = '';
-      
+      enableScroll();
         heartsFillStorage();
       });
 
     window.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
       modalRecipeBackDrop.classList.add('visible');
+      
       heartsFillStorage();
+      enableScroll();
       }
     });
 
@@ -70,7 +74,8 @@ async function handleModalRecipe(favoritData) {
       modalRecipeBackDrop.classList.add('visible');
       
       heartsFillStorage();
-      e.stopPropagation()
+      e.stopPropagation();
+      enableScroll();
     });
 
     modalRecipe.addEventListener("click",  (event) => {
@@ -153,3 +158,11 @@ export function eventListenerFavorites() {
   });
 };
 
+
+function disableScroll() {
+  document.body.classList.add('scroll-lock');
+}
+
+function enableScroll() {
+  document.body.classList.remove('scroll-lock');
+}
