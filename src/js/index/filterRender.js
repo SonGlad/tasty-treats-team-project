@@ -97,7 +97,7 @@ async function renderCards(page) {
       fillStars();
       cardHearts();
       return response;
-
+      
     }catch(err){
 
     refs.conCards.classList.remove('visually-hidden')
