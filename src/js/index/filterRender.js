@@ -1,24 +1,26 @@
-import debounce from "lodash.debounce";
-import {fetchAllRecipes} from '../API_request/defaultRequest';
+import debounce from 'lodash.debounce';
+import { fetchAllRecipes } from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
-import {fillStars} from '../utils/fill-stars';
+import { fillStars } from '../utils/fill-stars';
 import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { pagination } from '/src/js/pagination';
-import {eventListener} from '../modalRecipe';
+import { eventListener } from '../modalRecipe';
 
 const refs = {
-    seacrhInp: document.querySelector('.inp-search'),
-    searchBtn: document.querySelector('.btn-search'),
-    timeFilter: document.querySelector('#timesearch'),
-    areaFilter: document.querySelector('#arealist'),
-    ingredientsFilter: document.querySelector('#ingredients'),
-    cardsList: document.querySelector('.cards_list'),
-    categories: document.querySelector('.category-container'),
-    loader: document.querySelector('.loader'),
+  seacrhInp: document.querySelector('.inp-search'),
+  searchBtn: document.querySelector('.btn-search'),
+  timeFilter: document.querySelector('#timesearch'),
+  areaFilter: document.querySelector('#arealist'),
+  ingredientsFilter: document.querySelector('#ingredients'),
+  cardsList: document.querySelector('.cards_list'),
+  categories: document.querySelector('.category-container'),
+  loader: document.querySelector('.loader'),
   conCards: document.querySelector('.notfound-cook'),
+  pagination: document.querySelector('.pagination-wrapper'),
   customSelect: document.querySelectorAll('.custom-select')
-}
+};
+
 
 
 console.log(refs.customSelect)
@@ -34,10 +36,9 @@ pagination.on('afterMove', async event => {
 
   try {
     renderCards(currentPage);
-
   } catch (error) {
     console.log(error);
-  };
+  }
 });
 
 refs.seacrhInp.addEventListener(
@@ -54,60 +55,56 @@ refs.areaFilter.addEventListener('click', areaFetch);
 refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
-
 function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
   renderCards();
   resetPagination();
 }
 
-
 async function renderCards(page) {
-    try{
-      resetCards();
-      refs.loader.classList.remove('visually-hidden');
 
-      FetchByFilter.setPage(page);
+  try {
+    resetCards();
+    refs.loader.classList.remove('visually-hidden');
 
-      const response = await FetchByFilter.fetchRecipes();
+    FetchByFilter.setPage(page);
 
-      const results = response.results;
+    const response = await FetchByFilter.fetchRecipes();
 
-      if (results.length === 0){
-          throw new Error
-        }else{
-            refs.conCards.classList.add('visually-hidden');
-        };
+    const results = response.results;
 
-      const roundedData = results.map(result => {
-        const ratingValue = Math.round(result.rating * 10) / 10;
+    if (results.length === 0) {
+      throw new Error();
+    } else {
+      refs.conCards.classList.add('visually-hidden');
+    }
 
-        // Округляем значение id
-        // Возвращаем новый объект с округленным значением id
-        return { ...result, rating: ratingValue };
-      });
+    const roundedData = results.map(result => {
+      const ratingValue = Math.round(result.rating * 10) / 10;
 
-      results.splice(0, results.length, ...roundedData);
+      // Округляем значение id
+      // Возвращаем новый объект с округленным значением id
+      return { ...result, rating: ratingValue };
+    });
 
-      refs.cardsList.innerHTML = TemplateArticles(results);
+    results.splice(0, results.length, ...roundedData);
 
-      refs.loader.classList.add('visually-hidden');
+    refs.cardsList.innerHTML = TemplateArticles(results);
 
-      eventListener();
-      fillStars();
-      cardHearts();
-      setLocalStorage();
-      return response;
+    refs.loader.classList.add('visually-hidden');
 
-    }catch(err){
-
-    refs.conCards.classList.remove('visually-hidden')
+    eventListener();
+    setLocalStorage();
+    fillStars();
+    cardHearts();
+    return response;
+  } catch (err) {
+    refs.conCards.classList.remove('visually-hidden');
     refs.loader.classList.add('visually-hidden');
 
     console.log('No cards found');
-    };
-};
-
+  }
+}
 
 function timeFetch(event) {
   const time = parseInt(event.target.textContent);
@@ -115,21 +112,18 @@ function timeFetch(event) {
   FetchByFilter.setTimeValue(time);
   renderCards();
   resetPagination();
-};
-
+}
 
 function areaFetch(event) {
   try {
-      const area = event.target.textContent;
-      FetchByFilter.setAreaValue(area);
-      renderCards(page)
-      resetPagination();
-
-  } catch(err){
+    const area = event.target.textContent;
+    FetchByFilter.setAreaValue(area);
+    renderCards(page);
+    resetPagination();
+  } catch (err) {
     console.log(err);
-  };
-};
-
+  }
+}
 
 function ingredientsFetch(event) {
   const ingredient = String(event.target.id);
@@ -137,8 +131,7 @@ function ingredientsFetch(event) {
   FetchByFilter.setIngredientsValue(ingredient);
   renderCards();
   resetPagination();
-};
-
+}
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;
@@ -158,16 +151,39 @@ function categoriesFetch(event) {
   FetchByFilter.setCategoryValue(categories);
   renderCards(page);
   resetPagination();
-};
-
+}
 
 function resetCards() {
   refs.cardsList.innerHTML = '';
-};
+}
 
+// function resetPagination() {
+//   renderCards().then(response =>
+//     pagination.reset(response.totalPages * response.perPage)
+//   );
+// }
 
 function resetPagination() {
-  renderCards().then(response =>
-    pagination.reset(response.totalPages * response.perPage)
-  );
-};
+  renderCards().then(response => {
+    if (
+      response.results.length < 9 ||
+      response.totalPages < 2 ||
+      response.totalPages === null
+    ) {
+      hide();
+    } else {
+      show();
+      pagination.reset(response.totalPages * response.perPage);
+    }
+  });
+}
+
+function show() {
+  refs.pagination.classList.add('show');
+  refs.pagination.classList.remove('hide');
+}
+
+function hide() {
+  refs.pagination.classList.add('hide');
+  refs.pagination.classList.remove('show');
+}

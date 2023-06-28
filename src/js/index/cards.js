@@ -8,7 +8,6 @@ import { pagination } from '/src/js/pagination';
 const refs = {
   cardsList: document.querySelector('.cards_list'),
   ratingValue: document.querySelector('.star-rating_value'),
-  pagination: document.querySelector('.pagination-wrapper'),
 };
 
 const FetchAllRecipes = new fetchAllRecipes();
@@ -30,7 +29,7 @@ async function renderCards() {
     cardHearts();
   } catch (error) {
     console.log(error);
-  };
-};
+  }
+}
 
 renderCards();
