@@ -2,7 +2,8 @@ import { FechFullRecipe } from './API_request/fechFullRecipe';
 import cardModalRecipe from '../templates/modalRecipe.hbs';
 import listIngredients from '../templates/recipeIngridients.hbs';
 import recipeTags from '../templates/recipe-tags.hbs ';
-import {fillStars} from './utils/fill-stars';
+import { fillStars } from './utils/fill-stars';
+import { modalRatingOpCl } from './modalRatingOpCl';
 
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
@@ -22,7 +23,7 @@ async function handleModalRecipe() {
   
       const mass = [response.data]; //запихаємо в масив щоб передати у hbs
       modalRecipe.innerHTML = cardModalRecipe(mass);
-      
+    
       const player = document.getElementById('vimeo-player');
       
       const ingridientsList = document.querySelector('.recipe-ingridient');
@@ -31,6 +32,9 @@ async function handleModalRecipe() {
       const tags = document.querySelector('.tags');
       tags.innerHTML = recipeTags(response.data.tags);
       
+      const giveRating = document.querySelector('.btn-giveARating');
+      modalRatingOpCl(giveRating, modalRecipeBackDrop);
+    
       
       fillStars();
       const btnClose = document.querySelector('.btn-close');

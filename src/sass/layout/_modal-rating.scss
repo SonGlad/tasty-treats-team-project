@@ -8,6 +8,9 @@
     left: 0;
     overflow: auto;
 }
+.rating-backdrop.visible {
+    display: none;
+}
 
 .rating-modal-container {
     z-index: 100;
@@ -23,11 +26,29 @@
     border-radius: 15px;
     width: 100%;
     max-width: 335px;
+    position: relative;
 
     @media screen and (min-width: 768px){
         padding: 32px;
         max-width: 424px;
     }
+}
+
+.btn-close-rating{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 0;
+    transition: var(--trns-modal);
+
+    @media screen and (min-width: 768px) {
+        top: 16px;
+        right: 16px;
+    }
+}
+.btn-close-rating:hover{
+    transform-origin: center center;
+    transform: scale(1.8) rotate(180deg);
 }
 
 .rating-block {
@@ -117,4 +138,29 @@
 .rating-email-btn:focus,
 .rating-email-btn:hover{
     color: var(--black);
+}
+
+
+
+
+
+.rating-star {
+    display: inline-block;
+}
+
+.star-input {
+    display: none;
+}
+
+.star-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.star {
+    fill: var(--gray-star-modal);
+}
+
+.star.active use {
+    fill: var(--yellow-star);
 }
