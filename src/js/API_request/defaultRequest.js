@@ -70,6 +70,11 @@ export class fetchAllRecipes {
   };
 
   resetCategorie() {
+    this.page = 1;
+    this.query = '';
+    this.area = '';
+    this.time = '';
+    this.ingredient = '';
     this.category = '';
-  };
+    this.title = '';  };
 };

@@ -16,9 +16,12 @@ const refs = {
     cardsList: document.querySelector('.cards_list'),
     categories: document.querySelector('.category-container'),
     loader: document.querySelector('.loader'),
-    conCards: document.querySelector('.notfound-cook'),
+  conCards: document.querySelector('.notfound-cook'),
+  customSelect: document.querySelectorAll('.custom-select')
 }
 
+
+console.log(refs.customSelect)
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
 
@@ -63,11 +66,11 @@ async function renderCards(page) {
     try{
       resetCards();
       refs.loader.classList.remove('visually-hidden');
-    
+
       FetchByFilter.setPage(page);
-    
+
       const response = await FetchByFilter.fetchRecipes();
-    
+
       const results = response.results;
 
       if (results.length === 0){
@@ -75,25 +78,25 @@ async function renderCards(page) {
         }else{
             refs.conCards.classList.add('visually-hidden');
         };
-    
+
       const roundedData = results.map(result => {
         const ratingValue = Math.round(result.rating * 10) / 10;
- 
+
         // Округляем значение id
         // Возвращаем новый объект с округленным значением id
         return { ...result, rating: ratingValue };
       });
 
       results.splice(0, results.length, ...roundedData);
-    
+
       refs.cardsList.innerHTML = TemplateArticles(results);
-    
+
       refs.loader.classList.add('visually-hidden');
-    
+
       eventListener();
-      setLocalStorage();
       fillStars();
       cardHearts();
+      setLocalStorage();
       return response;
 
     }catch(err){
@@ -143,6 +146,10 @@ function categoriesFetch(event) {
   const allCategories = event.target.id;
 
   if (allCategories === 'all-category-btn') {
+    refs.seacrhInp.value = ''
+    refs.customSelect.forEach(element => {
+      element.querySelector('.elem-prev').textContent = "Select"
+    });
     FetchByFilter.resetCategorie();
     renderCards();
     resetPagination();
