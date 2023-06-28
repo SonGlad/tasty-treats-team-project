@@ -32,9 +32,12 @@ import './js/changeTheme';
 
 import './js/modalRecipe';
 
+import './js/modalRating';
+
 import './js/headerPageAftreSwitch';
 
 import './js/scrollToTop';
+
 
 
 

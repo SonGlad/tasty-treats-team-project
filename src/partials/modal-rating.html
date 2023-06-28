@@ -1,0 +1,57 @@
+<div class="rating-backdrop">
+    <div id="rating-modal-js" class="rating-modal-container">
+        <div class="rating-modal">
+            <button class='btn-close-rating'>
+                <svg height='24' width='24'>
+                    <path stroke-linecap='round' stroke-linejoin='round' stroke='black' stroke-width='2' d='M18 6 6 18M6 6l12 12' />
+                </svg>
+            </button>
+            <div class="rating-block">
+                <div class="rating-block-star">
+                    <h2 class="block-star-txt">Rating</h2>
+                    <div class="rating-star">
+                        <input type="radio" id="star1" name="rating" value="1" onclick="changeColor(1)" class="star-input" />
+                        <label for="star1" class="star-label">
+                            <svg class="star" viewBox="0 0 24 24">
+                                <use href="./images/icons/SPRITE.svg#icon-Star-1"></use>
+                            </svg>
+                        </label>
+                        <input type="radio" id="star2" name="rating" value="2" onclick="changeColor(2)" class="star-input" />
+                        <label for="star2" class="star-label">
+                            <svg class="star" viewBox="0 0 24 24">
+                                <use href="./images/icons/SPRITE.svg#icon-Star-1"></use>
+                            </svg>
+                        </label>
+                        <input type="radio" id="star3" name="rating" value="3" onclick="changeColor(3)" class="star-input" />
+                        <label for="star3" class="star-label">
+                            <svg class="star" viewBox="0 0 24 24">
+                                <use href="./images/icons/SPRITE.svg#icon-Star-1"></use>
+                            </svg>
+                        </label>
+                        <input type="radio" id="star4" name="rating" value="4" onclick="changeColor(4)" class="star-input" />
+                        <label for="star4" class="star-label">
+                            <svg class="star" viewBox="0 0 24 24">
+                                <use href="./images/icons/SPRITE.svg#icon-Star-1"></use>
+                            </svg>
+                        </label>
+                        <input type="radio" id="star5" name="rating" value="5" onclick="changeColor(5)" class="star-input" />
+                        <label for="star5" class="star-label">
+                            <svg class="star" viewBox="0 0 24 24">
+                                <use href="./images/icons/SPRITE.svg#icon-Star-1"></use>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+                <p class="rating-block-txt">
+                    Despite the promising appeal of banana-infused flavor, these pancakes unfortunately fell short of expectations. The
+                    texture was somewhat dense and the banana flavor was underwhelming, making for a rather disappointing breakfast
+                    experience.
+                </p>  
+            </div>
+            <div class="rating-email">
+                <input type="email" class="rating-email-inp" placeholder="Enter email">
+                <button type="submit" class="rating-email-btn">Send</button>    
+            </div>
+        </div>
+    </div>
+</div>

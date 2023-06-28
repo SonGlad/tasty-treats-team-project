@@ -3,9 +3,11 @@ import cardModalRecipe from '../templates/modalRecipe.hbs';
 import listIngredients from '../templates/recipeIngridients.hbs';
 import recipeTags from '../templates/recipe-tags.hbs ';
 import { fillStars } from './utils/fill-stars';
+import { modalRatingOpCl } from './modalRatingOpCl';
 import setLocalStorage from './utils/setLocalStor'
 import { heartsFillStorage } from './utils/hertsFillAll';
 import { save, load, remove } from './utils/localStorageJSON'
+
 
 
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
@@ -47,6 +49,9 @@ async function handleModalRecipe(favoritData) {
       const tags = document.querySelector('.tags');
       tags.innerHTML = recipeTags(response.data.tags);
 
+      const giveRating = document.querySelector('.btn-giveARating');
+      modalRatingOpCl(giveRating, modalRecipeBackDrop);
+  
       setLocalStorage(favoritData);
 
       fillStars();
