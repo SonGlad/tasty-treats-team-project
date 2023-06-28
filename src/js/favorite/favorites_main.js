@@ -5,6 +5,7 @@ import {fillStars} from '../utils/fill-stars';
 import {cardHearts} from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { save, load, remove } from '../utils/localStorageJSON'
+import {eventListenerFavorites} from '../modalRecipe';
 
 
 const renderBox = document.querySelector('.favorite-render-cards');
@@ -39,11 +40,13 @@ function rend() {
   renderBox.insertAdjacentHTML('beforeend', favoriTesCards(storedData));
   favoriteButtonList.insertAdjacentHTML('beforeend', favoritesCategory(uniqueCategories));
 
+  eventListenerFavorites();
   setLocalStorage();
   fillStars();
   cardHearts();
-  filtrFavoriteCard()
-  removeFavorites ()
+  filtrFavoriteCard();
+  removeFavorites();
+
 };
 
 rend();
@@ -80,4 +83,13 @@ cardFavouritesBtns.forEach(button => {
 
   rend();
   });
-});};
+});
+};
+
+// export function removeFavoritesFromModal (){
+//   renderBox.innerHTML = '';
+//   favoriteButtonList.innerHTML = '';
+
+//   rend();
+//   }
+
