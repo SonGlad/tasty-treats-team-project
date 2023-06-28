@@ -25,7 +25,7 @@ async function handleModalRecipe(favoritData) {
     const storedData = load('cardData');
       if (storedData) {
         dataArray = storedData;
-
+        
 
     const hasObjectWithIdent = dataArray.some(item => item.ident === IDForFavorite);
     response.data.btnText = hasObjectWithIdent ? "Remove from favorite" : "Add to favorite";
