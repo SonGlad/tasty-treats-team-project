@@ -7,7 +7,6 @@ refs.categoryContainer.addEventListener('click', onBtnCLick);
 
 let lastClickedBtn = null;
 
-
 function onBtnCLick(event) {
   const Btn = event.target;
 
@@ -27,8 +26,7 @@ function onBtnCLick(event) {
 
   Btn.classList.add('active');
   lastClickedBtn = Btn;
-};
-
+}
 
 function removeActiveClassFromAllButtons() {
   const buttons = refs.categoryList.querySelectorAll('button');
@@ -36,4 +34,4 @@ function removeActiveClassFromAllButtons() {
   buttons.forEach(button => {
     button.classList.remove('active');
   });
-};
+}
