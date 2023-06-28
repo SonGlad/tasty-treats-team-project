@@ -1,4 +1,10 @@
 /* Reset styles */
+html,
+body{
+  height: 100%;
+}
+
+
 h1,
 h2,
 h3,
@@ -47,4 +53,14 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+.main-content{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main{
+  flex: 1 1 auto;
 }
