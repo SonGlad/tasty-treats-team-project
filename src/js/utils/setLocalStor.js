@@ -22,14 +22,12 @@ export default function setLocalStorage() {
       ident: ident,
     };
 
-    console.log(data)
 
     let dataArray = [];
 
-    // const storedData = localStorage.getItem('cardData');
+
     const storedData = load('cardData');
     if (storedData) {
-      console.log(storedData)
       dataArray = storedData;
     }
 
@@ -44,24 +42,20 @@ export default function setLocalStorage() {
       dataArray.splice(index, 1);
 
       if (dataArray.length === 0) {
-        // localStorage.removeItem('cardData');
         remove('cardData')
       } else {
-        // localStorage.setItem('cardData', JSON.stringify(dataArray));
-         save('cardData', dataArray);
+        save('cardData', dataArray);
       }
       return;
     }
 
     dataArray.push(data);
 
-    // localStorage.setItem('cardData', JSON.stringify(dataArray));
     save('cardData', dataArray);
 
-    console.log(parentContainer);
   }
 
   hearts.forEach(heart => {
     heart.addEventListener('click', handleClick);
   });
-}
+};
