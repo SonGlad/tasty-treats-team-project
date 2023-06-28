@@ -305,30 +305,16 @@
 .notFound-txt-img{
   display: flex;
 }
-
-// .notfound-cook{
-//   position: relative;
-// }
-
 .err-txt {
-  
   display: block;
   text-align: center;
- 
   background-color: transparent;
   color: var(--green);
-  // font-size: 16px;
-  // font-family: Arial, sans-serif;
   border-radius: 50px;
-  
   font-size: 16px;
   font-family: Inter;
   font-weight: 600;
   line-height: 120%;
-  // text-transform: uppercase;
- 
-  
-  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   margin: auto;
 }
 
@@ -344,7 +330,6 @@
   right: 40;
 }
 
-
 @media screen and(min-width: 768px) {
   .err-txt{
     color: var(--green);
@@ -352,7 +337,6 @@
   font-family: Inter;
   font-weight: 600;
   line-height: 120%;
-  // text-transform: uppercase;
   }
   .left-txt{
     position: absolute;
@@ -378,11 +362,6 @@
     right: 230px;
   }
 }
-
-
-
- 
-
 
 .disk b { 
   position: absolute; 
@@ -433,8 +412,6 @@ padding-bottom: 50%;
   -webkit-transform: rotate(21deg); 
   transform: rotate(21deg);
 } 
-
-
 @media screen and (min-width: 768px) {
   .disk b { 
     position: absolute; 
@@ -444,17 +421,13 @@ padding-bottom: 50%;
     color: var(--green);
     }
   
-  .disk b:nth-of-type(-n+7) { 
+.disk b:nth-of-type(-n+7) { 
   bottom: 50%; 
   -ms-transform-origin: 0% 100%;
   font-size: 20px;
   -webkit-transform-origin: 0 70%;
-  // -webkit-transform-origin: 0% 100%;
-  // transform-origin: 0% 50%;
   padding-bottom: 50%; 
-  }
-  
-   
+  }  
 }
 
 @media screen and(min-width: 1280px) {
