@@ -12,8 +12,17 @@ body.dark-theme{
 .dark-theme .btn-favorites{
     color: var(--white-d);
 }
-.dark-theme .shopping-icon{
+.dark-theme .shopping-icon-use{
+    fill: var(--black);
     stroke: var(--white-d);
+}
+
+// MOB-MENU-DARK-THEME //
+.dark-theme .mobile-menu{
+    background-color: var(--black);
+}
+.dark-theme .header-list-item.main-page{
+    color: var(--green);
 }
 
 // HERO-DARK-THEME // 
@@ -33,4 +42,8 @@ body.dark-theme{
 }
 .dark-theme span.swiper-pagination-bullet-active{
     background: var(--green);
+}
+.dark-theme .order-form-comment{
+    background-color: transparent;
+    color: var(--white-d);
 }
