@@ -30,6 +30,9 @@ import './js/changeTheme';
 
 import './js/modalRecipe';
 
+import './js/modalRating';
+
+
 
 
 

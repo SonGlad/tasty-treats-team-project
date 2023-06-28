@@ -38,6 +38,19 @@
     }
 }
 
+.rating-block-star{
+    margin-bottom: 20px;
+}
+
+.block-star-txt{
+    margin-bottom: 4px;
+    color: var(--black);
+    font-size: 14px;
+    font-family: var(--main-font);
+    font-weight: 600;
+    line-height: 18px;
+}
+
 .rating-block-txt {
     font-size: 14px;
     font-family: var(--main-font);
