@@ -1,6 +1,7 @@
 //  BASE ///
 @import './base/common.scss';
 @import './base/reset.scss';
+@import './base/dark_theme.scss';
 
 
 // COMPONENTS ///
@@ -16,6 +17,8 @@
 @import './layout/favorite/main-favorite.scss';
 @import './layout/index/cards.scss';
 @import './layout/modal-rating.scss';
+@import './layout/index/scroll_to_top.scss';
+
 
 
 
