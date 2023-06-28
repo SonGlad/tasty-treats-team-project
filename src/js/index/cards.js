@@ -30,6 +30,7 @@ async function renderCards() {
     cardHearts();
   } catch (error) {
     console.log(error);
-  }
-}
+  };
+};
+
 renderCards();

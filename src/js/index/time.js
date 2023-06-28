@@ -1,5 +1,3 @@
-// import TemplateTime from './../../templates/time.hbs'
-
 const timer = document.querySelector("#timesearch");
 
 createTimerBtns();
@@ -14,15 +12,8 @@ function createTimerBtns(){
         button.classList.add('option-item')
 
         button.textContent = i + ' min';
-        
+
         li.appendChild(button);
         timer.appendChild(li);
     }
 };
-
-
-
-
-
-
-// time.insertAdjacentHTML('beforeend', TemplateTime(time));

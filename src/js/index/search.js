@@ -1,4 +1,3 @@
-
 document.addEventListener('click', function(event) {
   const customSelects = document.querySelectorAll('.custom-select');
   const clickedElement = event.target;
@@ -16,6 +15,7 @@ document.addEventListener('click', function(event) {
     customSelect.classList.toggle('open');
   }
 });
+
 
 document.addEventListener('click', function(event) {
   const option = event.target.closest('.option');

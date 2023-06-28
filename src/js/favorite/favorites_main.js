@@ -7,19 +7,18 @@ import setLocalStorage from '../utils/setLocalStor';
 import { save, load, remove } from '../utils/localStorageJSON'
 
 
-const renderBox = document.querySelector('.favorite-render-cards')
-const favoriteButtonList = document.querySelector('.categories-list')
+const renderBox = document.querySelector('.favorite-render-cards');
+const favoriteButtonList = document.querySelector('.categories-list');
 let storedData = load('cardData');
 
 function rend() {
   storedData = load('cardData');
   const uniqueCategories = [];
   const categorySet = new Set();
-  // const storedData = localStorage.getItem('cardData');
 
-  const displayNone = document.querySelector('.no-recipe-content')
+  const displayNone = document.querySelector('.no-recipe-content');
   if (storedData) {
-    displayNone.style.display = "none"
+    displayNone.style.display = "none";
   } else { displayNone.style.display = "flex" }
 
   if (storedData) {
@@ -31,7 +30,7 @@ function rend() {
       }
 
     });
-  }
+  };
 
    if (categorySet.size !== 0 && !categorySet.has("All categories")) {
     uniqueCategories.unshift({ category: "All categories" });
@@ -45,9 +44,9 @@ function rend() {
   cardHearts();
   filtrFavoriteCard()
   removeFavorites ()
-}
+};
 
-rend()
+rend();
 
 function filtrFavoriteCard() {
 
@@ -64,11 +63,11 @@ function filtrFavoriteCard() {
           item.style.display = '';
         } else {
           item.style.display = 'none';
-        }
+        };
       });
     });
   });
-}
+};
 
 function removeFavorites (){
 const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
@@ -81,4 +80,4 @@ cardFavouritesBtns.forEach(button => {
 
   rend();
   });
-});}
+});};

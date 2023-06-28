@@ -2,7 +2,7 @@ import { save, load, remove } from './localStorageJSON'
 
 export default function setLocalStorage() {
   const hearts = document.querySelectorAll('.card_favourites_btn');
-  console.log(hearts);
+
 
   function handleClick(event) {
     const parentContainer = event.currentTarget.parentNode;

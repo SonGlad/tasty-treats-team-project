@@ -31,9 +31,10 @@ pagination.on('afterMove', async event => {
 
   try {
     renderCards(currentPage);
+
   } catch (error) {
     console.log(error);
-  }
+  };
 });
 
 refs.seacrhInp.addEventListener(
@@ -42,7 +43,6 @@ refs.seacrhInp.addEventListener(
     const query = String(refs.seacrhInp.value.trim());
 
     searchFetch(query);
-    console.log(query);
   }, 300)
 );
 
@@ -51,11 +51,13 @@ refs.areaFilter.addEventListener('click', areaFetch);
 refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
+
 function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
   renderCards();
   resetPagination();
 }
+
 
 async function renderCards(page) {
     try{
@@ -71,16 +73,17 @@ async function renderCards(page) {
       if (results.length === 0){
           throw new Error
         }else{
-            refs.conCards.classList.add('visually-hidden')
-        }
+            refs.conCards.classList.add('visually-hidden');
+        };
     
       const roundedData = results.map(result => {
         const ratingValue = Math.round(result.rating * 10) / 10;
-        console.log(ratingValue);
+ 
         // Округляем значение id
         // Возвращаем новый объект с округленным значением id
         return { ...result, rating: ratingValue };
       });
+
       results.splice(0, results.length, ...roundedData);
     
       refs.cardsList.innerHTML = TemplateArticles(results);
@@ -91,36 +94,39 @@ async function renderCards(page) {
       setLocalStorage();
       fillStars();
       cardHearts();
+      return response;
 
-       return response;
     }catch(err){
+
     refs.conCards.classList.remove('visually-hidden')
     refs.loader.classList.add('visually-hidden');
 
     console.log('No cards found');
-    }
+    };
 };
+
 
 function timeFetch(event) {
   const time = parseInt(event.target.textContent);
 
-  console.log(time);
   FetchByFilter.setTimeValue(time);
   renderCards();
   resetPagination();
-}
+};
+
 
 function areaFetch(event) {
-    try {
-        const area = event.target.textContent;
-        FetchByFilter.setAreaValue(area);
-        renderCards(page)
-        resetPagination();
-        console.log(area);
-    } catch(err){
+  try {
+      const area = event.target.textContent;
+      FetchByFilter.setAreaValue(area);
+      renderCards(page)
+      resetPagination();
 
-    }
-}
+  } catch(err){
+    console.log(err);
+  };
+};
+
 
 function ingredientsFetch(event) {
   const ingredient = String(event.target.id);
@@ -128,8 +134,8 @@ function ingredientsFetch(event) {
   FetchByFilter.setIngredientsValue(ingredient);
   renderCards();
   resetPagination();
-  console.log(ingredient);
 };
+
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;

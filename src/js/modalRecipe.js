@@ -11,34 +11,38 @@ const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
 
 
 async function handleModalRecipe() {
-  modalRecipeBackDrop.classList.remove('visible');
-  const response = await fechFullRecipe.getRecipe();
+  try{
+    modalRecipeBackDrop.classList.remove('visible');
+    const response = await fechFullRecipe.getRecipe();
+    
+    response.data.youtubeNorm = response.data.youtube.replace(
+      /youtube\.com\/watch\?v=/,
+      'youtube.com/embed/'
+      );
   
-  response.data.youtubeNorm = response.data.youtube.replace(
-    /youtube\.com\/watch\?v=/,
-    'youtube.com/embed/'
-    );
-    console.log(response.data.youtubeNorm);
-    const mass = [response.data]; //запихаємо в масив щоб передати у hbs
-    modalRecipe.innerHTML = cardModalRecipe(mass);
-    
-    const player = document.getElementById('vimeo-player');
-    
-    const ingridientsList = document.querySelector('.recipe-ingridient');
-    ingridientsList.innerHTML = listIngredients(response.data.ingredients);
-    
-    const tags = document.querySelector('.tags');
-    tags.innerHTML = recipeTags(response.data.tags);
-    
-    
-    fillStars();
-    const btnClose = document.querySelector('.btn-close');
-    btnClose.addEventListener('click', () => {
-    modalRecipeBackDrop.classList.add('visible');
-    player.src= '-';
-    
-  });
+      const mass = [response.data]; //запихаємо в масив щоб передати у hbs
+      modalRecipe.innerHTML = cardModalRecipe(mass);
+      
+      const player = document.getElementById('vimeo-player');
+      
+      const ingridientsList = document.querySelector('.recipe-ingridient');
+      ingridientsList.innerHTML = listIngredients(response.data.ingredients);
+      
+      const tags = document.querySelector('.tags');
+      tags.innerHTML = recipeTags(response.data.tags);
+      
+      
+      fillStars();
+      const btnClose = document.querySelector('.btn-close');
+      btnClose.addEventListener('click', () => {
+      modalRecipeBackDrop.classList.add('visible');
+      player.src= '-';     
+    });
+  }catch(error){
+    console.log(error);
+  }
 };
+
 
 export function eventListener() {
   const btnOpenModal = document.querySelectorAll('.card_btn');

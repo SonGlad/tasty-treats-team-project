@@ -1,5 +1,6 @@
 import {heartsFillStorage} from '../utils/hertsFillAll';
 
+
 export function cardHearts() {
 
  const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
@@ -15,5 +16,6 @@ export function cardHearts() {
 
         button.blur();
       });
-    });
-  }
+    }
+  );
+};

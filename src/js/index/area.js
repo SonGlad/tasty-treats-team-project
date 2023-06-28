@@ -11,7 +11,8 @@ async function areas() {
     const area = await SearchAPI.getArea();
 
     areasList.insertAdjacentHTML('beforeend', TemplateArea(area));
+
   } catch (err) {
     console.log(err);
-  }
-}
+  };
+};
