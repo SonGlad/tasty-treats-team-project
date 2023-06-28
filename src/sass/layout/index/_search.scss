@@ -302,21 +302,13 @@
 
 // !=========error card==============
 
-// .err-txt{
-//   background-color: tomato;
-  
-//   width: 50%;
-//   color: #050505;
-//   font-size: 36px;
-//   font-family: Inter;
-//   font-weight: 600;
-//   line-height: 120%;
-//   text-transform: uppercase;
-//   display: flex;
-//   justify-content: center;
-//   text-align: center;
-//   margin: auto;
-// }
+.notFound-txt-img{
+  display: flex;
+}
+.notfound-cook-img{
+  width: 530px;
+  height: 400px;
+}
 .err-txt {
   
   display: block;
@@ -331,6 +323,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
  margin: auto;
 }
+
 
 
 
