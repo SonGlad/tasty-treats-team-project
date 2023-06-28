@@ -30,6 +30,14 @@ import './js/changeTheme';
 
 import './js/modalRecipe';
 
+import './js/headerPageAftreSwitch';
+
+import './js/scrollToTop';
+
+
+
+
+
 
 
 
