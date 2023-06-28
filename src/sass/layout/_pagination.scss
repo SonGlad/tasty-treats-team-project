@@ -153,8 +153,11 @@
     margin-right: 10px;
   }
 }
-.is-hidden {
+.hide {
   display: none;
+}
+.show {
+  display: flex;
 }
 // DARK MODE
 .page-dark-mode {
