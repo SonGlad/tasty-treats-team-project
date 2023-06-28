@@ -7,15 +7,17 @@
   z-index: 100;
   background-color: var(--gray-title-w);
   overflow: auto;
+
+
   transition: opacity var(--trns-modal), visibility var(--trns-modal);
-  
-  
+
 }
+
 .recipe-backdrop.visible {
+  
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition-delay: 150ms;
 }
 
 .modal-container {
