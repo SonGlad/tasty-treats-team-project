@@ -25,7 +25,7 @@ FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
 renderCards(page);
-
+resetPagination()
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
 
@@ -79,9 +79,8 @@ async function renderCards(page) {
       const roundedData = results.map(result => {
         const ratingValue = Math.round(result.rating * 10) / 10;
  
-        // Округляем значение id
-        // Возвращаем новый объект с округленным значением id
-        return { ...result, rating: ratingValue };
+        
+        return { ...result, rating: ratingValue,notFound: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"};
       });
 
       results.splice(0, results.length, ...roundedData);
@@ -89,7 +88,7 @@ async function renderCards(page) {
       refs.cardsList.innerHTML = TemplateArticles(results);
     
       refs.loader.classList.add('visually-hidden');
-    
+      
       eventListener();
       setLocalStorage();
       fillStars();

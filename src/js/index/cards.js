@@ -1,36 +1,45 @@
-import TemplateArticles from '../../templates/cards.hbs';
-import { fetchAllRecipes } from '../API_request/defaultRequest';
-import setLocalStorage from '../utils/setLocalStor';
-import { fillStars } from '../utils/fill-stars';
-import { cardHearts } from '../utils/card-hearts';
-import { pagination } from '/src/js/pagination';
+// import TemplateArticles from '../../templates/cards.hbs';
+// import { fetchAllRecipes } from '../API_request/defaultRequest';
+// import setLocalStorage from '../utils/setLocalStor';
+// import { fillStars } from '../utils/fill-stars';
+// import { cardHearts } from '../utils/card-hearts';
+// import { pagination } from '/src/js/pagination';
 
-const refs = {
-  cardsList: document.querySelector('.cards_list'),
-  ratingValue: document.querySelector('.star-rating_value'),
-  pagination: document.querySelector('.pagination-wrapper'),
-};
 
-const FetchAllRecipes = new fetchAllRecipes();
-const page = pagination.getCurrentPage();
 
-async function renderCards() {
-  FetchAllRecipes.setLimitValue();
+// const refs = {
+//   cardsList: document.querySelector('.cards_list'),
+//   ratingValue: document.querySelector('.star-rating_value'),
+//   pagination: document.querySelector('.pagination-wrapper'),
+// };
 
-  try {
-    const response = await FetchAllRecipes.fetchRecipes();
+// const FetchAllRecipes = new fetchAllRecipes();
+// const page = pagination.getCurrentPage();
+// renderCards(page);
+// async function renderCards() {
+//   FetchAllRecipes.setLimitValue();
 
-    const results = response.results;
+//   try {
+//     const response = await FetchAllRecipes.fetchRecipes();
 
-    refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
+//     const results = response.results;
+    
+    
 
-    pagination.reset(response.totalPages * response.perPage);
-    setLocalStorage();
-    fillStars();
-    cardHearts();
-  } catch (error) {
-    console.log(error);
-  };
-};
+//     // if(){
 
-renderCards();
+//     // }
+
+ 
+//     refs.cardsList.insertAdjacentHTML('beforeend', TemplateArticles(results));
+
+//     pagination.reset(response.totalPages * response.perPage);
+//     setLocalStorage();
+//     fillStars();
+//     cardHearts();
+//   } catch (error) {
+//     console.log(error);
+//   };
+// };
+
+// renderCards();
