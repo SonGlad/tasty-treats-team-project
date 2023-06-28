@@ -157,10 +157,10 @@
     cursor: pointer;
 }
 
-.star {
+.star-rating {
     fill: var(--gray-star-modal);
 }
 
-.star.active use {
+.star-rating.active use {
     fill: var(--yellow-star);
 }
