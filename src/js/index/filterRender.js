@@ -178,3 +178,11 @@ function hide() {
   refs.pagination.classList.add('hide');
   refs.pagination.classList.remove('show');
 }
+
+document
+  .querySelector('.category-list')
+  .addEventListener('click', function (event) {
+    if (!event.target.classList.contains('category-btn')) {
+      event.stopPropagation();
+    }
+  });
