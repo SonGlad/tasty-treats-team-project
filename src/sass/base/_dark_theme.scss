@@ -47,6 +47,108 @@ body.dark-theme{
 .dark-theme span.swiper-pagination-bullet-active{
     background: var(--green);
 }
+
+
+
+// ALLCATEGORIES-DARK-THEME //
+
+.dark-theme .all-category-button.active {
+    border: 1px solid var(--gray-border-d);
+    background-color: transparent;
+    color: var(--white-d);
+}
+.dark-theme .all-category-button {
+    border: 1px solid var(--gray-border-d);
+    background-color: transparent;
+    color: var(--white-d);
+}
+.dark-theme .category-btn{
+    color: var(--gray-ul-d);
+}
+.dark-theme ::-webkit-scrollbar-thumb{
+    background-color: var(--gray-border-d);
+}
+
+// SEARCH-DARK-THEME //
+
+.dark-theme .text-search{
+    color: var(--gray-title-d);
+}
+.dark-theme .item-ingridienst{
+    background-color: transparent;
+    border-color: var(--gray-border-d);
+}
+.dark-theme .elem-prev{
+    color: var(--gray-title-d);
+}
+.dark-theme .search-arrow{
+    fill: var(--gray-title-d);
+}
+.dark-theme .selected-option{
+    border-color: var(--gray-border-d);
+}
+.dark-theme .custom-select .selected-option{
+    background-color: transparent;
+}
+.dark-theme .inp-search{
+    background-color: transparent;
+    border-color: var(--gray-border-d);
+    color: var(--white-d);
+}
+.dark-theme .svg-search{
+    fill: var(--gray-title-d);
+}
+
+// POPULAR-RECEIPTS-DARK-THEME //
+
+.dark-theme .popular-recipes{
+    color: var(--white-d);
+}
+.dark-theme .popular-title{
+    color: var(--white-d);
+}
+.dark-theme .popular-text{
+    color: var(--grey-descrip-d);
+}
+
+// MAIN-CARDS-DARK-THEME //
+
+.dark-theme .card_title{
+    color: var(--white-d);
+}
+.dark-theme .card_description{
+    color: var(--white-d);
+}
+.dark-theme .star-rating_value{
+    color: var(--gray-title-d);
+}
+.dark-theme .card_btn{
+    color: var(--white-d);
+}
+
+// PAGINATION-DARK-THEME //
+
+// FAVORITE-DARK-THEME //
+
+.dark-theme .no-recipes{
+    color: var(--white-d);
+}
+
+// HERO-MODAL-DARK-THEME //
+
+.dark-theme .modal{
+    background-color: var(--black);
+}
+.dark-theme .order-modal-title{
+    color: var(--white-d);
+}
+.dark-theme .order-form-label{
+    color: var(--gray-title-d);
+}
+.dark-theme .order-form-input{
+    background-color: transparent;
+    color: var(--white-d);
+}
 .dark-theme .order-form-comment{
     background-color: transparent;
     color: var(--white-d);
