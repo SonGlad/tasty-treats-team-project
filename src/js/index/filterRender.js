@@ -18,12 +18,11 @@ const refs = {
   loader: document.querySelector('.loader'),
   conCards: document.querySelector('.notfound-cook'),
   pagination: document.querySelector('.pagination-wrapper'),
-  customSelect: document.querySelectorAll('.custom-select')
+  customSelect: document.querySelectorAll('.custom-select'),
+  loaderTxt: document.querySelector('.loader-txt')
 };
 
 
-
-console.log(refs.customSelect)
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
 
@@ -66,6 +65,7 @@ async function renderCards(page) {
   try {
     resetCards();
     refs.loader.classList.remove('visually-hidden');
+    refs.loaderTxt.classList.remove('visually-hidden');
 
     FetchByFilter.setPage(page);
 
@@ -92,6 +92,7 @@ async function renderCards(page) {
     refs.cardsList.innerHTML = TemplateArticles(results);
 
     refs.loader.classList.add('visually-hidden');
+    refs.loaderTxt.classList.add('visually-hidden');
 
     eventListener();
     setLocalStorage();
@@ -101,6 +102,7 @@ async function renderCards(page) {
   } catch (err) {
     refs.conCards.classList.remove('visually-hidden');
     refs.loader.classList.add('visually-hidden');
+    refs.loaderTxt.classList.add('visually-hidden');
 
     console.log('No cards found');
   }
