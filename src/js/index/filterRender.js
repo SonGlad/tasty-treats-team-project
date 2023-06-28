@@ -30,7 +30,7 @@ FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
 renderCards(page);
-
+resetPagination()
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
 
@@ -62,48 +62,47 @@ function searchFetch(query) {
 }
 
 async function renderCards(page) {
+    try{
+      resetCards();
+      refs.loader.classList.remove('visually-hidden');
+    
+      FetchByFilter.setPage(page);
+    
+      const response = await FetchByFilter.fetchRecipes();
+    
+      const results = response.results;
 
-  try {
-    resetCards();
-    refs.loader.classList.remove('visually-hidden');
+      if (results.length === 0){
+          throw new Error
+        }else{
+            refs.conCards.classList.add('visually-hidden');
+        };
+    
+      const roundedData = results.map(result => {
+        const ratingValue = Math.round(result.rating * 10) / 10;
+ 
+        
+        return { ...result, rating: ratingValue,notFound: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"};
+      });
 
-    FetchByFilter.setPage(page);
+      results.splice(0, results.length, ...roundedData);
+    
+      refs.cardsList.innerHTML = TemplateArticles(results);
+    
+      refs.loader.classList.add('visually-hidden');
+      
+      eventListener();
+      setLocalStorage();
+      fillStars();
+      cardHearts();
+      return response;
 
-    const response = await FetchByFilter.fetchRecipes();
+    }catch(err){
 
-    const results = response.results;
+    refs.conCards.classList.remove('visually-hidden')
 
-    if (results.length === 0) {
-      throw new Error();
-    } else {
-      refs.conCards.classList.add('visually-hidden');
+    refs.loader.classList.add('visually-hidden');
     }
-
-    const roundedData = results.map(result => {
-      const ratingValue = Math.round(result.rating * 10) / 10;
-
-      // Округляем значение id
-      // Возвращаем новый объект с округленным значением id
-      return { ...result, rating: ratingValue };
-    });
-
-    results.splice(0, results.length, ...roundedData);
-
-    refs.cardsList.innerHTML = TemplateArticles(results);
-
-    refs.loader.classList.add('visually-hidden');
-
-    eventListener();
-    setLocalStorage();
-    fillStars();
-    cardHearts();
-    return response;
-  } catch (err) {
-    refs.conCards.classList.remove('visually-hidden');
-    refs.loader.classList.add('visually-hidden');
-
-    console.log('No cards found');
-  }
 }
 
 function timeFetch(event) {
