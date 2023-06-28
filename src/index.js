@@ -1,5 +1,7 @@
 import './js/mobMenu';
 
+import './js/changeTheme';
+
 import './js/index/hero';
 
 import './js/index/search.js';
