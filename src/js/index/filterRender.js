@@ -1,24 +1,29 @@
-import debounce from "lodash.debounce";
-import {fetchAllRecipes} from '../API_request/defaultRequest';
+import debounce from 'lodash.debounce';
+import { fetchAllRecipes } from '../API_request/defaultRequest';
 import TemplateArticles from '../../templates/cards.hbs';
-import {fillStars} from '../utils/fill-stars';
+import { fillStars } from '../utils/fill-stars';
 import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { pagination } from '/src/js/pagination';
-import {eventListener} from '../modalRecipe';
+import { eventListener } from '../modalRecipe';
 
 const refs = {
-    seacrhInp: document.querySelector('.inp-search'),
-    searchBtn: document.querySelector('.btn-search'),
-    timeFilter: document.querySelector('#timesearch'),
-    areaFilter: document.querySelector('#arealist'),
-    ingredientsFilter: document.querySelector('#ingredients'),
-    cardsList: document.querySelector('.cards_list'),
-    categories: document.querySelector('.category-container'),
-    loader: document.querySelector('.loader'),
-    conCards: document.querySelector('.notfound-cook'),
-}
+  seacrhInp: document.querySelector('.inp-search'),
+  searchBtn: document.querySelector('.btn-search'),
+  timeFilter: document.querySelector('#timesearch'),
+  areaFilter: document.querySelector('#arealist'),
+  ingredientsFilter: document.querySelector('#ingredients'),
+  cardsList: document.querySelector('.cards_list'),
+  categories: document.querySelector('.category-container'),
+  loader: document.querySelector('.loader'),
+  conCards: document.querySelector('.notfound-cook'),
+  pagination: document.querySelector('.pagination-wrapper'),
+  customSelect: document.querySelectorAll('.custom-select')
+};
 
+
+
+console.log(refs.customSelect)
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
 
@@ -31,10 +36,9 @@ pagination.on('afterMove', async event => {
 
   try {
     renderCards(currentPage);
-
   } catch (error) {
     console.log(error);
-  };
+  }
 });
 
 refs.seacrhInp.addEventListener(
@@ -51,13 +55,11 @@ refs.areaFilter.addEventListener('click', areaFetch);
 refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
-
 function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
   renderCards();
   resetPagination();
 }
-
 
 async function renderCards(page) {
     try{
@@ -98,12 +100,10 @@ async function renderCards(page) {
     }catch(err){
 
     refs.conCards.classList.remove('visually-hidden')
+
     refs.loader.classList.add('visually-hidden');
-
-    console.log('No cards found');
-    };
-};
-
+    }
+}
 
 function timeFetch(event) {
   const time = parseInt(event.target.textContent);
@@ -111,21 +111,18 @@ function timeFetch(event) {
   FetchByFilter.setTimeValue(time);
   renderCards();
   resetPagination();
-};
-
+}
 
 function areaFetch(event) {
   try {
-      const area = event.target.textContent;
-      FetchByFilter.setAreaValue(area);
-      renderCards(page)
-      resetPagination();
-
-  } catch(err){
+    const area = event.target.textContent;
+    FetchByFilter.setAreaValue(area);
+    renderCards(page);
+    resetPagination();
+  } catch (err) {
     console.log(err);
-  };
-};
-
+  }
+}
 
 function ingredientsFetch(event) {
   const ingredient = String(event.target.id);
@@ -133,8 +130,7 @@ function ingredientsFetch(event) {
   FetchByFilter.setIngredientsValue(ingredient);
   renderCards();
   resetPagination();
-};
-
+}
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;
@@ -142,6 +138,10 @@ function categoriesFetch(event) {
   const allCategories = event.target.id;
 
   if (allCategories === 'all-category-btn') {
+    refs.seacrhInp.value = ''
+    refs.customSelect.forEach(element => {
+      element.querySelector('.elem-prev').textContent = "Select"
+    });
     FetchByFilter.resetCategorie();
     renderCards();
     resetPagination();
@@ -150,16 +150,47 @@ function categoriesFetch(event) {
   FetchByFilter.setCategoryValue(categories);
   renderCards(page);
   resetPagination();
-};
-
+}
 
 function resetCards() {
   refs.cardsList.innerHTML = '';
-};
+}
 
+// function resetPagination() {
+//   renderCards().then(response =>
+//     pagination.reset(response.totalPages * response.perPage)
+//   );
+// }
 
 function resetPagination() {
-  renderCards().then(response =>
-    pagination.reset(response.totalPages * response.perPage)
-  );
-};
+  renderCards().then(response => {
+    if (
+      response.results.length < 9 ||
+      response.totalPages < 2 ||
+      response.totalPages === null
+    ) {
+      hide();
+    } else {
+      show();
+      pagination.reset(response.totalPages * response.perPage);
+    }
+  });
+}
+
+function show() {
+  refs.pagination.classList.add('show');
+  refs.pagination.classList.remove('hide');
+}
+
+function hide() {
+  refs.pagination.classList.add('hide');
+  refs.pagination.classList.remove('show');
+}
+
+document
+  .querySelector('.category-list')
+  .addEventListener('click', function (event) {
+    if (!event.target.classList.contains('category-btn')) {
+      event.stopPropagation();
+    }
+  });

@@ -1,3 +1,4 @@
+
 // import TemplateArticles from '../../templates/cards.hbs';
 // import { fetchAllRecipes } from '../API_request/defaultRequest';
 // import setLocalStorage from '../utils/setLocalStor';
@@ -43,3 +44,4 @@
 // };
 
 // renderCards();
+
