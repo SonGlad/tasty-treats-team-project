@@ -40,7 +40,7 @@ async function handleModalRecipe(favoritData) {
       modalRecipe.innerHTML = cardModalRecipe(mass);
 
       const player = document.getElementById('vimeo-player');
-
+      console.log(player);
       const ingridientsList = document.querySelector('.recipe-ingridient');
       ingridientsList.innerHTML = listIngredients(response.data.ingredients);
 
@@ -51,10 +51,11 @@ async function handleModalRecipe(favoritData) {
 
       fillStars();
       const btnClose = document.querySelector('.btn-close');
-
-      btnClose.addEventListener('click', () => {
+      
+      btnClose.addEventListener('click', () => { 
       modalRecipeBackDrop.classList.add('visible');
-        player.src = '-';
+      player.src = '';
+      
         heartsFillStorage();
       });
 
@@ -67,6 +68,7 @@ async function handleModalRecipe(favoritData) {
 
     modalRecipeBackDrop.addEventListener('click', (e) => {
       modalRecipeBackDrop.classList.add('visible');
+      
       heartsFillStorage();
       e.stopPropagation()
     });
