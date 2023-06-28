@@ -1,0 +1,107 @@
+.rating-backdrop {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: var(--gray-title-w);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.rating-modal-container {
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rating-modal {
+    background: var(--white-w);
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 335px;
+
+    @media screen and (min-width: 768px){
+        padding: 32px;
+        max-width: 424px;
+    }
+}
+
+.rating-block {
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 32px;
+    }
+}
+
+.rating-block-txt {
+    font-size: 14px;
+    font-family: var(--main-font);
+    line-height: 18px;
+    color: var(--gray-descrip-w);
+}
+
+.rating-email-inp {
+    width: 100%;
+    min-width: 295px;
+    padding: 14px 18px;
+    color: var(--gray-title-w);
+    border: 1px solid var(--gray-border-w);
+    border-radius: 15px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    outline: none;
+    background: inherit;
+    transition: border var(--trns-general);
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 16px;
+        font-size: 16px;
+        line-height: 20px;
+        min-width: 360px;
+    }
+}
+.rating-email-inp::placeholder{
+    font-size: 14px;
+    font-family: var(--main-font);
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--gray-title-w);
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+.rating-email-inp:focus,
+.rating-email-inp:hover{
+    border: 1px solid var(--green)
+}
+
+.rating-email-btn {
+    width: 100%;
+    border-radius: 15px;
+    background: var(--green);
+    color: var(--white-w);
+    font-size: 14px;
+    font-family: var(--main-font);
+    font-weight: 500;
+    padding: 15px 18px;
+    line-height: 18px;
+    transition: color var(--trns-general);
+
+    @media screen and (min-width: 768px) {
+        padding: 14px 18px;
+        line-height: 20px;
+    }
+}
+.rating-email-btn:focus,
+.rating-email-btn:hover{
+    color: var(--black);
+}
