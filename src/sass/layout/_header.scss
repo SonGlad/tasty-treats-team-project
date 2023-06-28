@@ -206,13 +206,18 @@
     padding-bottom: 566px;
 }
 
+.header-list-item .main-page{
+    color: var(--white-d);
+    font-size: 12px;
+    font-weight: 500;
+    justify-content: center;
+}
 .header-list-item{
     color: var(--white-d);
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
 }
-
 
 .switch {
     position: absolute;
@@ -251,7 +256,7 @@
 }
 
 input:checked+.slider {
-    background: linear-gradient(var(--green)), linear-gradient(var(--green));
+    background: var(--green);
 }
 
 input:checked+.slider:before {
