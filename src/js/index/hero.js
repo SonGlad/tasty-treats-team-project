@@ -22,4 +22,5 @@ fetchEvent()
       speed: 800,
       loop: true,
     });
-  });
+  }
+);

@@ -4,32 +4,92 @@ import favoritesCategory from '../../templates/favoritesCategory.hbs';
 import {fillStars} from '../utils/fill-stars';
 import {cardHearts} from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
+import { save, load, remove } from '../utils/localStorageJSON'
+import {eventListenerFavorites} from '../modalRecipe';
 
 
-const renderBox = document.querySelector('.favorite-render-cards')
-console.log(renderBox)
-const favoriteButtonList = document.querySelector('.categories-list')
-
+const renderBox = document.querySelector('.favorite-render-cards');
+const favoriteButtonList = document.querySelector('.categories-list');
+let storedData = load('cardData');
 
 function rend() {
-  const storedData = localStorage.getItem('cardData');
+  storedData = load('cardData');
+  const uniqueCategories = [];
+  const categorySet = new Set();
+
+  const displayNone = document.querySelector('.no-recipe-content');
+  if (storedData) {
+    displayNone.style.display = "none";
+  } else { displayNone.style.display = "flex" }
 
   if (storedData) {
-    const displayNone = document.querySelector('.no-recipe-content')
-    console.log(displayNone)
-    displayNone.style.display = "none"
+
+    storedData.forEach(item => {
+      if (!categorySet.has(item.category)) {
+        categorySet.add(item.category);
+        uniqueCategories.push({ category: item.category });
+      }
+
+    });
+  };
+
+   if (categorySet.size !== 0 && !categorySet.has("All categories")) {
+    uniqueCategories.unshift({ category: "All categories" });
   }
-  dataArray = JSON.parse(storedData);
 
+  renderBox.insertAdjacentHTML('beforeend', favoriTesCards(storedData));
+  favoriteButtonList.insertAdjacentHTML('beforeend', favoritesCategory(uniqueCategories));
 
-  renderBox.insertAdjacentHTML('beforeend', favoriTesCards(dataArray));
-  favoriteButtonList.insertAdjacentHTML('beforeend', favoritesCategory(dataArray));
-  const cardsListItems = document.querySelectorAll('.card_container');
+  eventListenerFavorites();
   setLocalStorage();
   fillStars();
-  cardHearts(); 
+  cardHearts();
+  filtrFavoriteCard();
+  removeFavorites();
 
-  console.log(dataArray)
-}
+};
 
-rend()
+rend();
+
+function filtrFavoriteCard() {
+
+  const cardsListItems = document.querySelectorAll('.card_favourites');
+  const cardsLisCategory = document.querySelectorAll('.categories-btn');
+
+
+  cardsLisCategory.forEach(category => {
+    category.addEventListener('click', (event) => {
+      const clickedCategory = event.target.textContent;
+
+      cardsListItems.forEach(item => {
+        if (clickedCategory === "All categories" || item.id === clickedCategory) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        };
+      });
+    });
+  });
+};
+
+function removeFavorites (){
+const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
+
+cardFavouritesBtns.forEach(button => {
+  button.addEventListener('click', () => {
+
+  renderBox.innerHTML = '';
+  favoriteButtonList.innerHTML = '';
+
+  rend();
+  });
+});
+};
+
+// export function removeFavoritesFromModal (){
+//   renderBox.innerHTML = '';
+//   favoriteButtonList.innerHTML = '';
+
+//   rend();
+//   }
+

@@ -13,20 +13,25 @@ const modalOpenClose = () => {
       toggleModal()
   });
 
+
   refs.modalContent.addEventListener("click",  (event) => {
   event.stopPropagation()
   });
 
+
   refs.modal.addEventListener("click",  (event) => {
-  event.stopPropagation()
+    event.stopPropagation()
     toggleModal()
   });
+
+
   window.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
       toggleModal();
     }
   });
 
+  
   function toggleModal() {
     refs.modal.classList.toggle("is-hidden");
     if (refs.modal.classList.contains("is-hidden")) {

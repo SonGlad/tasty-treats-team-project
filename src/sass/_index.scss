@@ -2,6 +2,7 @@
 @import './base/common.scss';
 @import './base/reset.scss';
 @import './base/dark_theme.scss';
+
 // COMPONENTS ///
 @import './components/container.scss';
 
@@ -15,8 +16,9 @@
 @import './layout/index/popular.scss';
 @import './layout/index/search.scss';
 @import './layout/index/cards.scss';
-@import './layout/pagination';
+@import './layout/pagination.scss';
 
+@import './layout/loader.scss';
 @import './layout/modal-recipe.scss';
 @import './layout/index/hero_modal.scss';
 @import './layout/footer.scss';
@@ -24,3 +26,4 @@
 // UTILS ///
 @import './utils/variable.scss';
 @import './utils/vh.scss';
+

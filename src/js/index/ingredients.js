@@ -7,6 +7,7 @@ const SearchAPI = new searchAPI();
 const ingredients = document.querySelector('#ingredients')
 
 getIngredients();
+
 async function getIngredients(){
     try{
         const ingredientsApi = await SearchAPI.getIngredients();

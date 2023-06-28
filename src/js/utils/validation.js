@@ -6,9 +6,9 @@ const validateInput = () => {
   const form = document.querySelector('#order-form');
 
 
- inputElement.addEventListener('input', (event) => {
-  validateField(inputElement, /^[A-Za-zА-Яа-яЁёІіЇїЄє\s]+$/);
-});
+  inputElement.addEventListener('input', (event) => {
+    validateField(inputElement, /^[A-Za-zА-Яа-яЁёІіЇїЄє\s]+$/);
+  });
 
   inputElement.addEventListener('blur', (event) => {
     resetField(inputElement);
@@ -41,12 +41,13 @@ const validateInput = () => {
     if (validateField(inputElement, /^[A-Za-zА-Яа-яЁёІіЇїЄє\s]+$/) &&
         validateField(inputPhone, /^\d+$/) &&
         validateField(inputEmail, /^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
+        console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
         name: ${nameValue},
         phone: ${phoneValue},
         email: ${emailValue},
         comment:${commentValue},
       }`);
+
       resetField(inputPhone);
       resetField(inputEmail);
       resetField(inputElement);
@@ -55,8 +56,7 @@ const validateInput = () => {
       inputEmail.value = '';
       inputComment.value = '';
 
-    }
-
+    };
   });
 
   function validateField(input, pattern) {
@@ -76,5 +76,6 @@ const validateInput = () => {
     input.style.border = '1px solid var(--gray-title-w)';
   }
 };
+
 
 export default validateInput;

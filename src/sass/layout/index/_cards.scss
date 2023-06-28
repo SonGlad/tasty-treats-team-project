@@ -1,4 +1,6 @@
 .container-cards {
+  min-height: 287px;
+  position: relative;
   margin-top: 24px;
   @media screen and (min-width: 768px) {
     margin-top: 32px;
@@ -116,7 +118,7 @@
 }
 .card_star-rating {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   align-items: center;
 }
 .star-rating_value {
@@ -130,7 +132,16 @@
   width: 18px;
   height: 18px;
   fill: var(--gray-star-w);
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 18px;
+    height: 18px;
+  }
 }
+
 .card_btn {
   display: inline-block;
   background-color: var(--green);

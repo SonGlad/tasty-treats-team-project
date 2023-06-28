@@ -3,7 +3,6 @@ body.dark-theme{
     background-color: var(--background-d);
 }
 
-
 // HEADER-DARK-THEME //
 
 .dark-theme .logo-second {
@@ -24,8 +23,6 @@ body.dark-theme{
     color: var(--green);
 }
 
-
-
 // HERO-DARK-THEME // 
 
 .dark-theme .event-title{
@@ -43,6 +40,7 @@ body.dark-theme{
 }
 .dark-theme span.swiper-pagination-bullet-active{
     background: var(--green);
+
 }
 
 // ALLCATEGORIES-DARK-THEME //
@@ -147,4 +145,3 @@ body.dark-theme{
 .dark-theme .order-form-comment{
     background-color: transparent;
     color: var(--white-d);
-}
