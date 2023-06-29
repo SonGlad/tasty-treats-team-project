@@ -8,7 +8,7 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   transition: opacity var(--trns-modal), visibility var(--trns-modal);
-  }
+}
 
 .backdrop.is-hidden{
   opacity: 0;
@@ -18,14 +18,14 @@
 }
 
 .modal {
-  background: #FFF;
+  background: var(--white-w);
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 28px 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--gray-border-w);
   width: 335px;
   height: 582px;
   border-radius: 15px;
@@ -36,14 +36,15 @@
   @media screen and (min-width: 768px) {
     padding: 40px;
     width: 440px;
-    height: 632px;}
+    height: 632px;
   }
+}
   
-  .backdrop.is-hidden .modal{
-      transform: scale(0.75) translate(-65%, -65%);
-      opacity: 0;
-      transition-delay: 0ms;
-  }
+.backdrop.is-hidden .modal{
+  transform: scale(0.75) translate(-65%, -65%);
+  opacity: 0;
+  transition-delay: 0ms;
+}
 
 
 .close {
@@ -57,11 +58,13 @@
   cursor: pointer;
   transition: transform var(--trns-modal);
   &:hover,&:focus {
-    transform: scale(1.8) rotate(180deg);;
-    transform-origin: center;}
+    transform: scale(1.8) rotate(180deg);
+    transform-origin: center;
+  }
   @media screen and (min-width: 768px) {
     top: 16px;
-    right: 16px;}
+    right: 16px;
+  }
 }
 
 
@@ -75,7 +78,8 @@
   text-transform: uppercase;
   margin-bottom: 28px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 40px;}
+    margin-bottom: 40px;
+  }
 }
 
 .order-form-label{
@@ -101,11 +105,13 @@
   outline: none;
   border: 1px solid var(--gray-title-w);
   &:hover, &:active {
-    border: 1px solid var(--green);}
+    border: 1px solid var(--green);
+  }
   @media screen and (min-width: 768px) {
     width: 360px;
     height: 48px;
-    margin: 8px 0 18px;}
+    margin: 8px 0 18px;
+  }
 }
 
 
@@ -122,20 +128,22 @@
   border: 1px solid var(--green);}
   @media screen and (min-width: 768px) {
     width: 360px;
-    margin: 8px 0 40px;}
+    margin: 8px 0 40px;
+  }
 }
 
 .submit-btn{
   background-color: var(--green);
-  color: white;
+  color: var(--white-w);
   border-radius: 15px;
   padding: 14px 28px;
   justify-content: center;
   align-items: center;
   transition: all var(--trns-general);
   &:hover {
-    color: black;}
-  &:active{
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);}
+    color: var(--black);
+  }
+  &:focus {
+    color: var(--black);
+  }
 }
