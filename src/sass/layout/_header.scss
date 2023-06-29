@@ -37,15 +37,22 @@
   transform: scaleX(1);
 }
 
-.btn-home{
- color: var(--green);
- font-size: 12px;
- font-weight: 500;
- margin-right: 16px;
+.header-nav-links{
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 500;
+    font-size: 12px;
+    
 }
-.btn-favorites{
- color: var(--black);
- font-size: 12px;
+
+.header-nav-links:hover,
+.header-nav-links:focus{
+    color: var(--green);
+    transition: var(--trns-general);
+}
+
+.btn-home{
+    margin-right: 16px;
 }
 
 .logo-first {
@@ -286,8 +293,11 @@ input:checked+.slider:before {
     background-color: var(--green);
 }
 
+.nav-link-active{
+    color: var(--green);
+}
+
 .shopping-icon-use{
     fill: var(--white-w);
     stroke: var(--black);
-
 }

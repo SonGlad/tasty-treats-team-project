@@ -25,9 +25,15 @@ body.dark-theme{
 .dark-theme .logo-second {
     color: var(--white-d);
 }
-.dark-theme .btn-favorites{
+
+.dark-theme .header-nav-links{
     color: var(--white-d);
 }
+
+.dark-theme .nav-link-active{
+    color: var(--green);
+}
+
 .dark-theme .shopping-icon-use{
     fill: var(--black);
     stroke: var(--white-d);
