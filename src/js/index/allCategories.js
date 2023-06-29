@@ -35,3 +35,9 @@ function removeActiveClassFromAllButtons() {
     button.classList.remove('active');
   });
 }
+
+refs.categoryList.addEventListener('click', event => {
+  if (!event.target.classList.contains('category-btn')) {
+    event.stopPropagation();
+  }
+});
