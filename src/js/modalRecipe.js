@@ -13,6 +13,7 @@ import { save, load, remove } from './utils/localStorageJSON'
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
+let dataArray = load('cardData');
 
 
 async function handleModalRecipe(favoritData) {
