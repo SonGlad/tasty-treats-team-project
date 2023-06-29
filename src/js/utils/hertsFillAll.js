@@ -11,7 +11,7 @@ export function heartsFillStorage() {
     const identArray = storedData.map(item => item.ident);
 
     cardFavouritesBtns.forEach(button => {
-      console.log(cardFavouritesBtns.length)
+
       const cardId = button.parentNode.querySelector('.card_btn').id;
       const hertWaihte = button.parentNode.querySelector('.card_heart');
 
@@ -19,7 +19,6 @@ export function heartsFillStorage() {
       button.classList.add('heart-filled');
       hertWaihte.classList.add('heart-filled')
      } else {
-       console.log("ref")
       button.classList.remove('heart-filled');
       hertWaihte.classList.remove('heart-filled')
       }
