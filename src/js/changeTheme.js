@@ -6,16 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const desktopLogoSecond = document.querySelector('.logo-second');
   const allCategoryButton = document.querySelector('.all-category-button');
 
-  // Function to toggle the desktop theme
   function toggleDesktopTheme() {
     if (desktopThemeSwitcher.checked) {
-      // Dark theme selected
       desktopHeader.classList.add('dark-theme');
       mobThemeSwitcher.classList.add('dark-theme');
       bodyTheme.classList.add('dark-theme');
       localStorage.setItem('theme', 'dark');
     } else {
-      // Light theme selected
       desktopHeader.classList.remove('dark-theme');
       mobThemeSwitcher.classList.remove('dark-theme');
       bodyTheme.classList.remove('dark-theme');
@@ -23,31 +20,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Function to toggle the mobile theme
   function toggleMobileTheme() {
     if (mobThemeSwitcher.checked) {
-      // Dark theme selected
       bodyTheme.classList.add('dark-theme');
       localStorage.setItem('theme', 'dark');
     } else {
-      // Light theme selected
       bodyTheme.classList.remove('dark-theme');
       localStorage.setItem('theme', 'light');
     }
   }
 
-  // Event listener for desktop theme switcher
-  desktopThemeSwitcher.addEventListener('change', toggleDesktopTheme);
+  // Function to apply the theme based on the stored value
+  function applyTheme() {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      desktopThemeSwitcher.checked = true;
+      mobThemeSwitcher.checked = true;
+      bodyTheme.classList.add('dark-theme');
+    } else {
+      desktopThemeSwitcher.checked = false;
+      mobThemeSwitcher.checked = false;
+      bodyTheme.classList.remove('dark-theme');
+    }
+  }
 
-  // Event listener for mobile theme switcher
+  desktopThemeSwitcher.addEventListener('change', toggleDesktopTheme);
   mobThemeSwitcher.addEventListener('change', toggleMobileTheme);
 
-  // Apply the stored theme on page reload
-  const storedTheme = localStorage.getItem('theme');
-  if (storedTheme === 'dark') {
-    desktopThemeSwitcher.checked = true;
-    mobThemeSwitcher.checked = true;
-    toggleDesktopTheme();
-    toggleMobileTheme();
-  }
+  // Apply the stored theme on page load
+  applyTheme();
+
+  // Apply the theme when navigating to a new page
+  window.addEventListener('pageshow', function(event) {
+    applyTheme();
+  });
 });
