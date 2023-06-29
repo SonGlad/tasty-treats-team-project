@@ -145,15 +145,20 @@
   display: inline-block;
   background-color: var(--green);
   border-radius: 8px;
-  border: none;
   padding: 8px 14px;
-  font-family: Inter;
+  font-family: var(--main-font);
 
   color: var(--background-w);
   font-size: 12px;
   font-weight: 500;
   margin-left: auto;
+  transition: var(--trns-general);
 }
+.card_btn:focus,
+.card_btn:hover{
+  color: var(--black);
+}
+
 .filled {
   fill: var(--yellow-star);
   opacity: 1;
