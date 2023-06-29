@@ -244,3 +244,12 @@ body.dark-theme{
 .dark-theme .rating-email-inp::placeholder{
     color: var(--gray-title-d);
 }
+
+// TEAM-MODAL-DARK-THEME //
+
+.dark-theme .team-modal{
+    background-color: var(--gray-slider-desc-d);
+}
+.dark-theme .team-title{
+    color: #a28561;
+}
