@@ -58,80 +58,95 @@ function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
   renderCards();
   resetPagination();
-}
+};
+
 
 async function renderCards(page) {
 
-    try{
-      resetCards();
-      refs.loader.classList.remove('visually-hidden');
-      refs.loaderTxt.classList.remove('visually-hidden');
-      FetchByFilter.setPage(page);
-    
-      const response = await FetchByFilter.fetchRecipes();
-    
-      const results = response.results;
+  try{
+    resetCards();
+    refs.loader.classList.remove('visually-hidden');
+    refs.loaderTxt.classList.remove('visually-hidden');
+    FetchByFilter.setPage(page);
+  
+    const response = await FetchByFilter.fetchRecipes();
+  
+    const results = response.results;
 
-      if (results.length === 0){
-          throw new Error
-        }else{
-            refs.conCards.classList.add('visually-hidden');
-        };
-    
-      const roundedData = results.map(result => {
-        const ratingValue = Math.round(result.rating * 10) / 10;
- 
-        
-        return { ...result, rating: ratingValue,notFound: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"};
-      });
+    if (results.length === 0){
+        throw new Error
+      }else{
+          refs.conCards.classList.add('visually-hidden');
+      };
+  
+    const roundedData = results.map(result => {
+      const ratingValue = Math.round(result.rating * 10) / 10;
 
-      results.splice(0, results.length, ...roundedData);
-    
-      refs.cardsList.innerHTML = TemplateArticles(results);
-    
-      refs.loader.classList.add('visually-hidden');
-      refs.loaderTxt.classList.add('visually-hidden');
-      eventListener();
-      setLocalStorage();
-      fillStars();
-      cardHearts();
-      return response;
       
-    }catch(err){
+      return { ...result, rating: ratingValue,notFound: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"};
+    });
 
-    refs.conCards.classList.remove('visually-hidden');
-
+    results.splice(0, results.length, ...roundedData);
+  
+    refs.cardsList.innerHTML = TemplateArticles(results);
+  
     refs.loader.classList.add('visually-hidden');
     refs.loaderTxt.classList.add('visually-hidden');
-    }
-}
+    eventListener();
+    setLocalStorage();
+    fillStars();
+    cardHearts();
+    return response;
+    
+  }catch(err){
+
+  refs.conCards.classList.remove('visually-hidden');
+
+  refs.loader.classList.add('visually-hidden');
+  refs.loaderTxt.classList.add('visually-hidden');
+  }
+};
+
 
 function timeFetch(event) {
-  const time = parseInt(event.target.textContent);
+  if( event.target.tagName === 'BUTTON'){
+    const time = parseInt(event.target.textContent);
 
-  FetchByFilter.setTimeValue(time);
-  renderCards();
-  resetPagination();
-}
+    FetchByFilter.setTimeValue(time);
+    renderCards();
+    resetPagination();
+  }else{
+    return;
+  }
+};
+
 
 function areaFetch(event) {
   try {
-    const area = event.target.textContent;
-    FetchByFilter.setAreaValue(area);
-    renderCards(page);
-    resetPagination();
-  } catch (err) {
+    if(event.target.tagName === 'BUTTON'){
+      const area = event.target.textContent;
+
+      FetchByFilter.setAreaValue(area);
+      renderCards(page);
+      resetPagination();
+    }
+  }catch (err) {
     console.log(err);
   }
-}
+};
+
 
 function ingredientsFetch(event) {
-  const ingredient = String(event.target.id);
+  if(event.target.tagName === 'BUTTON'){
+    const ingredient = String(event.target.id);
+  
+    FetchByFilter.setIngredientsValue(ingredient);
+    renderCards();
+    resetPagination();
+    
+  }
+};
 
-  FetchByFilter.setIngredientsValue(ingredient);
-  renderCards();
-  resetPagination();
-}
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;
@@ -151,11 +166,12 @@ function categoriesFetch(event) {
   FetchByFilter.setCategoryValue(categories);
   renderCards(page);
   resetPagination();
-}
+};
+
 
 function resetCards() {
   refs.cardsList.innerHTML = '';
-}
+};
 
 
 function resetPagination() {
@@ -171,22 +187,25 @@ function resetPagination() {
       pagination.reset(response.totalPages * response.perPage);
     }
   });
-}
+};
+
 
 function show() {
   refs.pagination.classList.add('show');
   refs.pagination.classList.remove('hide');
-}
+};
+
 
 function hide() {
   refs.pagination.classList.add('hide');
   refs.pagination.classList.remove('show');
-}
+};
 
-document
-  .querySelector('.category-list')
+
+document.querySelector('.category-list')
   .addEventListener('click', function (event) {
     if (!event.target.classList.contains('category-btn')) {
       event.stopPropagation();
     }
-  });
+  }
+);

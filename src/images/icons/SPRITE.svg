@@ -2,7 +2,7 @@
   <defs>
     <!-- MOBILE MENU -->
     <symbol id="icon-align-justify" viewBox="0 0 23 24" >
-      <path stroke-linecap="round" stroke-linejoin="round" stroke="black" stroke-width="1.454" d="M20.364 10.061H2.909M20.364 6.182H2.909M20.364 13.939H2.909M20.364 17.818H2.909"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.454" d="M20.364 10.061H2.909M20.364 6.182H2.909M20.364 13.939H2.909M20.364 17.818H2.909"/>
     </symbol>
     <!-- ARROW DOWN -->
     <symbol id="icon-chevron-down" viewBox="0 0 24 24">

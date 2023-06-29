@@ -22,6 +22,10 @@ body.dark-theme{
 }
 
 // MOB-MENU-DARK-THEME //
+.dark-theme .mobile-menu-icon{
+    stroke: var(--white-d);
+}
+
 .dark-theme .mobile-menu{
     background-color: var(--black);
 }

@@ -106,6 +106,12 @@
         display: none;
     }
 }
+
+.mobile-menu-icon{
+    stroke: var(--black);
+}
+
+
 .header-switch {
     display: none;
     @media screen and(min-width:768px) {
