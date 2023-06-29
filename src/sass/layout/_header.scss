@@ -231,11 +231,16 @@
     font-weight: 500;
     justify-content: center;
 }
+
 .header-list-item{
     color: var(--white-d);
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
+}
+
+.active-header-list-item{
+    color: var(--black);
 }
 
 .switch {
