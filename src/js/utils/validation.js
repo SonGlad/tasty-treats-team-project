@@ -81,13 +81,13 @@
 // 
 // export default validateInput;
 
-var form = document.getElementById('order-form');
+const form = document.getElementById('order-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  var inputs = form.querySelectorAll('.input-js');
-  var isEmpty = false;
-  var formData = [];
+  const inputs = form.querySelectorAll('.input-js');
+  const isEmpty = false;
+  const formData = {};
 
   inputs.forEach(function(input) {
     if (input.value.trim() === '') {
@@ -95,16 +95,22 @@ form.addEventListener('submit', function(event) {
       input.classList.add('error');
     } else {
       input.classList.remove('error');
-      formData.push({ name: input.name, value: input.value.trim() });
+      formData[input.name] = input.value.trim();
     }
   });
 
   if (isEmpty) {
     alert('Please fill in all required fields.');
   } else {
-    console.log(formData);
+    console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
+      name: ${formData.name},
+      phone: ${formData.phone},
+      email: ${formData.email},
+      comment: ${formData.comment}
+    }`);
     form.reset(); 
   }
 });
+
 
 
