@@ -66,7 +66,7 @@ async function renderCards(page) {
     try{
       resetCards();
       refs.loader.classList.remove('visually-hidden');
-      refs.loaderTxt.classList.remove('visually-hidden')
+      refs.loaderTxt.classList.remove('visually-hidden');
       FetchByFilter.setPage(page);
     
       const response = await FetchByFilter.fetchRecipes();
