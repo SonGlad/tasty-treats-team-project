@@ -147,3 +147,41 @@
     color: var(--black);
   }
 }
+
+// NAME-VALID //
+
+.name-form-valid:not(:placeholder-shown):required:valid {
+  border-color: var(--green);
+  transition: border-color var(--trns-modal);
+}
+
+.name-form-valid:not(:placeholder-shown):required:invalid {
+  border-color: var(--color-input-red);
+  transition: border-color var(--trns-modal);
+}
+
+
+// PHONE-VALID //
+
+.phone-form-valid:not(:placeholder-shown):required:valid {
+  border-color: var(--green);
+  transition: border-color var(--trns-modal);
+}
+
+.phone-form-valid:not(:placeholder-shown):required:invalid {
+  border-color: var(--color-input-red);
+  transition: border-color var(--trns-modal);
+}
+
+
+// EMAIL-VALID //
+
+.email-form-valid:not(:placeholder-shown):required:valid {
+  border-color: var(--green);
+  transition: border-color var(--trns-modal);
+}
+
+.email-form-valid:not(:placeholder-shown):required:invalid {
+  border-color: var(--color-input-red);
+  transition: border-color var(--trns-modal);
+}

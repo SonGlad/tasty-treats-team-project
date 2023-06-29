@@ -3,5 +3,5 @@ const validateInput = require('../utils/validation').default;
 
 
 modalOpenClose();
-validateInput();
+
 
