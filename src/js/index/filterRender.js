@@ -6,7 +6,7 @@ import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { pagination } from '/src/js/pagination';
 import { eventListener } from '../modalRecipe';
-// import Notiflix from 'notiflix';
+import { Notify } from 'notiflix';
 
 const refs = {
   seacrhInp: document.querySelector('.inp-search'),
@@ -30,9 +30,7 @@ FetchByFilter.setLimitValue();
 const limit = FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
-
-
-resetPagination()
+resetPagination();
 
 renderCards(page);
 resetPagination();
@@ -40,11 +38,11 @@ resetPagination();
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
 
-
   try {
     renderCards(currentPage);
   } catch (error) {
     console.log(error);
+    Notify.failure('Something went wrong. Please try again');
   }
 });
 
@@ -119,6 +117,7 @@ async function renderCards(page) {
 
     refs.loader.classList.add('visually-hidden');
     refs.loaderTxt.classList.add('visually-hidden');
+    Notify.failure('Something went wrong. Please try again');
   }
 }
 
@@ -145,6 +144,7 @@ function areaFetch(event) {
     }
   } catch (err) {
     console.log(err);
+    Notify.failure('Something went wrong. Please try again');
   }
 }
 
@@ -183,11 +183,10 @@ function resetCards() {
 }
 
 function resetPagination() {
-
-  try{
+  try {
     renderCards(page).then(response => {
       if (
-        !response || 
+        !response ||
         response.results.length < limit ||
         response.totalPages < 2 ||
         response.totalPages === null
@@ -198,12 +197,11 @@ function resetPagination() {
         pagination.reset(response.totalPages * response.perPage);
       }
     });
-  }catch(error){
+  } catch (error) {
     console.log(error);
+    Notify.failure('Something went wrong. Please try again');
   }
-};
-
-
+}
 
 function show() {
   refs.pagination.classList.add('show');
@@ -214,11 +212,3 @@ function hide() {
   refs.pagination.classList.add('hide');
   refs.pagination.classList.remove('show');
 }
-
-document
-  .querySelector('.category-list')
-  .addEventListener('click', function (event) {
-    if (!event.target.classList.contains('category-btn')) {
-      event.stopPropagation();
-    }
-  });
