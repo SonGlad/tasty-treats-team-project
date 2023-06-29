@@ -25,9 +25,11 @@ const modalOpenClose = () => {
   });
 
 
-  window.addEventListener('keydown', function(event) {
+  document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-      toggleModal();
+      if (!refs.modal.classList.contains("is-hidden")) {
+        toggleModal();
+      }
     }
   });
 
