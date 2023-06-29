@@ -13,6 +13,7 @@ function modalRating() {
   refs.closeBtnModal.addEventListener('click', () => {
     refs.ratingBackdrop.classList.add('visible');
     changeColor(0);
+    enableScroll();
   });
 
   refs.starInputs.forEach(input => {
@@ -43,6 +44,7 @@ function modalRating() {
   refs.ratingBackdrop.addEventListener('click', evt => {
     if (evt.target === refs.ratingBackdrop) {
       refs.ratingBackdrop.classList.add('visible');
+      enableScroll();
     }
   });
 
@@ -50,6 +52,7 @@ function modalRating() {
     if (evt.key === 'Escape') {
       changeColor(0);
       refs.ratingBackdrop.classList.add('visible');
+      enableScroll();
     }
   });
 
@@ -74,6 +77,13 @@ function changeColor(starCount) {
       starSVG.classList.remove('active');
     }
   }
+}
+function disableScroll() {
+  document.body.classList.add('scroll-lock');
+}
+
+function enableScroll() {
+  document.body.classList.remove('scroll-lock');
 }
 
 modalRating();
