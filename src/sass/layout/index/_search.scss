@@ -235,6 +235,7 @@
   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
 }
 .option-item{
+  width: 100%;
   padding: 0;
   text-align: left;
   color: var(--gray-ul-w);
@@ -306,6 +307,7 @@
 // !=========error card==============
 
 .notFound-txt-img{
+  position: relative;
   display: flex;
 }
 .err-txt {
@@ -325,12 +327,12 @@
 .left-txt{
   position: absolute;
   top: 40px;
-  left: 40px;
+  left: 50px;
 }
 .rigth-txt{
   position: absolute;
   top: 40px;
-  right: 40;
+  right: 50;
 }
 
 @media screen and(min-width: 768px) {
@@ -365,6 +367,16 @@
     right: 230px;
   }
 }
+.disk {
+  position: relative;
+  width: 100%;
+  border-radius: 50%;
+  margin: 10% auto; font: 4.5vmin monospace;
+  top: -15px; 
+}
+
+
+
 
 .disk b { 
   position: absolute; 
@@ -390,7 +402,7 @@ padding-bottom: 50%;
 .disk b:nth-of-type(2) {
   -ms-transform: rotate(351deg);
    -webkit-transform: rotate(351deg);
-    transform: rotate(352deg);} 
+    transform: rotate(351deg);} 
 .disk b:nth-of-type(3) {
   -ms-transform: rotate(357deg);
   -webkit-transform: rotate(357deg); 
@@ -427,8 +439,8 @@ padding-bottom: 50%;
 .disk b:nth-of-type(-n+7) { 
   bottom: 50%; 
   -ms-transform-origin: 0% 100%;
-  font-size: 20px;
-  -webkit-transform-origin: 0 70%;
+  font-size: 30px;
+  -webkit-transform-origin: 0 100%;
   padding-bottom: 50%; 
   }  
 }
@@ -452,6 +464,16 @@ padding-bottom: 50%;
   }
   
   
+}
+
+@media screen and (min-width: 768px) {
+  .disk {
+    position: relative;
+    width: 100%;
+    border-radius: 50%;
+    margin: 10% auto; font: 4.5vmin monospace;
+    top: -15px; 
+  }
 }
  
 

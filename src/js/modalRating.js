@@ -1,27 +1,50 @@
+import { addARating } from '../js/API_request/rating-modal';
+const RatingAdd = new addARating();
+
 function modalRating() {
   const refs = {
     closeBtnModal: document.querySelector('.btn-close-rating'),
     ratingBackdrop: document.querySelector('.rating-backdrop'),
     ratingEmailBtn: document.querySelector('.rating-email-btn'),
-    body: document.querySelector('.body'),
+    starInputs: document.querySelectorAll('.star-input'),
+    ratingEmailInp: document.querySelector('.rating-email-inp'),
   };
 
   refs.closeBtnModal.addEventListener('click', () => {
     refs.ratingBackdrop.classList.add('visible');
-    refs.body.classList.remove('scroll-lock');
     changeColor(0);
+    enableScroll();
+  });
+
+  refs.starInputs.forEach(input => {
+    input.addEventListener('click', event => {
+      const star = event.target;
+
+      const ratingValue = star.value;
+      RatingAdd.setRatingValue(ratingValue);
+    });
   });
 
   refs.ratingEmailBtn.addEventListener('click', () => {
     refs.ratingBackdrop.classList.add('visible');
-    refs.body.classList.remove('scroll-lock');
+    enableScroll();
     changeColor(0); // !!!!!!!!!!!!!!!!! при отправке на backend должы обновиться звезды, но и отправиться
+
+    const inpValue = refs.ratingEmailInp.value.trim();
+    if (inpValue === '') {
+      window.alert('Please enter a valid query');
+      return;
+    }
+    const id = refs.ratingEmailBtn.id;
+    RatingAdd.setInpValue(inpValue);
+    RatingAdd.setId(id);
+    RatingAdd.addRating();
   });
 
   refs.ratingBackdrop.addEventListener('click', evt => {
     if (evt.target === refs.ratingBackdrop) {
       refs.ratingBackdrop.classList.add('visible');
-      refs.body.classList.remove('scroll-lock');
+      enableScroll();
     }
   });
 
@@ -29,6 +52,7 @@ function modalRating() {
     if (evt.key === 'Escape') {
       changeColor(0);
       refs.ratingBackdrop.classList.add('visible');
+      enableScroll();
     }
   });
 
@@ -54,5 +78,43 @@ function changeColor(starCount) {
     }
   }
 }
+function disableScroll() {
+  document.body.classList.add('scroll-lock');
+}
+
+function enableScroll() {
+  document.body.classList.remove('scroll-lock');
+}
 
 modalRating();
+
+
+
+
+
+
+
+// MODAL-VALIDATION //
+
+const modal = document.getElementById('rating-modal-js');
+const emailInput = modal.querySelector('.rating-email-inp');
+const submitButton = modal.querySelector('.rating-email-btn');
+
+submitButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  if (email === '') {
+    emailInput.classList.add('error');
+    return;
+  }
+
+ 
+  emailInput.value = '';
+});
+
+emailInput.addEventListener('input', function() {
+  emailInput.classList.remove('error');
+});
+

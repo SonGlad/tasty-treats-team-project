@@ -57,6 +57,10 @@
     transform: scale(1.8) rotate(180deg);
 }
 
+.rating-close-icon-svg{
+    stroke: var(--black);
+}
+
 .rating-block {
     margin-bottom: 24px;
 
@@ -155,6 +159,10 @@
 }
 
 .star-label {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     display: inline-block;
     cursor: pointer;
 }
@@ -168,3 +176,14 @@
 .star-rating.active{
     fill: var(--yellow-star);
 }
+
+
+.rating-email-valid:not(:placeholder-shown):required:valid {
+    border-color: var(--green);
+    transition: border-color var(--trns-modal);
+  }
+  
+  .rating-email-valid:not(:placeholder-shown):required:invalid {
+    border-color: var(--color-input-red);
+    transition: border-color var(--trns-modal);
+  }
