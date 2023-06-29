@@ -73,6 +73,9 @@ body.dark-theme{
 .dark-theme .option-item{
     color: var(--gray-ul-d);
 }
+.dark-theme .option-item:hover{
+    color: var(--white-d);
+}
 
 
 
