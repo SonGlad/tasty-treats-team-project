@@ -13,6 +13,7 @@ function modalRating() {
   refs.closeBtnModal.addEventListener('click', () => {
     refs.ratingBackdrop.classList.add('visible');
     changeColor(0);
+    enableScroll();
   });
 
   refs.starInputs.forEach(input => {
@@ -43,6 +44,7 @@ function modalRating() {
   refs.ratingBackdrop.addEventListener('click', evt => {
     if (evt.target === refs.ratingBackdrop) {
       refs.ratingBackdrop.classList.add('visible');
+      enableScroll();
     }
   });
 
@@ -50,6 +52,7 @@ function modalRating() {
     if (evt.key === 'Escape') {
       changeColor(0);
       refs.ratingBackdrop.classList.add('visible');
+      enableScroll();
     }
   });
 
@@ -75,5 +78,42 @@ function changeColor(starCount) {
     }
   }
 }
+function disableScroll() {
+  document.body.classList.add('scroll-lock');
+}
+
+function enableScroll() {
+  document.body.classList.remove('scroll-lock');
+}
 
 modalRating();
+
+
+
+
+
+
+
+// MODAL-VALIDATION //
+
+const modal = document.getElementById('rating-modal-js');
+const emailInput = modal.querySelector('.rating-email-inp');
+const submitButton = modal.querySelector('.rating-email-btn');
+
+submitButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  if (email === '') {
+    emailInput.classList.add('error');
+    return;
+  }
+
+ 
+  emailInput.value = '';
+});
+
+emailInput.addEventListener('input', function() {
+  emailInput.classList.remove('error');
+});
