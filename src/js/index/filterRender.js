@@ -158,11 +158,6 @@ function resetCards() {
   refs.cardsList.innerHTML = '';
 }
 
-// function resetPagination() {
-//   renderCards().then(response =>
-//     pagination.reset(response.totalPages * response.perPage)
-//   );
-// }
 
 function resetPagination() {
   renderCards().then(response => {
