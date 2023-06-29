@@ -19,7 +19,8 @@ const refs = {
   conCards: document.querySelector('.notfound-cook'),
   pagination: document.querySelector('.pagination-wrapper'),
   customSelect: document.querySelectorAll('.custom-select'),
-  loaderTxt: document.querySelector('.loader-txt')
+  loaderTxt: document.querySelector('.loader-txt'),
+  imgOops: document.querySelector('.notfound-cook'),
 };
 
 console.log(refs.customSelect);
@@ -65,8 +66,12 @@ async function renderCards(page) {
 
   try{
     resetCards();
+    
     refs.loader.classList.remove('visually-hidden');
     refs.loaderTxt.classList.remove('visually-hidden');
+    refs.imgOops.classList.add('visually-hidden');
+    
+    
     FetchByFilter.setPage(page);
   
     const response = await FetchByFilter.fetchRecipes();
@@ -77,8 +82,10 @@ async function renderCards(page) {
         throw new Error
       }else{
           refs.conCards.classList.add('visually-hidden');
+          refs.imgOops.classList.add('visually-hidden');
+          
       };
-  
+      
     const roundedData = results.map(result => {
       const ratingValue = Math.round(result.rating * 10) / 10;
 
@@ -92,6 +99,7 @@ async function renderCards(page) {
   
     refs.loader.classList.add('visually-hidden');
     refs.loaderTxt.classList.add('visually-hidden');
+    
     eventListener();
     setLocalStorage();
     fillStars();
@@ -99,11 +107,13 @@ async function renderCards(page) {
     return response;
     
   }catch(err){
-
+  
   refs.conCards.classList.remove('visually-hidden');
+  refs.imgOops.classList.remove('visually-hidden');
 
   refs.loader.classList.add('visually-hidden');
   refs.loaderTxt.classList.add('visually-hidden');
+  
   }
 };
 
