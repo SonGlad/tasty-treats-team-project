@@ -155,6 +155,10 @@
 }
 
 .star-label {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     display: inline-block;
     cursor: pointer;
 }

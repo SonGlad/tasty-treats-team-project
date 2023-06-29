@@ -1,3 +1,6 @@
+.star-modal{
+  fill: rgba(5, 5, 5, 0.1);
+}
 .recipe-backdrop {
   position: fixed;
   top: 0;
@@ -123,7 +126,7 @@
   line-height: calc(18 / 14);
   font-weight: 500;
   color: var(--gray-title-w);
-  margin-left: 6px;
+  margin-left: 16px;
 }
 .overflow-scroll {
   height: 204px;
@@ -248,4 +251,11 @@
 
 .scroll-lock {
   overflow: hidden;
+}
+.card_star-rating-modal{
+align-items: flex-end;
+}
+.filled {
+  fill: var(--yellow-star);
+  opacity: 1;
 }

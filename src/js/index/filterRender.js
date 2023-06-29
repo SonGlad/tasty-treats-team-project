@@ -177,6 +177,7 @@ function resetCards() {
 function resetPagination() {
   renderCards().then(response => {
     if (
+      !response || 
       response.results.length < 9 ||
       response.totalPages < 2 ||
       response.totalPages === null
