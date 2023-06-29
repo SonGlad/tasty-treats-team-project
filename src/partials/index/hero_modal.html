@@ -1,50 +1,32 @@
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal">
-    <span class="close">
-      <svg width="24" height="24">
-        <use href="./images/icons/SPRITE.svg#icon-x"></use>
-      </svg>
-    </span>
-    <h3 class="order-modal-title">Order now</h3>
-    <form class="order-form" id="order-form">
-      <label for="name" class="order-form-label">Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Enter your name"
-        class="order-form-input name-input"
-        required
-        pattern="[A-Za-zА-Яа-яЁёІіЇїЄє' ]+"
-      />
-
-      <label for="phone" class="order-form-label">Phone number</label>
-      <input
-        type="tel"
-        id="phone"
-        class="order-form-input input-phone"
-        name="phone"
-        placeholder="Enter your phone"
-      />
-
-      <label for="email" class="order-form-label">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Enter your email"
-        class="order-form-input email-input"
-        required
-      />
-
-      <label for="comment" class="order-form-label">Comment</label>
-      <textarea
-        id="comment"
-        name="comment"
-        class="order-form-comment"
-      ></textarea>
-
-      <button type="submit" class="submit-btn">Send</button>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <span class="close">
+        <svg width="24" height="24">
+          <use href="./images/icons/SPRITE.svg#icon-x"></use>
+        </svg>
+      </span>
+      <h3 class="order-modal-title">Order now</h3>
+      <form class="order-form" id="order-form">
+        <label for="name" class="order-form-label">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" class="order-form-input name-input" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄє' ]+">
+        <label for="phone" class="order-form-label">Phone number</label>
+        <input type="tel" id="phone" class="order-form-input input-phone" name="phone" placeholder="Enter your phone">
+        <label for="email" class="order-form-label">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" class="order-form-input email-input" required>
+        <label for="comment" class="order-form-label">Comment</label>
+        <textarea id="comment" name="comment" class="order-form-comment"></textarea>
+  
+        <button type="submit" class="submit-btn">Send</button>
+      </form>
+    </div>
   </div>
-</div>
+</body>
+</html>
