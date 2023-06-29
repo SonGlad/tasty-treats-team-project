@@ -172,3 +172,14 @@
 .star-rating.active{
     fill: var(--yellow-star);
 }
+
+
+.rating-email-valid:not(:placeholder-shown):required:valid {
+    border-color: var(--green);
+    transition: border-color var(--trns-modal);
+  }
+  
+  .rating-email-valid:not(:placeholder-shown):required:invalid {
+    border-color: var(--color-input-red);
+    transition: border-color var(--trns-modal);
+  }

@@ -77,3 +77,33 @@ function changeColor(starCount) {
 }
 
 modalRating();
+
+
+
+
+
+
+
+// MODAL-VALIDATION //
+
+const modal = document.getElementById('rating-modal-js');
+const emailInput = modal.querySelector('.rating-email-inp');
+const submitButton = modal.querySelector('.rating-email-btn');
+
+submitButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  if (email === '') {
+    emailInput.classList.add('error');
+    return;
+  }
+
+ 
+  emailInput.value = '';
+});
+
+emailInput.addEventListener('input', function() {
+  emailInput.classList.remove('error');
+});
