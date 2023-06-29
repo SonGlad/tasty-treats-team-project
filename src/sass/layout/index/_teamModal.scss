@@ -1,3 +1,22 @@
+.footer-backdrop {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: opacity var(--trns-modal), visibility var(--trns-modal);
+}
+
+.footer-backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 150ms;
+}
+
 .team-open-button {
   border: none;
   background-color: transparent;
@@ -10,7 +29,7 @@
   top: 50%;
   left: 50%;
   z-index: 999;
-  transform: translate(-50%, -50%) rotateX(0) scale(1);
+  transform: translate(-50%, -50%);
   max-width: 1000px;
   width: 100%;
   padding: 80px 32px;
@@ -20,8 +39,14 @@
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px,
     0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: all var(--trns-modal);
+  transition-delay: 150ms;
 }
-
+.footer-backdrop.is-hidden .modal {
+  transform: scale(0.75) translate(-65%, -65%);
+  opacity: 0;
+  transition-delay: 0ms;
+}
 @media screen and (max-width: 1279px) {
   .team-open-button {
     display: none;
@@ -261,9 +286,9 @@
 span {
   display: inline;
 }
-.git-icon{
+.git-icon {
   transition: all 0.3s ease-in;
 }
-.git-icon:hover{
-  fill: #EEA10C;
+.git-icon:hover {
+  fill: #eea10c;
 }

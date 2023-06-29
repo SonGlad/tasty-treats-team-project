@@ -40,6 +40,12 @@
   background-color: var(--green);
 }
 
+.categories-btn.active {
+  border: 1px solid var(--green);
+  background-color: var(--green);
+  color: var(--white-w);
+}
+
 // .active-btn {
 //   color: var(--white-w);
 //   background-color: var(--green);

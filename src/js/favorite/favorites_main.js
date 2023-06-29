@@ -78,6 +78,17 @@ export function rend() {
       );
     }
 
+    const activeCategory = load('category');
+
+    const cardsLisCategory = document.querySelectorAll('.categories-btn');
+    cardsLisCategory.forEach(button => {
+      if (button.textContent.trim() === activeCategory) {
+        console.log(activeCategory);
+        button.classList.add('active');
+        return;
+      }
+    });
+
     eventListenerFavorites();
     setLocalStorageF();
     fillStars();
@@ -101,7 +112,6 @@ function filtrFavoriteCard() {
     category.addEventListener('click', event => {
       save('category', event.target.textContent);
       save('page', 1);
-
       rend();
       pagination.reset(storedData.length);
     });
@@ -144,9 +154,13 @@ function forRend() {
   } else {
     filterArr = storedData.filter(obj => obj.category === category);
   }
-  if(document.title === "Favorites"){
+  console.log(itemsPerPage());
+  console.log(filterArr.length);
+  if (document.title === 'Favorites') {
     if (itemsPerPage() >= filterArr.length) {
       paginationConteiner.classList.add('visually-hidden');
+    } else {
+      paginationConteiner.classList.remove('visually-hidden');
     }
   }
   listOfCards = filterArr.slice(

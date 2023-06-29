@@ -1,3 +1,6 @@
+.star-modal{
+  fill: rgba(5, 5, 5, 0.1);
+}
 .recipe-backdrop {
   position: fixed;
   top: 0;
@@ -69,6 +72,11 @@
     right: 16px;
   }
 }
+
+.reciepe-close-icon{
+  stroke: var(--black);
+}
+
 .wrap-recipe {
   margin-bottom: 40px;
   @media screen and(min-width:768px) {
@@ -123,7 +131,7 @@
   line-height: calc(18 / 14);
   font-weight: 500;
   color: var(--gray-title-w);
-  margin-left: 6px;
+  margin-left: 16px;
 }
 .overflow-scroll {
   height: 204px;
@@ -248,4 +256,11 @@
 
 .scroll-lock {
   overflow: hidden;
+}
+.card_star-rating-modal{
+align-items: flex-end;
+}
+.filled {
+  fill: var(--yellow-star);
+  opacity: 1;
 }

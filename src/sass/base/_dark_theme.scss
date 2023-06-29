@@ -3,6 +3,18 @@ body.dark-theme{
     background-color: var(--background-d);
 }
 
+// MODALS-CLOSE //
+
+.dark-theme .hero-modal-close-icon{
+    stroke: var(--white-d);
+}
+.dark-theme .reciepe-close-icon{
+    stroke: var(--white-d);
+}
+.dark-theme .rating-close-icon-svg{
+    stroke: var(--white-d);
+}
+
 // SCROLL-TO-TOP//
 .dark-theme .btn_scroll {
     fill: var(--white-d);
@@ -77,7 +89,7 @@ body.dark-theme{
 .dark-theme .option-item{
     color: var(--gray-ul-d);
 }
-.dark-theme .option-item:hover{
+.dark-theme .option:hover .option-item {
     color: var(--white-d);
 }
 
