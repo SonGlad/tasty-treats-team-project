@@ -39,4 +39,5 @@ import './js/headerPageAftreSwitch';
 import './js/scrollToTop';
 
 import './js/API_request/rating-modal';
+
 import './js/TeamModalOpCl';

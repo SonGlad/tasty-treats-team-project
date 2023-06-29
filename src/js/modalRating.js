@@ -27,7 +27,7 @@ function modalRating() {
 
   refs.ratingEmailBtn.addEventListener('click', () => {
     refs.ratingBackdrop.classList.add('visible');
-
+    enableScroll();
     changeColor(0); // !!!!!!!!!!!!!!!!! при отправке на backend должы обновиться звезды, но и отправиться
 
     const inpValue = refs.ratingEmailInp.value.trim();
