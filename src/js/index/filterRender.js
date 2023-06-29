@@ -6,6 +6,7 @@ import { cardHearts } from '../utils/card-hearts';
 import setLocalStorage from '../utils/setLocalStor';
 import { pagination } from '/src/js/pagination';
 import { eventListener } from '../modalRecipe';
+// import Notiflix from 'notiflix';
 
 const refs = {
   seacrhInp: document.querySelector('.inp-search'),
@@ -29,10 +30,12 @@ FetchByFilter.setLimitValue();
 const limit =FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
-renderCards(page);
+// renderCards(page);
+// Notiflix.Loading.circle()
 resetPagination()
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
+
 
   try {
     renderCards(currentPage);
@@ -57,7 +60,7 @@ refs.categories.addEventListener('click', categoriesFetch);
 
 function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
-  renderCards();
+  // renderCards();
   resetPagination();
 };
 
@@ -123,7 +126,7 @@ function timeFetch(event) {
     const time = parseInt(event.target.textContent);
 
     FetchByFilter.setTimeValue(time);
-    renderCards();
+    // renderCards();
     resetPagination();
   }else{
     return;
@@ -137,7 +140,7 @@ function areaFetch(event) {
       const area = event.target.textContent;
 
       FetchByFilter.setAreaValue(area);
-      renderCards(page);
+      // renderCards(page);
       resetPagination();
     }
   }catch (err) {
@@ -151,7 +154,7 @@ function ingredientsFetch(event) {
     const ingredient = String(event.target.id);
   
     FetchByFilter.setIngredientsValue(ingredient);
-    renderCards();
+    // renderCards();
     resetPagination();
     
   }
@@ -169,12 +172,12 @@ function categoriesFetch(event) {
       element.querySelector('.elem-prev').textContent = 'Select';
     });
     FetchByFilter.resetCategorie();
-    renderCards();
+    // renderCards();
     resetPagination();
     return;
   }
   FetchByFilter.setCategoryValue(categories);
-  renderCards(page);
+  // renderCards(page);
   resetPagination();
 };
 
@@ -185,19 +188,23 @@ function resetCards() {
 
 
 function resetPagination() {
-  renderCards().then(response => {
-    if (
-      !response || 
-      response.results.length < limit ||
-      response.totalPages < 2 ||
-      response.totalPages === null
-    ) {
-      hide();
-    } else {
-      show();
-      pagination.reset(response.totalPages * response.perPage);
-    }
-  });
+  try{
+    renderCards(page).then(response => {
+      if (
+        !response || 
+        response.results.length < limit ||
+        response.totalPages < 2 ||
+        response.totalPages === null
+      ) {
+        hide();
+      } else {
+        show();
+        pagination.reset(response.totalPages * response.perPage);
+      }
+    });
+  }catch(error){
+    console.log(error);
+  }
 };
 
 
