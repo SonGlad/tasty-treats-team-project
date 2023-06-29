@@ -212,12 +212,18 @@
   font-size: 14px;
   padding: 12px 24px;
   background-color: var(--green);
-  color: var(--background-w);
+  color: var(--white-w);
   border-radius: 15px;
+  transition: var(--trns-general);
   @media screen and(min-width:768px) {
     padding: 14px 28px;
   }
 }
+.btn-addToFavorite:focus,
+.btn-addToFavorite:hover{
+  color: var(--black);
+}
+
 .btn-giveARating {
   @media screen and(max-width:374px) {
     padding: 12px 17px;
@@ -229,9 +235,15 @@
   color: var(--black);
   border-radius: 15px;
   border: 1px solid var(--green);
+  transition: var(--trns-general);
   @media screen and(min-width:768px) {
     padding: 14px 28px;
   }
+}
+.btn-giveARating:focus,
+.btn-giveARating:hover{
+  background: var(--green);
+  color: var(--white-w);
 }
 
 
