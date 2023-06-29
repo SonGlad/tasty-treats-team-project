@@ -19,6 +19,7 @@ const refs = {
   conCards: document.querySelector('.notfound-cook'),
   pagination: document.querySelector('.pagination-wrapper'),
   customSelect: document.querySelectorAll('.custom-select'),
+  loaderTxt: document.querySelector('.loader-txt')
 };
 
 console.log(refs.customSelect);
@@ -28,7 +29,7 @@ FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
 renderCards(page);
-
+resetPagination()
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
 
@@ -60,47 +61,49 @@ function searchFetch(query) {
 }
 
 async function renderCards(page) {
-  try {
-    resetCards();
-    refs.loader.classList.remove('visually-hidden');
 
-    FetchByFilter.setPage(page);
+    try{
+      resetCards();
+      refs.loader.classList.remove('visually-hidden');
+      refs.loaderTxt.classList.remove('visually-hidden');
+      FetchByFilter.setPage(page);
+    
+      const response = await FetchByFilter.fetchRecipes();
+    
+      const results = response.results;
 
-    const response = await FetchByFilter.fetchRecipes();
+      if (results.length === 0){
+          throw new Error
+        }else{
+            refs.conCards.classList.add('visually-hidden');
+        };
+    
+      const roundedData = results.map(result => {
+        const ratingValue = Math.round(result.rating * 10) / 10;
+ 
+        
+        return { ...result, rating: ratingValue,notFound: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"};
+      });
 
-    const results = response.results;
+      results.splice(0, results.length, ...roundedData);
+    
+      refs.cardsList.innerHTML = TemplateArticles(results);
+    
+      refs.loader.classList.add('visually-hidden');
+      refs.loaderTxt.classList.add('visually-hidden');
+      eventListener();
+      setLocalStorage();
+      fillStars();
+      cardHearts();
+      return response;
+      
+    }catch(err){
 
-    if (results.length === 0) {
-      throw new Error();
-    } else {
-      refs.conCards.classList.add('visually-hidden');
-    }
-
-    const roundedData = results.map(result => {
-      const ratingValue = Math.round(result.rating * 10) / 10;
-
-      // Округляем значение id
-      // Возвращаем новый объект с округленным значением id
-      return { ...result, rating: ratingValue };
-    });
-
-    results.splice(0, results.length, ...roundedData);
-
-    refs.cardsList.innerHTML = TemplateArticles(results);
-
-    refs.loader.classList.add('visually-hidden');
-
-    eventListener();
-    setLocalStorage();
-    fillStars();
-    cardHearts();
-    return response;
-  } catch (err) {
     refs.conCards.classList.remove('visually-hidden');
-    refs.loader.classList.add('visually-hidden');
 
-    console.log('No cards found');
-  }
+    refs.loader.classList.add('visually-hidden');
+    refs.loaderTxt.classList.add('visually-hidden');
+    }
 }
 
 function timeFetch(event) {
@@ -154,11 +157,6 @@ function resetCards() {
   refs.cardsList.innerHTML = '';
 }
 
-// function resetPagination() {
-//   renderCards().then(response =>
-//     pagination.reset(response.totalPages * response.perPage)
-//   );
-// }
 
 function resetPagination() {
   renderCards().then(response => {

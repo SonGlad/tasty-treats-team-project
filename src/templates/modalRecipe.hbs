@@ -1,5 +1,4 @@
 {{#each this}}
-
   <div class='modal-recipe'>
     <button class='btn-close'>
       <svg height='24' width='24'>
@@ -14,6 +13,7 @@
 
     </button>
     <div class='wrap-recipe'>
+      {{#if youtubeNorm}}
       <iframe
         class='recipe-video'
         id='vimeo-player'
@@ -21,6 +21,10 @@
         frameborder='0'
         allow='autoplay; encrypted-media; fullscreen'
       ></iframe>
+      {{else}}
+<img src="{{notFound}}" alt='' class='card_background' />
+    {{/if}}
+      
       <div class='recipe-container'>
         <h2 class='title-recipe'>{{title}}</h2>
         <div class='recipe-rating'>

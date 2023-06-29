@@ -3,18 +3,24 @@ import cardModalRecipe from '../templates/modalRecipe.hbs';
 import listIngredients from '../templates/recipeIngridients.hbs';
 import recipeTags from '../templates/recipe-tags.hbs ';
 import { fillStars } from './utils/fill-stars';
-import setLocalStorage from './utils/setLocalStor';
+import { modalRatingOpCl } from './modalRatingOpCl';
+import setLocalStorage from './utils/setLocalStor'
 import { heartsFillStorage } from './utils/hertsFillAll';
 import { save, load, remove } from './utils/localStorageJSON';
 import { rend } from './favorite/favorites_main';
 
+
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
+let dataArray = load('cardData');
 
 async function handleModalRecipe(favoritData) {
-  try {
+  try{
+    disableScroll()
+
     modalRecipeBackDrop.classList.remove('visible');
+    
     const response = await fechFullRecipe.getRecipe();
 
     const IDForFavorite = response.data._id; // Визначаємо чи є така картка в локалсторедже і відповідно встановлюємо текст кнопки
@@ -37,25 +43,32 @@ async function handleModalRecipe(favoritData) {
       'youtube.com/embed/'
     );
 
+
     const mass = [response.data]; //запихаємо в масив щоб передати у hbs
     modalRecipe.innerHTML = cardModalRecipe(mass);
 
-    const player = document.getElementById('vimeo-player');
+      const player = document.getElementById('vimeo-player');
+      console.log(player);
+      const ingridientsList = document.querySelector('.recipe-ingridient');
+      ingridientsList.innerHTML = listIngredients(response.data.ingredients);
 
-    const ingridientsList = document.querySelector('.recipe-ingridient');
-    ingridientsList.innerHTML = listIngredients(response.data.ingredients);
 
     const tags = document.querySelector('.tags');
     tags.innerHTML = recipeTags(response.data.tags);
 
-    setLocalStorage(favoritData);
+      const giveRating = document.querySelector('.btn-giveARating');
+      modalRatingOpCl(giveRating, modalRecipeBackDrop);
+  
+      setLocalStorage(favoritData);
 
-    fillStars();
-    const btnClose = document.querySelector('.btn-close');
+      fillStars();
+      const btnClose = document.querySelector('.btn-close');
+      
 
     btnClose.addEventListener('click', () => {
       modalRecipeBackDrop.classList.add('visible');
-      player.src = '-';
+
+      player.src = '';
       if (document.title === 'Favorites') {
         rend();
       }
@@ -69,16 +82,19 @@ async function handleModalRecipe(favoritData) {
           rend();
         }
         heartsFillStorage();
+        enableScroll();
       }
     });
 
     modalRecipeBackDrop.addEventListener('click', e => {
       modalRecipeBackDrop.classList.add('visible');
+      
       heartsFillStorage();
       if (document.title === 'Favorites') {
         rend();
       }
       e.stopPropagation();
+       enableScroll();
     });
 
     modalRecipe.addEventListener('click', event => {
@@ -160,4 +176,13 @@ export function eventListenerFavorites() {
       handleModalRecipe(favoritData);
     });
   });
+};
+
+
+function disableScroll() {
+  document.body.classList.add('scroll-lock');
+}
+
+function enableScroll() {
+  document.body.classList.remove('scroll-lock');
 }

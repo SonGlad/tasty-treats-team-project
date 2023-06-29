@@ -1,30 +1,57 @@
-// Получаем переключатель темы для десктопной версии
-const bodyTheme = document.body;
-const desktopThemeSwitcher = document.querySelector('.header-switch input');
-const desktopHeader = document.querySelector('.header');
-const desktopLogoSecond = document.querySelector('.logo-second');
+document.addEventListener('DOMContentLoaded', function() {
+  const bodyTheme = document.body;
+  const desktopThemeSwitcher = document.querySelector('.header-switch input');
+  const mobThemeSwitcher = document.querySelector('.switch input');
+  const desktopHeader = document.querySelector('.header');
+  const desktopLogoSecond = document.querySelector('.logo-second');
+  const allCategoryButton = document.querySelector('.all-category-button');
 
-
-// Функция для переключения темы для десктопной версии
-function toggleDesktopTheme() {
-  if (desktopThemeSwitcher.checked) {
-    // Если выбрана темная тема
-    desktopHeader.classList.add('dark-theme');
-    bodyTheme.classList.add('dark-theme');
-  } else {
-    // Если выбрана светлая тема
-    desktopHeader.classList.remove('dark-theme');
-    bodyTheme.classList.remove('dark-theme');
+  function toggleDesktopTheme() {
+    if (desktopThemeSwitcher.checked) {
+      desktopHeader.classList.add('dark-theme');
+      mobThemeSwitcher.classList.add('dark-theme');
+      bodyTheme.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      desktopHeader.classList.remove('dark-theme');
+      mobThemeSwitcher.classList.remove('dark-theme');
+      bodyTheme.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
   }
-}
 
+  function toggleMobileTheme() {
+    if (mobThemeSwitcher.checked) {
+      bodyTheme.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      bodyTheme.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }
 
+  // Function to apply the theme based on the stored value
+  function applyTheme() {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      desktopThemeSwitcher.checked = true;
+      mobThemeSwitcher.checked = true;
+      bodyTheme.classList.add('dark-theme');
+    } else {
+      desktopThemeSwitcher.checked = false;
+      mobThemeSwitcher.checked = false;
+      bodyTheme.classList.remove('dark-theme');
+    }
+  }
 
-// Слушаем событие изменения переключателя темы для десктопной версии
-desktopThemeSwitcher.addEventListener('change', toggleDesktopTheme);
+  desktopThemeSwitcher.addEventListener('change', toggleDesktopTheme);
+  mobThemeSwitcher.addEventListener('change', toggleMobileTheme);
 
+  // Apply the stored theme on page load
+  applyTheme();
 
-
-// Вызываем функции toggleDesktopTheme() и toggleMobileTheme() при загрузке страницы, чтобы применить начальные темы
-toggleDesktopTheme();
-
+  // Apply the theme when navigating to a new page
+  window.addEventListener('pageshow', function(event) {
+    applyTheme();
+  });
+});

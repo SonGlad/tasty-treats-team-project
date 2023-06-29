@@ -45,22 +45,36 @@
   </head>
 
   <body>
-    <!-- HEADER -->
-    <include src="./partials/header.html"></include>
 
-    <!-- MAIN -->
-    <include src="./partials/favorite/fav-hero.html"></include>
-    <include src="./partials/favorite/markup.html"></include>
-    <include src="./partials/pagination.html"></include>
+    <div class="main-content">
 
-    <!-- MODAL -->
-    <include src="./partials/index/hero_modal.html"></include>
-    <include src="./partials/modal-recipe.html"></include>
 
-    <!-- Footer -->
-    <include src="./partials/footer.html"></include>
+      <!-- SCROLL-TO-TOP -->
+      <include src="./partials/scroll-to-top.html"></include>
+    
+      <!-- MODAL -->
+      <include src="./partials/index/hero_modal.html"></include>
+      <include src="./partials/modal-recipe.html"></include>
+      <include src="./partials/modal-rating.html"></include>
+      <!-- <include src="./partials/teamModal.html"></include> -->
 
-    <script type="module" src="./favorites.js"></script>
+      
+      <!-- HEADER -->
+      <include src="./partials/header.html"></include>
+  
+      <main class="main">
+        <!-- MAIN -->
+        <include src="./partials/favorite/fav-hero.html"></include>
+        <include src="./partials/favorite/markup.html"></include>
+        <include src="./partials/pagination.html"></include>
+      </main>
+  
+  
+      <!-- Footer -->
+      <include src="./partials/footer.html"></include>
+  
+      <script type="module" src="./favorites.js"></script>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
   </body>

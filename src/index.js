@@ -1,5 +1,7 @@
 import './js/mobMenu';
 
+import './js/changeTheme';
+
 import './js/index/hero';
 
 import './js/index/search.js';
@@ -29,6 +31,20 @@ import './js/pagination';
 import './js/changeTheme';
 
 import './js/modalRecipe';
+
+import './js/modalRating';
+
+import './js/headerPageAftreSwitch';
+
+import './js/scrollToTop';
+
+
+
+
+
+
+
+
 
 
 
