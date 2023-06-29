@@ -67,7 +67,7 @@ async function handleModalRecipe(favoritData) {
 
     btnClose.addEventListener('click', () => {
       modalRecipeBackDrop.classList.add('visible');
-
+      enableScroll();
       player.src = '';
       if (document.title === 'Favorites') {
         rend();
@@ -75,7 +75,7 @@ async function handleModalRecipe(favoritData) {
       heartsFillStorage();
     });
 
-    window.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
         modalRecipeBackDrop.classList.add('visible');
         if (document.title === 'Favorites') {

@@ -141,8 +141,10 @@ function forRend() {
   } else {
     filterArr = storedData.filter(obj => obj.category === category);
   }
-  if (itemsPerPage() >= filterArr.length) {
-    paginationConteiner.classList.add('visually-hidden');
+  if(document.title === "Favorites"){
+    if (itemsPerPage() >= filterArr.length) {
+      paginationConteiner.classList.add('visually-hidden');
+    }
   }
   listOfCards = filterArr.slice(
     page * itemsPerPage() - itemsPerPage(),
