@@ -4,23 +4,23 @@ import listIngredients from '../templates/recipeIngridients.hbs';
 import recipeTags from '../templates/recipe-tags.hbs ';
 import { fillStars } from './utils/fill-stars';
 import { modalRatingOpCl } from './modalRatingOpCl';
-import setLocalStorage from './utils/setLocalStor'
+import setLocalStorage from './utils/setLocalStor';
 import { heartsFillStorage } from './utils/hertsFillAll';
 import { save, load, remove } from './utils/localStorageJSON';
 import { rend } from './favorite/favorites_main';
 
-
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
+const ratingBlockTxt = document.querySelector('.rating-block-txt')
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
 let dataArray = load('cardData');
 
 async function handleModalRecipe(favoritData) {
-  try{
-    disableScroll()
+  try {
+    disableScroll();
 
     modalRecipeBackDrop.classList.remove('visible');
-    
+
     const response = await fechFullRecipe.getRecipe();
 
     const IDForFavorite = response.data._id; // Визначаємо чи є така картка в локалсторедже і відповідно встановлюємо текст кнопки
@@ -43,27 +43,26 @@ async function handleModalRecipe(favoritData) {
       'youtube.com/embed/'
     );
 
-
     const mass = [response.data]; //запихаємо в масив щоб передати у hbs
     modalRecipe.innerHTML = cardModalRecipe(mass);
 
-      const player = document.getElementById('vimeo-player');
-      console.log(player);
-      const ingridientsList = document.querySelector('.recipe-ingridient');
-      ingridientsList.innerHTML = listIngredients(response.data.ingredients);
-
+    const player = document.getElementById('vimeo-player');
+    console.log(player);
+    const ingridientsList = document.querySelector('.recipe-ingridient');
+    ingridientsList.innerHTML = listIngredients(response.data.ingredients);
 
     const tags = document.querySelector('.tags');
     tags.innerHTML = recipeTags(response.data.tags);
 
-      const giveRating = document.querySelector('.btn-giveARating');
-      modalRatingOpCl(giveRating, modalRecipeBackDrop);
-  
-      setLocalStorage(favoritData);
+    const giveRating = document.querySelector('.btn-giveARating');
+    modalRatingOpCl(giveRating, modalRecipeBackDrop);
+    giveRating.id = mass[0]._id;
+    
+    ratingBlockTxt.textContent = mass[0].description
+    setLocalStorage(favoritData);
 
-      fillStars();
-      const btnClose = document.querySelector('.btn-close');
-      
+    fillStars();
+    const btnClose = document.querySelector('.btn-close');
 
     btnClose.addEventListener('click', () => {
       modalRecipeBackDrop.classList.add('visible');
@@ -88,13 +87,13 @@ async function handleModalRecipe(favoritData) {
 
     modalRecipeBackDrop.addEventListener('click', e => {
       modalRecipeBackDrop.classList.add('visible');
-      
+
       heartsFillStorage();
       if (document.title === 'Favorites') {
         rend();
       }
       e.stopPropagation();
-       enableScroll();
+      enableScroll();
     });
 
     modalRecipe.addEventListener('click', event => {
@@ -176,8 +175,7 @@ export function eventListenerFavorites() {
       handleModalRecipe(favoritData);
     });
   });
-};
-
+}
 
 function disableScroll() {
   document.body.classList.add('scroll-lock');

@@ -26,7 +26,7 @@ const refs = {
 console.log(refs.customSelect);
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
-
+const limit =FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
 renderCards(page);
@@ -187,7 +187,8 @@ function resetCards() {
 function resetPagination() {
   renderCards().then(response => {
     if (
-      response.results.length < 9 ||
+      !response || 
+      response.results.length < limit ||
       response.totalPages < 2 ||
       response.totalPages === null
     ) {
