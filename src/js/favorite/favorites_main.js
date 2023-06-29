@@ -12,6 +12,7 @@ const favoriteButtonList = document.querySelector('.categories-list');
 const displayNone = document.querySelector('.no-recipe-content');
 let storedData = load('cardData');
 let allCards;
+let perPagerRozr;
 
 const paginationConteiner = document.querySelector('.pagination-wrapper');
 console.log(paginationConteiner);
