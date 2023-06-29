@@ -117,3 +117,4 @@ submitButton.addEventListener('click', function(event) {
 emailInput.addEventListener('input', function() {
   emailInput.classList.remove('error');
 });
+
