@@ -18,12 +18,10 @@ const refs = {
   loader: document.querySelector('.loader'),
   conCards: document.querySelector('.notfound-cook'),
   pagination: document.querySelector('.pagination-wrapper'),
-  customSelect: document.querySelectorAll('.custom-select')
+  customSelect: document.querySelectorAll('.custom-select'),
 };
 
-
-
-console.log(refs.customSelect)
+console.log(refs.customSelect);
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
 
@@ -62,7 +60,6 @@ function searchFetch(query) {
 }
 
 async function renderCards(page) {
-
   try {
     resetCards();
     refs.loader.classList.remove('visually-hidden');
@@ -139,9 +136,9 @@ function categoriesFetch(event) {
   const allCategories = event.target.id;
 
   if (allCategories === 'all-category-btn') {
-    refs.seacrhInp.value = ''
+    refs.seacrhInp.value = '';
     refs.customSelect.forEach(element => {
-      element.querySelector('.elem-prev').textContent = "Select"
+      element.querySelector('.elem-prev').textContent = 'Select';
     });
     FetchByFilter.resetCategorie();
     renderCards();

@@ -1,5 +1,5 @@
 import { save, load, remove } from './localStorageJSON';
-import { rend } from '../favorite/favorites_main';
+// import { rend } from '../favorite/favorites_main';
 
 const renderBox = document.querySelector('.favorite-render-cards');
 const favoriteButtonList = document.querySelector('.categories-list');
@@ -7,7 +7,7 @@ const favoriteButtonList = document.querySelector('.categories-list');
 console.log(renderBox);
 let favoritData;
 
-export default function setLocalStorage(favoritData) {
+export default function setLocalStorageF(favoritData) {
   console.log(favoritData);
   if (!favoritData) {
     // якщо запуск з cards 28
@@ -35,6 +35,7 @@ export default function setLocalStorage(favoritData) {
       };
 
       let dataArray = [];
+
       const storedData = load('cardData');
 
       if (storedData) {
@@ -87,7 +88,6 @@ export default function setLocalStorage(favoritData) {
           save('cardData', dataArray);
           console.log('add favor');
         } else {
-          console.log(document.title);
           target.textContent = 'Add to favorite';
           dataArray = storedData;
           const index = dataArray.findIndex(
@@ -98,15 +98,12 @@ export default function setLocalStorage(favoritData) {
               item.starRating === favoritData.starRating
           );
           dataArray.splice(index, 1);
-
           console.log('remove favor');
           if (dataArray.length === 0) {
             remove('cardData');
           } else {
             save('cardData', dataArray);
-          }
-          if (document.title === 'Favorites') {
-            rend();
+            // rend();
           }
           return;
         }
