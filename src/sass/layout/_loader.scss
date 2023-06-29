@@ -1,61 +1,60 @@
 .loader {
-    display: block;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    position: absolute;
-    animation: rotate 1s linear infinite;
-    z-index: 2000;
-    top: 50%;
-    left: 50%;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    margin: auto;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  animation: rotate 1s linear infinite;
+  z-index: 2000;
+  top: 100px;
+  left: 140px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  margin: auto;
+}
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #32C581;
+  animation: prixClipFix 2s linear infinite;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
   }
-  .loader::before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    inset: 0px;
-    border-radius: 50%;
-    border: 5px solid #32C581;
-    animation: prixClipFix 2s linear infinite;
+}
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
   }
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
   }
-  @keyframes prixClipFix {
-    0% {
-      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
-    }
-    25% {
-      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
-    }
-    50% {
-      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
-    }
-    75% {
-      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
-    }
-    100% {
-      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
-    }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
   }
-  .container-for-loader{
-    position: relative;
-    // min-height: 287px;
-    margin-top: 24px;
-    @media screen and (min-width: 768px) {
-      margin-top: 32px;
-    }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
   }
-   
-
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+.container-for-loader{
+  position: relative;
+  // min-height: 287px;
+  margin-top: 24px;
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+  }
+}
+ 
 .loader-txt{
   color: var(--green);
   text-align: center;
@@ -64,8 +63,40 @@
   font-weight: 600;
   line-height: 18px;
   letter-spacing: -0.64px;
-  left: 50%;
-  top: 50%;
+  top: 190px;
+  left: 130px;
   position: absolute;
 }
 
+
+@media screen and (min-width: 768px) {
+.loader{
+  top: 150px;
+  left: 200px;
+}
+.loader-txt{
+  top: 250px;
+  left: 190px;
+}
+}
+
+// @media screen and (min-width: 1280px) {
+//   .loader{
+//     top: 150px;
+//     left: 200px;
+//   }
+
+// }
+
+
+
+@media screen and (min-width: 1280px) {
+.loader{
+  top: 150px;
+  left: 300px;
+}
+.loader-txt{
+  top: 250px;
+  left: 290px;
+}
+}
