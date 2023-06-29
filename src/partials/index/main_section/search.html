@@ -1,57 +1,59 @@
-<div class="con-select"> 
-  <div class="con-search">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="con-select">
+    <div class="con-search">
       <h2 class="text-search">Search</h2>
       <div class="con-inp">
-          <input class="inp-search" type="text" name="searchQuery" autocomplete="off" placeholder="Enter Text"/>
-          <button type="button" class="btn-search">
-              <svg class="svg-search" width="18px" height="18px">
-              <use href="./images/icons/SPRITE.svg#icon-search-3-1"></use>
-              </svg>
-          </button>
+        <input class="inp-search" type="text" name="searchQuery" autocomplete="off" placeholder="Enter Text">
+        <button type="button" class="btn-search">
+          <svg class="svg-search" width="18px" height="18px">
+            <use href="./images/icons/SPRITE.svg#icon-search-3-1"></use>
+          </svg>
+        </button>
       </div>
-  </div>
-  <div class="item-select time">
-    <h2 class="text-search">Time</h2> 
-    <div class="custom-select">
-      <div class="selected-option js-for-selected" id="time-toggle">
-        <span class="elem-prev">Select</span>
-        <svg class="search-arrow" width="18px" height="18px">
-          <use href="./images/icons/SPRITE.svg#search-arrow"></use>
-        </svg>
+    </div>
+    <div class="item-select time">
+      <h2 class="text-search">Time</h2>
+      <div class="custom-select">
+        <div class="selected-option js-for-selected" id="time-toggle">
+          <span class="elem-prev">Select</span>
+          <svg class="search-arrow" width="18px" height="18px">
+            <use href="./images/icons/SPRITE.svg#search-arrow"></use>
+          </svg>
+        </div>
+        <ul class="options-list" id="timesearch"></ul>
       </div>
-      <ul class="options-list" id="timesearch">
-        
-      </ul>
+    </div>
+    <div class="item-select">
+      <h2 class="text-search">Area</h2>
+      <div class="custom-select">
+        <div class="selected-option selected-area js-for-selected" id="area-toggle">
+          <span class="elem-prev">Select</span>
+          <svg class="search-arrow" width="18px" height="18px">
+            <use href="./images/icons/SPRITE.svg#search-arrow"></use>
+          </svg>
+        </div>
+        <ul class="options-list" id="arealist"></ul>
+      </div>
+    </div>
+    <div class="item-select ingredients">
+      <h2 class="text-search">Ingredients</h2>
+      <div class="custom-select">
+        <div class="item-ingridienst js-for-selected" id="ingredients-toggle">
+          <span class="elem-prev">Select</span>
+          <svg class="search-arrow" width="18px" height="18px">
+            <use href="./images/icons/SPRITE.svg#search-arrow"></use>
+          </svg>
+        </div>
+        <ul class="options-list" id="ingredients"></ul>
+      </div>
     </div>
   </div>
-  <div class="item-select">
-    <h2 class="text-search">Area</h2>
-    <div class="custom-select">
-      <div class="selected-option selected-area js-for-selected" id="area-toggle">
-        <span class="elem-prev">Select</span>
-        <svg class="search-arrow" width="18px" height="18px">
-          <use href="./images/icons/SPRITE.svg#search-arrow"></use>
-        </svg>
-      </div>
-      <ul class="options-list" id="arealist">
-      
-        </ul>
-      </div>
-  </div>
-  <div class="item-select ingredients">
-    <h2 class="text-search">Ingredients</h2>
-    <div class="custom-select">
-      <div class="item-ingridienst js-for-selected" id="ingredients-toggle">
-        <span class="elem-prev">Select</span>
-        <svg class="search-arrow" width="18px" height="18px">
-          <use href="./images/icons/SPRITE.svg#search-arrow"></use>
-        </svg>
-      </div>
-      <ul class="options-list" id="ingredients">
-
-      </ul>
-    </div>           
-  </div>
-</div>
-
-
+</body>
+</html>
