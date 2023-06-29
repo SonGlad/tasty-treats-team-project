@@ -83,24 +83,28 @@
 
 var form = document.getElementById('order-form');
 form.addEventListener('submit', function(event) {
-  event.preventDefault(); 
+  event.preventDefault();
 
- 
   var inputs = form.querySelectorAll('.input-js');
   var isEmpty = false;
+  var formData = [];
+
   inputs.forEach(function(input) {
     if (input.value.trim() === '') {
       isEmpty = true;
-      input.classList.add('error'); 
+      input.classList.add('error');
     } else {
-      input.classList.remove('error'); 
+      input.classList.remove('error');
+      formData.push({ name: input.name, value: input.value.trim() });
     }
   });
 
-  
   if (isEmpty) {
-    alert('Please fill in all required fields.'); 
+    alert('Please fill in all required fields.');
   } else {
-    form.submit(); 
+    console.log(formData);
+    form.reset(); 
   }
 });
+
+
