@@ -13,7 +13,7 @@
         id="name"
         name="name"
         placeholder="Enter your name"
-        class="order-form-input name-input"
+        class="order-form-input name-form-valid name-input"
         required
         pattern="[A-Za-zА-Яа-яЁёІіЇїЄє' ]+"
       />
@@ -22,8 +22,10 @@
       <input
         type="tel"
         id="phone"
-        class="order-form-input input-phone"
+        class="order-form-input phone-form-valid input-phone"
         name="phone"
+        pattern="^\+\d+$"
+        required
         placeholder="Enter your phone"
       />
 
@@ -33,7 +35,7 @@
         id="email"
         name="email"
         placeholder="Enter your email"
-        class="order-form-input email-input"
+        class="order-form-input email-form-valid email-input"
         required
       />
 
