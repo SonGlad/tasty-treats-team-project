@@ -38,6 +38,7 @@
 .categories-btn:focus {
   color: var(--white-w);
   background-color: var(--green);
+  border: 1px solid var(--green);
 }
 
 .categories-btn.active {
