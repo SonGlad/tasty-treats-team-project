@@ -20,7 +20,7 @@
   margin-bottom: 8px;
 }
 
-.con-inp{   
+.con-inp{
   position: relative;
 }
 
@@ -85,19 +85,19 @@
 
 .ingredients{
   margin-top: 14px;
-  
+
 }
 
 
-.con-select{ 
+.con-select{
   max-width: 335px;
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 768px){
   .con-select{
-    max-width: 496px; 
+    max-width: 496px;
     gap: 16px;
   }
   .list-item{
@@ -106,7 +106,7 @@
   .inp-search{
     width: 278px;
   }
- 
+
   .ingredients{
     margin-top: auto;
   }
@@ -145,7 +145,7 @@
   align-items: center;
   max-width: 100%;
   width: 160px;
- 
+
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -161,7 +161,7 @@
 .custom-select .selected-option span {
   margin-right: 5px;
 }
-  
+
 .custom-select .options-list {
   position: absolute;
   top: 100%;
@@ -173,7 +173,7 @@
 
 
 .custom-select .options-list {
-  
+
   position: absolute;
   top: 100%;
   left: 0;
@@ -193,7 +193,7 @@
 .option:hover .option-item{
   color: var(--black);
   transition: var(--trns-general);
-  
+
 }
 .item-ingridienst{
   background-color: var(--white-w);
@@ -208,12 +208,12 @@
 }
 
 .custom-select.open .options-list {
-  border-top: 8px solid var(--black);
-  border-bottom: 8px solid var(--black);
-  border-right: 4px solid var(--black);
+  border-top: 8px solid var(--white-w);
+  border-bottom: 8px solid var(--white-w);
+  border-right: 4px solid var(--white-w);
   display: block;
 }
-  
+
 .options-list{
   overflow-y:auto;
   position: absolute;
@@ -360,13 +360,13 @@
   width: 100%;
   border-radius: 50%;
   margin: 10% auto; font: 4.5vmin monospace;
-  top: -15px; 
+  top: -15px;
 }
 
 .disk b { 
   position: absolute; 
   top: -15;
-  left: 50%; 
+  left: 50%;
   width: 0;
   color: var(--green);
 }
@@ -391,34 +391,34 @@
 } 
 .disk b:nth-of-type(3) {
   -ms-transform: rotate(357deg);
-  -webkit-transform: rotate(357deg); 
+  -webkit-transform: rotate(357deg);
   transform: rotate(357deg);
-} 
+}
 .disk b:nth-of-type(4) {
   -ms-transform: rotate(3deg);
   -webkit-transform: rotate(3deg); 
   transform: rotate(3deg);
 } 
  .disk b:nth-of-type(5) {
-  -ms-transform: rotate(9deg); 
-  -webkit-transform: rotate(9deg); 
+  -ms-transform: rotate(9deg);
+  -webkit-transform: rotate(9deg);
   transform: rotate(9deg);
-}  
+}
 .disk b:nth-of-type(6) {
-  -ms-transform: rotate(15deg); 
-  -webkit-transform: rotate(15deg); 
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
   transform: rotate(15deg);
-} 
+}
 .disk b:nth-of-type(7) {
-  -ms-transform: rotate(21deg); 
-  -webkit-transform: rotate(21deg); 
+  -ms-transform: rotate(21deg);
+  -webkit-transform: rotate(21deg);
   transform: rotate(21deg);
-} 
+}
 @media screen and (min-width: 768px) {
-  .disk b { 
-    position: absolute; 
+  .disk b {
+    position: absolute;
     top: -20;
-    left: 50%; 
+    left: 50%;
     width: 0;
     color: var(--green);
   }
@@ -433,10 +433,10 @@
 }
 
 @media screen and(min-width: 1280px) {
-  .disk b { 
-    position: absolute; 
+  .disk b {
+    position: absolute;
     top: -30;
-    left: 50%; 
+    left: 50%;
     width: 0;
     color: var(--green);
   }
@@ -457,6 +457,7 @@
     width: 100%;
     border-radius: 50%;
     margin: 10% auto; font: 4.5vmin monospace;
-    top: -15px; 
+    top: -15px;
   }
 }
+

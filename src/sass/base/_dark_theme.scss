@@ -52,7 +52,7 @@ body.dark-theme{
     color: var(--green);
 }
 
-// HERO-DARK-THEME // 
+// HERO-DARK-THEME //
 
 .dark-theme .event-title{
     color: var(--white-d);
@@ -130,6 +130,13 @@ body.dark-theme{
 }
 .dark-theme .svg-search{
     fill: var(--gray-title-d);
+}
+
+.dark-theme .custom-select.open .options-list {
+  border-top: 8px solid var(--black);
+  border-bottom: 8px solid var(--black);
+  border-right: 4px solid var(--black);
+  display: block;
 }
 
 // POPULAR-RECEIPTS-DARK-THEME //
