@@ -10,7 +10,7 @@ function modalRating() {
     ratingBackdrop: document.querySelector('.rating-backdrop'),
     ratingEmailBtn: document.querySelector('.rating-email-btn'),
     starInputs: document.querySelectorAll('.star-input'),
-    ratingEmailInp: document.querySelector('.rating-email-inp'),
+    ratingEmailInp: document.querySelector('.rating-form-input'),
   };
 
   refs.closeBtnModal.addEventListener('click', () => {
@@ -29,11 +29,14 @@ function modalRating() {
   });
 
   refs.ratingEmailBtn.addEventListener('click', () => {
+    
     refs.ratingBackdrop.classList.add('visible');
     enableScroll();
     changeColor(0); // !!!!!!!!!!!!!!!!! при отправке на backend должы обновиться звезды, но и отправиться
 
     const inpValue = refs.ratingEmailInp.value.trim();
+   
+   
     if (inpValue === '') {
       window.alert('Please enter a valid query');
       return;
@@ -42,6 +45,7 @@ function modalRating() {
     RatingAdd.setInpValue(inpValue);
     RatingAdd.setId(id);
     RatingAdd.addRating();
+     refs.ratingEmailInp.value = ""
   });
 
   refs.ratingBackdrop.addEventListener('click', evt => {
@@ -101,53 +105,36 @@ modalRating();
 
 
 
-
+const emailInput = document.querySelector('.rating-form-input');
+const ratingInputs = document.querySelectorAll('.star-input');
+const submitButton = document.querySelector('.rating-email-btn');
 
 // MODAL-VALIDATION //
 
-// const sendBtn = document.querySelector(".submit-btn");
-// const emailInput = document.getElementById('email');
 
-// // Функция для проверки валидности поля электронной почты
-// function validateEmail() {
-//   const emailValue = emailInput.value.trim();
-//   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
 
-//   if (isValidEmail) {
-//     emailInput.classList.remove('error');
-//   } else {
-//     emailInput.classList.add('error');
-//   }
+// Функция для проверки валидности email
+function isValidEmail(email) {
+  // Используем встроенную валидацию HTML5 для поля email
+  return emailInput.checkValidity();
+}
 
-//   return isValidEmail;
-// }
+// Функция для проверки состояния выбора рейтинга
+function isRatingSelected() {
+  // Проверяем, есть ли выбранный элемент с классом 'star-input'
+  return [...ratingInputs].some(input => input.checked);
+}
 
-// // Обработчик события для поля электронной почты
-// emailInput.addEventListener('input', function () {
-//   validateEmail();
-//   checkFormValidity();
-// });
+// Функция для обновления состояния кнопки отправки
+function updateSubmitButtonState() {
+  // Проверяем валидность email и выбран ли рейтинг
+  const isEmailValid = isValidEmail(emailInput.value);
+  const isRatingValid = isRatingSelected();
 
-// // Функция для проверки валидности всей формы и обновления состояния кнопки
-// function checkFormValidity() {
-//   const isValidForm = validateEmail();
+  // Если оба условия выполнены, активируем кнопку отправки
+  submitButton.disabled = !(isEmailValid && isRatingValid);
+}
 
-//   sendBtn.disabled = !isValidForm;
-// }
-
-// // Обработчик события отправки формы
-// document.getElementById('rating-modal-js').addEventListener('submit', function (event) {
-//   event.preventDefault();
-
-//   // Проверка валидности формы перед отправкой
-//   if (validateEmail()) {
-//     const formData = {
-//       email: emailInput.value.trim()
-//     };
-
-//     console.log('Form data:', formData);
-//     // Дополнительные действия по отправке формы...
-//   } else {
-//     console.log('Please enter a valid email address.');
-//   }
-// });
+// Слушаем события изменения поля email и выбора рейтинга
+emailInput.addEventListener('input', updateSubmitButtonState);
+ratingInputs.forEach(input => input.addEventListener('change', updateSubmitButtonState));
