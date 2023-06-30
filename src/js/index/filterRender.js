@@ -8,6 +8,7 @@ import { pagination } from '/src/js/pagination';
 import { eventListener } from '../modalRecipe';
 import { Notify } from 'notiflix';
 
+
 const refs = {
   seacrhInp: document.querySelector('.inp-search'),
   searchBtn: document.querySelector('.btn-search'),
@@ -24,16 +25,17 @@ const refs = {
   imgOops: document.querySelector('.notfound-cook'),
 };
 
-console.log(refs.customSelect);
+
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
 const limit = FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
-resetPagination();
 
+resetPagination();
 renderCards(page);
 resetPagination();
+
 
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
@@ -46,6 +48,7 @@ pagination.on('afterMove', async event => {
   }
 });
 
+
 refs.seacrhInp.addEventListener(
   'input',
   debounce(() => {
@@ -55,16 +58,18 @@ refs.seacrhInp.addEventListener(
   }, 300)
 );
 
+
 refs.timeFilter.addEventListener('click', timeFetch);
 refs.areaFilter.addEventListener('click', areaFetch);
 refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
+
 function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
-  // renderCards();
   resetPagination();
-}
+};
+
 
 async function renderCards(page) {
   try {
@@ -78,7 +83,6 @@ async function renderCards(page) {
     FetchByFilter.setPage(page);
 
     const response = await FetchByFilter.fetchRecipes();
-
     const results = response.results;
 
     if (results.length === 0) {
@@ -89,7 +93,7 @@ async function renderCards(page) {
     }
 
     const roundedData = results.map(result => {
-      const ratingValue = Math.round(result.rating * 10) / 10;
+    const ratingValue = Math.round(result.rating * 10) / 10;
 
       return {
         ...result,
@@ -100,17 +104,17 @@ async function renderCards(page) {
     });
 
     results.splice(0, results.length, ...roundedData);
-
     refs.cardsList.innerHTML = TemplateArticles(results);
-
     refs.loader.classList.add('visually-hidden');
     refs.loaderTxt.classList.add('visually-hidden');
+
     show();
     eventListener();
     setLocalStorage();
     fillStars();
     cardHearts();
     return response;
+
   } catch (err) {
     refs.conCards.classList.remove('visually-hidden');
     refs.imgOops.classList.remove('visually-hidden');
@@ -118,20 +122,22 @@ async function renderCards(page) {
     refs.loader.classList.add('visually-hidden');
     refs.loaderTxt.classList.add('visually-hidden');
     Notify.failure('Something went wrong. Please try again');
+    console.log(err);
   }
-}
+};
+
 
 function timeFetch(event) {
   if (event.target.tagName === 'BUTTON') {
     const time = parseInt(event.target.textContent);
 
     FetchByFilter.setTimeValue(time);
-    // renderCards();
     resetPagination();
   } else {
     return;
   }
-}
+};
+
 
 function areaFetch(event) {
   try {
@@ -143,24 +149,23 @@ function areaFetch(event) {
       resetPagination();
     }
   } catch (err) {
-    console.log(err);
     Notify.failure('Something went wrong. Please try again');
+    console.log(err);
   }
-}
+};
+
 
 function ingredientsFetch(event) {
   if (event.target.tagName === 'BUTTON') {
     const ingredient = String(event.target.id);
-
     FetchByFilter.setIngredientsValue(ingredient);
-    // renderCards();
     resetPagination();
   }
-}
+};
+
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;
-
   const allCategories = event.target.id;
 
   if (allCategories === 'all-category-btn') {
@@ -169,18 +174,18 @@ function categoriesFetch(event) {
       element.querySelector('.elem-prev').textContent = 'Select';
     });
     FetchByFilter.resetCategorie();
-    // renderCards();
     resetPagination();
     return;
   }
   FetchByFilter.setCategoryValue(categories);
-  // renderCards(page);
   resetPagination();
-}
+};
+
 
 function resetCards() {
   refs.cardsList.innerHTML = '';
-}
+};
+
 
 function resetPagination() {
   try {
@@ -201,14 +206,16 @@ function resetPagination() {
     console.log(error);
     Notify.failure('Something went wrong. Please try again');
   }
-}
+};
+
 
 function show() {
   refs.pagination.classList.add('show');
   refs.pagination.classList.remove('hide');
-}
+};
+
 
 function hide() {
   refs.pagination.classList.add('hide');
   refs.pagination.classList.remove('show');
-}
+};

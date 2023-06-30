@@ -6,7 +6,9 @@ const modalOpenClose = () => {
     buttonToSimulateClick: document.querySelector("#imitation")
   };
 
+
   refs.buttonToSimulateClick.addEventListener('click', toggleModal);
+
 
   refs.closeModalBtn.addEventListener("click", (event) => {
     event.stopPropagation()
@@ -41,5 +43,6 @@ const modalOpenClose = () => {
     } else {document.body.style.overflow = "hidden"}
   }
 };
+
 
 export default modalOpenClose;

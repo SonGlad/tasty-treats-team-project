@@ -1,19 +1,20 @@
-
 .rating-backdrop {
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background-color: var(--gray-title-w);
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     overflow: auto;
+    background-color: var(--gray-title-w);
     transition: opacity var(--trns-modal), visibility var(--trns-modal);
 }
+
 .rating-backdrop.visible {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    transition-delay: 150ms;
 }
 
 .rating-modal-container {
@@ -22,6 +23,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all var(--trns-modal);
+    transition-delay: 150ms;
+}
+
+.rating-backdrop.visible .rating-modal-container{
+    transform: scale(0.75) translate(-65%, -65%);
+    opacity: 0;
+    transition-delay: 0ms;
 }
 
 .rating-modal {
@@ -32,8 +41,6 @@
     max-width: 335px;
     position: relative;
     z-index: 999;
-    transition: transform var(--trns-modal), opacity var(--trns-modal);
-    transition-delay: 150ms;
 
     @media screen and (min-width: 768px){
         padding: 32px;
@@ -53,6 +60,7 @@
         right: 16px;
     }
 }
+
 .btn-close-rating:hover{
     transform-origin: center center;
     transform: scale(1.8) rotate(180deg);
@@ -82,12 +90,14 @@
     font-weight: 600;
     line-height: 18px;
 }
+
 .rating_value{
     color: #050505;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
 }
+
 .rating-block-txt {
     font-size: 14px;
     font-family: var(--main-font);
@@ -117,6 +127,7 @@
         min-width: 360px;
     }
 }
+
 .rating-email-inp::placeholder{
     font-size: 14px;
     font-family: var(--main-font);
@@ -129,6 +140,7 @@
         line-height: 20px;
     }
 }
+
 .rating-email-inp:focus,
 .rating-email-inp:hover{
     border: 1px solid var(--green)
@@ -151,6 +163,7 @@
         line-height: 20px;
     }
 }
+
 .rating-email-btn:focus,
 .rating-email-btn:hover{
     color: var(--black);
@@ -185,7 +198,6 @@
 .star-rating.active{
     fill: var(--yellow-star);
 }
-
 
 .rating-email-valid:not(:placeholder-shown):required:valid {
     border-color: var(--green);

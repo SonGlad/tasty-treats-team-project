@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const desktopThemeSwitcher = document.querySelector('.header-switch input');
   const mobThemeSwitcher = document.querySelector('.switch input');
   const desktopHeader = document.querySelector('.header');
-  const desktopLogoSecond = document.querySelector('.logo-second');
-  const allCategoryButton = document.querySelector('.all-category-button');
+
 
   function toggleDesktopTheme() {
     if (desktopThemeSwitcher.checked) {
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
       bodyTheme.classList.remove('dark-theme');
       localStorage.setItem('theme', 'light');
     }
-  }
+  };
 
   function toggleMobileTheme() {
     if (mobThemeSwitcher.checked) {
@@ -28,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
       bodyTheme.classList.remove('dark-theme');
       localStorage.setItem('theme', 'light');
     }
-  }
+  };
 
-  // Function to apply the theme based on the stored value
+  
   function applyTheme() {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark') {
@@ -42,15 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
       mobThemeSwitcher.checked = false;
       bodyTheme.classList.remove('dark-theme');
     }
-  }
+  };
+
 
   desktopThemeSwitcher.addEventListener('change', toggleDesktopTheme);
   mobThemeSwitcher.addEventListener('change', toggleMobileTheme);
 
-  // Apply the stored theme on page load
+ 
   applyTheme();
 
-  // Apply the theme when navigating to a new page
+ 
   window.addEventListener('pageshow', function(event) {
     applyTheme();
   });

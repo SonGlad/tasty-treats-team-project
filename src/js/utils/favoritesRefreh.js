@@ -1,4 +1,5 @@
 export function removeFavorites (){
+  
   cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
 
   cardFavouritesBtns.forEach(button => {

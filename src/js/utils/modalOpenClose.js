@@ -1,4 +1,3 @@
-import Notiflix from 'notiflix';
 const modalOpenClose = () => {
   const refs = {
     openModalBtn: document.querySelector('.event-order'),
@@ -8,22 +7,27 @@ const modalOpenClose = () => {
     buttonToSimulateClick: document.querySelector('#imitation'),
   };
 
+
   refs.buttonToSimulateClick.addEventListener('click', toggleModal);
   refs.openModalBtn.addEventListener('click', toggleModal);
+
 
   refs.closeModalBtn.addEventListener('click', event => {
     event.stopPropagation();
     toggleModal();
   });
 
+
   refs.modalContent.addEventListener('click', event => {
     event.stopPropagation();
   });
+
 
   refs.modal.addEventListener('click', event => {
     event.stopPropagation();
     toggleModal();
   });
+
 
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
@@ -32,6 +36,7 @@ const modalOpenClose = () => {
       }
     }
   });
+
 
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
@@ -42,5 +47,6 @@ const modalOpenClose = () => {
     }
   }
 };
+
 
 export default modalOpenClose;

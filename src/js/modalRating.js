@@ -1,5 +1,8 @@
 import { addARating } from '../js/API_request/rating-modal';
+
+
 const RatingAdd = new addARating();
+
 
 function modalRating() {
   const refs = {
@@ -63,7 +66,8 @@ function modalRating() {
       changeColor(starCount);
     });
   });
-}
+};
+
 
 function changeColor(starCount) {
   const stars = document.querySelectorAll('.rating-star input[type="radio"]');
@@ -78,14 +82,18 @@ const ratingValue = document.querySelector(".rating_value")
     }
   }
   ratingValue.textContent = starCount.toFixed(1) 
-}
+};
+
+
 function disableScroll() {
   document.body.classList.add('scroll-lock');
-}
+};
+
 
 function enableScroll() {
   document.body.classList.remove('scroll-lock');
-}
+};
+
 
 modalRating();
 

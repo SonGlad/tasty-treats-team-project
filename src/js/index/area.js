@@ -1,11 +1,13 @@
 import { searchAPI } from '../API_request/filterAPI';
 import TemplateArea from '../../templates/area.hbs';
 import { Notify } from 'notiflix';
-const SearchAPI = new searchAPI();
 
+
+const SearchAPI = new searchAPI();
 const areasList = document.querySelector('#arealist');
 
 areas();
+
 async function areas() {
   try {
     const area = await SearchAPI.getArea();
@@ -15,4 +17,4 @@ async function areas() {
     console.log(err);
     Notify.failure('Something went wrong. Please try again');
   }
-}
+};

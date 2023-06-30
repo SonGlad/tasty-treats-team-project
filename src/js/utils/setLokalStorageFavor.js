@@ -1,18 +1,15 @@
 import { save, load, remove } from './localStorageJSON';
-// import { rend } from '../favorite/favorites_main';
 
-const renderBox = document.querySelector('.favorite-render-cards');
-const favoriteButtonList = document.querySelector('.categories-list');
 
-console.log(renderBox);
 let favoritData;
 
+
 export default function setLocalStorageF(favoritData) {
-  console.log(favoritData);
   if (!favoritData) {
     // якщо запуск з cards 28
     const hearts = document.querySelectorAll('.card_favourites_btn');
     const seeRecipyForSet = document.querySelectorAll('.card_btn');
+
 
     function handleClick(event) {
       const parentContainer = event.currentTarget.parentNode;
@@ -50,6 +47,7 @@ export default function setLocalStorageF(favoritData) {
           item.starRating === data.starRating
       );
 
+
       if (index !== -1) {
         dataArray.splice(index, 1);
 
@@ -84,9 +82,7 @@ export default function setLocalStorageF(favoritData) {
             dataArray = storedData;
           }
           dataArray.push(favoritData);
-          console.log(dataArray);
           save('cardData', dataArray);
-          console.log('add favor');
         } else {
           target.textContent = 'Add to favorite';
           dataArray = storedData;
@@ -98,12 +94,10 @@ export default function setLocalStorageF(favoritData) {
               item.starRating === favoritData.starRating
           );
           dataArray.splice(index, 1);
-          console.log('remove favor');
           if (dataArray.length === 0) {
             remove('cardData');
           } else {
             save('cardData', dataArray);
-            // rend();
           }
           return;
         }
@@ -111,4 +105,4 @@ export default function setLocalStorageF(favoritData) {
     }
   }
   return;
-}
+};

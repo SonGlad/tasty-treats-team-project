@@ -10,11 +10,15 @@ import { save, load, remove } from './utils/localStorageJSON';
 import { rend } from './favorite/favorites_main';
 import { Notify } from 'notiflix';
 
+
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
 const ratingBlockTxt = document.querySelector('.rating-block-txt');
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
+
+
 let dataArray = load('cardData');
+
 
 async function handleModalRecipe(favoritData) {
   try {
@@ -38,7 +42,7 @@ async function handleModalRecipe(favoritData) {
     } else {
       response.data.btnText = 'Add to favorite';
     }
-    //
+    
     response.data.youtubeNorm = response.data.youtube.replace(
       /youtube\.com\/watch\?v=/,
       'youtube.com/embed/'
@@ -48,7 +52,6 @@ async function handleModalRecipe(favoritData) {
     modalRecipe.innerHTML = cardModalRecipe(mass);
 
     const player = document.getElementById('vimeo-player');
-    console.log(player);
     const ingridientsList = document.querySelector('.recipe-ingridient');
     ingridientsList.innerHTML = listIngredients(response.data.ingredients);
 
@@ -100,11 +103,13 @@ async function handleModalRecipe(favoritData) {
     modalRecipe.addEventListener('click', event => {
       event.stopPropagation();
     });
+
   } catch (error) {
     console.log(error);
     Notify.failure('Something went wrong. Please try again');
   }
-}
+};
+
 
 export function eventListener() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
@@ -134,19 +139,19 @@ export function eventListener() {
       handleModalRecipe(favoritData);
     });
   });
-}
+};
+
 
 export function eventListenerPopular() {
   const btnOpenModalPopular = document.querySelectorAll('.popular-img');
   btnOpenModalPopular.forEach(event => {
     event.addEventListener('click', () => {
       fechFullRecipe.ID = event.id;
-      console.log(event.id);
-      console.log(event);
       handleModalRecipe();
     });
   });
-}
+};
+
 
 export function eventListenerFavorites() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
@@ -177,12 +182,14 @@ export function eventListenerFavorites() {
       handleModalRecipe(favoritData);
     });
   });
-}
+};
+
 
 function disableScroll() {
   document.body.classList.add('scroll-lock');
-}
+};
+
 
 function enableScroll() {
   document.body.classList.remove('scroll-lock');
-}
+};

@@ -2,11 +2,13 @@ import { searchAPI } from '../API_request/filterAPI';
 import TemplateIngridients from '../../templates/ingredients.hbs';
 import { Notify } from 'notiflix';
 
-const SearchAPI = new searchAPI();
 
+const SearchAPI = new searchAPI();
 const ingredients = document.querySelector('#ingredients');
 
+
 getIngredients();
+
 
 async function getIngredients() {
   try {
@@ -19,4 +21,4 @@ async function getIngredients() {
     console.log(err);
     Notify.failure('Something went wrong. Please try again');
   }
-}
+};

@@ -6,10 +6,10 @@ function createTimerBtns(){
     for (let i = 5; i <= 160; i += 5) {
 
         const li = document.createElement('li');
-        li.classList.add('option')
+        li.classList.add('option');
 
         const button = document.createElement('button');
-        button.classList.add('option-item')
+        button.classList.add('option-item');
 
         button.textContent = i + ' min';
 

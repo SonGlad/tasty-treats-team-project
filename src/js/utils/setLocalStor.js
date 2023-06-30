@@ -1,18 +1,15 @@
 import { save, load, remove } from './localStorageJSON';
 import { rend } from '../favorite/favorites_main';
 
-const renderBox = document.querySelector('.favorite-render-cards');
-const favoriteButtonList = document.querySelector('.categories-list');
 
-console.log(renderBox);
+
 let favoritData;
 
 export default function setLocalStorage(favoritData) {
-  console.log(favoritData);
   if (!favoritData) {
     // якщо запуск з cards 28
     const hearts = document.querySelectorAll('.card_favourites_btn');
-    const seeRecipyForSet = document.querySelectorAll('.card_btn');
+
 
     function handleClick(event) {
       const parentContainer = event.currentTarget.parentNode;
@@ -34,8 +31,10 @@ export default function setLocalStorage(favoritData) {
         ident: ident,
       };
 
+
       let dataArray = [];
       const storedData = load('cardData');
+
 
       if (storedData) {
         dataArray = storedData;
@@ -60,10 +59,13 @@ export default function setLocalStorage(favoritData) {
         return;
       }
 
+
       dataArray.push(data);
+
 
       save('cardData', dataArray);
     }
+
 
     hearts.forEach(heart => {
       heart.addEventListener('click', handleClick);
@@ -83,11 +85,8 @@ export default function setLocalStorage(favoritData) {
             dataArray = storedData;
           }
           dataArray.push(favoritData);
-          console.log(dataArray);
           save('cardData', dataArray);
-          console.log('add favor');
         } else {
-          console.log(document.title);
           target.textContent = 'Add to favorite';
           dataArray = storedData;
           const index = dataArray.findIndex(
@@ -99,7 +98,6 @@ export default function setLocalStorage(favoritData) {
           );
           dataArray.splice(index, 1);
 
-          console.log('remove favor');
           if (dataArray.length === 0) {
             remove('cardData');
           } else {
@@ -114,4 +112,4 @@ export default function setLocalStorage(favoritData) {
     }
   }
   return;
-}
+};

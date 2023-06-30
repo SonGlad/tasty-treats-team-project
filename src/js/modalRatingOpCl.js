@@ -1,4 +1,6 @@
-import {  addRatingtoBtn } from "../js/API_request/rating-modal"
+// import {  addRatingtoBtn } from "../js/API_request/rating-modal"
+
+
 const  ratingEmailBtn = document.querySelector(".rating-email-btn")  
 export function modalRatingOpCl(giveRating, modalRecipeBackDrop) {
     const ratingBackdrop = document.querySelector('.rating-backdrop');
@@ -9,4 +11,4 @@ export function modalRatingOpCl(giveRating, modalRecipeBackDrop) {
         ratingBackdrop.classList.remove('visible');
         modalRecipeBackDrop.classList.add('visible');
     });     
-}
+};

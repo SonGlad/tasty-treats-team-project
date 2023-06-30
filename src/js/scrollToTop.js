@@ -1,9 +1,10 @@
 const scrollButton = document.querySelector('.btn_scroll');
 let isScrolling = false;
 
-scrollButton.addEventListener('click', scrollToTop);
 
+scrollButton.addEventListener('click', scrollToTop);
 window.addEventListener('scroll', toggleButtonVisibility);
+
 
 function toggleButtonVisibility() {
   if (window.pageYOffset <= 200 && window.pageYOffset >= 0) {
@@ -13,12 +14,14 @@ function toggleButtonVisibility() {
   }
 };
 
+
 function scrollToTop() {
   if (!isScrolling) {
     isScrolling = true;
     scrollToTopAnimation();
   }
 };
+
 
 function scrollToTopAnimation() {
   if (window.pageYOffset > 0) {

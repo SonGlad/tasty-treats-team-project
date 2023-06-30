@@ -10,8 +10,6 @@ import './js/index/fill_categories';
 
 import './js/API_request/defaultRequest';
 
-import './js/index/cards';
-
 import './js/index/allCategories';
 
 import './js/index/popular';

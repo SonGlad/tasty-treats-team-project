@@ -15,15 +15,14 @@ let allCards;
 let perPagerRozr;
 let listOfCards;
 let filterArr;
-let category = load("category")
-const pageFromStor = load("page")
+let category = load("category");
+const pageFromStor = load("page");
 
 const paginationConteiner = document.querySelector('.pagination-wrapper');
-console.log(paginationConteiner);
 if (document.title === 'Favorites' && !storedData) {
   paginationConteiner.classList.add('visually-hidden');
   return;
-}
+};
 
 rend();
 
@@ -35,10 +34,9 @@ if (category !== 'All categories') {
 }else{
   pagination.reset(storedData.length);
   pagination.movePageTo(pageFromStor)
-}
+};
 
 pagination.on('afterMove', event => {
-  console.log('click');
   const currentPage = event.page;
   save('page', event.page);
   rend();
@@ -77,8 +75,6 @@ export function rend() {
       renderBox.innerHTML = '';
       favoriteButtonList.innerHTML = '';
 
-      console.log(qwerty);
-
       renderBox.insertAdjacentHTML('beforeend', favoriTesCards(qwerty));
       favoriteButtonList.insertAdjacentHTML(
         'beforeend',
@@ -91,7 +87,6 @@ export function rend() {
     const cardsLisCategory = document.querySelectorAll('.categories-btn');
     cardsLisCategory.forEach(button => {
       if (button.textContent.trim() === activeCategory) {
-        console.log(activeCategory);
         button.classList.add('active');
         return;
       }
@@ -101,10 +96,9 @@ export function rend() {
     setLocalStorageF();
     fillStars();
     cardHearts();
-   
     filtrFavoriteCard();
-     
     removeFavorites();
+
   } else {
     if (document.title === 'Favorites') {
       renderBox.innerHTML = '';
@@ -112,8 +106,8 @@ export function rend() {
       displayNone.style.display = 'flex';
     }
     return;
-  }
-}
+  };
+};
 
 
 function removeFavorites() {
@@ -172,8 +166,6 @@ function forRend() {
     
   
   }
-  console.log(itemsPerPage());
-  console.log(filterArr.length);
   if (document.title === 'Favorites') {
     if (itemsPerPage() >= filterArr.length) {
       paginationConteiner.classList.add('visually-hidden');

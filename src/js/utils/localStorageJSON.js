@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix';
 
+
 const save = (key, value) => {
   try {
     const serializedState = JSON.stringify(value);
@@ -9,6 +10,7 @@ const save = (key, value) => {
     Notify.failure('Something went wrong. Please try again');
   }
 };
+
 
 const load = key => {
   try {
@@ -20,6 +22,7 @@ const load = key => {
   }
 };
 
+
 const remove = key => {
   try {
     localStorage.removeItem(key);
@@ -28,5 +31,6 @@ const remove = key => {
     Notify.failure('Something went wrong. Please try again');
   }
 };
+
 
 export { save, load, remove };

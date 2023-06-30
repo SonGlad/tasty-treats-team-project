@@ -1,5 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+
+
 const ratingBackdrop = document.querySelector('.rating-backdrop');
 export class addARating {
   constructor() {
@@ -41,7 +43,6 @@ export class addARating {
 
   setRatingValue(rating) {
     this.ratingValue = rating;
-    console.log(this.ratingValue)
   }
 
   setInpValue(inpValue) {
@@ -50,4 +51,4 @@ export class addARating {
   setId(id) {
     this.id = id;
   }
-}
+};

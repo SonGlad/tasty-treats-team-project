@@ -4,7 +4,7 @@ import { save, load, remove } from './localStorageJSON';
 export function heartsFillStorage() {
 
   const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
-  // const storedData = JSON.parse(localStorage.getItem('cardData'));
+
   let storedData = load('cardData');
   if (storedData) {
 
@@ -17,10 +17,10 @@ export function heartsFillStorage() {
 
      if (identArray.includes(cardId)) {
       button.classList.add('heart-filled');
-      hertWaihte.classList.add('heart-filled')
+      hertWaihte.classList.add('heart-filled');
      } else {
       button.classList.remove('heart-filled');
-      hertWaihte.classList.remove('heart-filled')
+      hertWaihte.classList.remove('heart-filled');
       }
 
     })
@@ -28,7 +28,7 @@ export function heartsFillStorage() {
     cardFavouritesBtns.forEach(button => {
       const hertWaihte = button.parentNode.querySelector('.card_heart');
       button.classList.remove('heart-filled');
-      hertWaihte.classList.remove('heart-filled')
+      hertWaihte.classList.remove('heart-filled');
     })
 
   }
