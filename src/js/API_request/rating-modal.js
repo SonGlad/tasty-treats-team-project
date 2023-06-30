@@ -23,7 +23,7 @@ export class addARating {
       Notiflix.Report.success(
         'Your rating was successfully added,please enter a new Email '
       );
-      console.log(responseFromRating);
+    
     } catch (err) {
       if (err.response.status === 409) {
         Notiflix.Report.failure(
