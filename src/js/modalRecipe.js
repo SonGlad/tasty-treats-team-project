@@ -11,7 +11,7 @@ import { rend } from './favorite/favorites_main';
 
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
-const ratingBlockTxt = document.querySelector('.rating-block-txt')
+const ratingBlockTxt = document.querySelector('.rating-block-txt');
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
 let dataArray = load('cardData');
 
@@ -57,8 +57,8 @@ async function handleModalRecipe(favoritData) {
     const giveRating = document.querySelector('.btn-giveARating');
     modalRatingOpCl(giveRating, modalRecipeBackDrop);
     giveRating.id = mass[0]._id;
-    
-    ratingBlockTxt.textContent = mass[0].description
+
+    ratingBlockTxt.textContent = mass[0].description;
     setLocalStorage(favoritData);
 
     fillStars();
@@ -134,17 +134,17 @@ export function eventListener() {
   });
 }
 
-// export function eventListenerPopular() {
-//   const btnOpenModalPopular = document.querySelectorAll('.popular-img');
-//   btnOpenModalPopular.forEach(event => {
-//     event.addEventListener('click', () => {
-//       fechFullRecipe.ID = event.id;
-//       console.log(event.id);
-//       console.log(event);
-//       handleModalRecipe();
-//     });
-//   });
-// };
+export function eventListenerPopular() {
+  const btnOpenModalPopular = document.querySelectorAll('.popular-img');
+  btnOpenModalPopular.forEach(event => {
+    event.addEventListener('click', () => {
+      fechFullRecipe.ID = event.id;
+      console.log(event.id);
+      console.log(event);
+      handleModalRecipe();
+    });
+  });
+}
 
 export function eventListenerFavorites() {
   const btnOpenModal = document.querySelectorAll('.card_btn');

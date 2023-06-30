@@ -16,8 +16,8 @@
       <h3 class="order-modal-title">Order now</h3>
       <form class="order-form" id="order-form">
         <label for="name" class="order-form-label">Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name"
-          class="order-form-input name-form-valid  input-js" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄє']+">
+        <input type="text"   id="name" name="name" placeholder="Enter your name"
+          class="order-form-input name-form-valid  input-js" required pattern="^[A-Za-zА-Яа-яЁёІіЇїЄє\s]+$">
   
         <label for="phone" class="order-form-label">Phone number</label>
         <input type="tel" id="phone" class="order-form-input phone-form-valid input-js" name="phone" pattern="^\+\d+$"
@@ -30,7 +30,7 @@
         <label for="comment" class="order-form-label">Comment</label>
         <textarea id="comment" name="comment" class="order-form-comment"></textarea>
   
-        <button type="submit" class="submit-btn">Send</button>
+        <button type="submit" class="submit-btn" disabled>Send</button>
       </form>
     </div>
   </div>

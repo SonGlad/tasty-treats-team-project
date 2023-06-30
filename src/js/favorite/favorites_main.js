@@ -14,6 +14,9 @@ let storedData = load('cardData');
 let allCards;
 let perPagerRozr;
 let listOfCards;
+let filterArr;
+let category = load("category")
+const pageFromStor = load("page")
 
 const paginationConteiner = document.querySelector('.pagination-wrapper');
 console.log(paginationConteiner);
@@ -25,8 +28,13 @@ if (document.title === 'Favorites' && !storedData) {
 rend();
 
 itemsPerPage();
-if (storedData) {
+
+if (category !== 'All categories') {
+  pagination.reset(filterArr.length);
+  pagination.movePageTo(pageFromStor)
+}else{
   pagination.reset(storedData.length);
+  pagination.movePageTo(pageFromStor)
 }
 
 pagination.on('afterMove', event => {
@@ -93,7 +101,9 @@ export function rend() {
     setLocalStorageF();
     fillStars();
     cardHearts();
+   
     filtrFavoriteCard();
+     
     removeFavorites();
   } else {
     if (document.title === 'Favorites') {
@@ -105,18 +115,6 @@ export function rend() {
   }
 }
 
-function filtrFavoriteCard() {
-  const cardsListItems = document.querySelectorAll('.card_favourites');
-  const cardsLisCategory = document.querySelectorAll('.categories-btn');
-  cardsLisCategory.forEach(category => {
-    category.addEventListener('click', event => {
-      save('category', event.target.textContent);
-      save('page', 1);
-      rend();
-      pagination.reset(storedData.length);
-    });
-  });
-}
 
 function removeFavorites() {
   const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
@@ -125,7 +123,19 @@ function removeFavorites() {
     button.addEventListener('click', () => {
       renderBox.innerHTML = '';
       favoriteButtonList.innerHTML = '';
+      const currentPage = load('page');
+      if (currentPage > 1 && listOfCards.length === 1) {
+        save('page', currentPage - 1);
+        if(category!=='All categories'){
+          pagination.reset(filterArr.length-1)
+        }else{
+            pagination.reset(storedData.length-1)
+        }
+      pagination.movePageTo(currentPage - 1)
+        
+      }
       rend();
+    
     });
   });
 }
@@ -141,18 +151,26 @@ function forRend() {
   } else {
     page = 1;
   }
-  let category;
+ 
   if (load('category')) {
     category = load('category');
   } else {
+   
     category = 'All categories';
   }
 
-  let filterArr;
+
   if (category === 'All categories') {
     filterArr = storedData;
   } else {
     filterArr = storedData.filter(obj => obj.category === category);
+  // pagination.reset(filterArr.length)
+    
+    
+    
+    
+    
+  
   }
   console.log(itemsPerPage());
   console.log(filterArr.length);
@@ -168,7 +186,16 @@ function forRend() {
     page * itemsPerPage()
   );
 
-  console.log(listOfCards);
+  const currentPage = load('page');
+  const totalPages = Math.ceil(filterArr.length / itemsPerPage());
+  
+  if (currentPage > totalPages) {
+    save('page', Math.max(totalPages, 1));
+    listOfCards = filterArr.slice(
+      (Math.max(totalPages, 1) - 1) * itemsPerPage(),
+      Math.max(totalPages, 1) * itemsPerPage()
+    );
+  }
   return listOfCards;
 }
 
@@ -182,4 +209,37 @@ function itemsPerPage() {
     perPagerRozr = 12;
   }
   return perPagerRozr;
+}
+
+function filtrFavoriteCard() {
+  const cardsListItems = document.querySelectorAll('.card_favourites');
+  const cardsLisCategory = document.querySelectorAll('.categories-btn');
+  cardsLisCategory.forEach(category => {
+    category.addEventListener('click', event => {
+      save('category', event.target.textContent);
+      save('page', 1);
+      rend();
+      pagination.reset(filterArr.length);
+    });
+  });
+}
+function removeFavoritesCategory() {
+  const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
+
+  cardFavouritesBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      renderBox.innerHTML = '';
+      favoriteButtonList.innerHTML = '';
+      const currentPage = load('page');
+      if (currentPage > 1 && listOfCards.length === 1) {
+        save('page', currentPage - 1);
+       
+        pagination.reset(filterArr.length-1)
+        pagination.movePageTo(currentPage - 1)
+        
+      }
+      rend();
+    
+    });
+  });
 }

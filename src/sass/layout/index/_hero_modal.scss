@@ -188,3 +188,8 @@
   border-color: var(--color-input-red);
   transition: border-color var(--trns-modal);
 }
+.submit-btn[disabled] {
+
+  opacity: 0.6;
+  cursor: not-allowed;
+}

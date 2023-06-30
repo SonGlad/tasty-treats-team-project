@@ -18,6 +18,7 @@
                     <div class="rating-block-star">
                         <h2 class="block-star-txt">Rating</h2>
                         <div class="rating-star">
+                            <p class="rating_value">0.0</p>
                             <input type="radio" id="star1" name="rating" value="1" class="star-input">
                             <label for="star1" class="star-label">
                                 <svg class="star-rating" viewBox="0 0 24 24">
@@ -59,8 +60,9 @@
                     </p>
                 </div>
                 <div class="rating-email">
-                    <input type="email" class="rating-email-inp rating-email-valid" required placeholder="Enter email">
-                    <button type="submit" class="rating-email-btn">Send</button>
+                    <input type="email" id="email" name="email" placeholder="Enter your email"
+          class="order-form-input email-form-valid  input-js email-rating" required>
+                    <button type="submit" class="rating-email-btn submit-btn" disabled>Send</button>
                 </div>
             </div>
         </div>

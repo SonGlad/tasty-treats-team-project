@@ -1,4 +1,4 @@
-//
+import Notiflix from 'notiflix';
 // const validateInput = () => {
 //  const inputElement = document.querySelector('.name-input');
 //  const inputPhone = document.querySelector('.input-phone');
@@ -78,39 +78,61 @@
 //  }
 // };
 //
-// 
+//
 // export default validateInput;
-
+const sendBtn = document.querySelector(".submit-btn");
 const form = document.getElementById('order-form');
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+const inputs = form.querySelectorAll('.input-js');
 
-  const inputs = form.querySelectorAll('.input-js');
-  const isEmpty = false;
-  const formData = {};
+// Функция для проверки валидности поля
+function validateField(input) {
+  const value = input.value.trim();
+  const pattern = new RegExp(input.pattern); 
+  const isValid = pattern.test(value);
 
-  inputs.forEach(function(input) {
-    if (input.value.trim() === '') {
-      isEmpty = true;
-      input.classList.add('error');
-    } else {
-      input.classList.remove('error');
-      formData[input.name] = input.value.trim();
-    }
-  });
-
-  if (isEmpty) {
-    alert('Please fill in all required fields.');
+  if (isValid) {
+    input.classList.remove('error');
   } else {
-    console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
-      name: ${formData.name},
-      phone: ${formData.phone},
-      email: ${formData.email},
-      comment: ${formData.comment}
-    }`);
-    form.reset(); 
+    input.classList.add('error');
   }
+
+  return isValid;
+}
+
+// Обработчики событий для каждого поля
+inputs.forEach(function (input) {
+  input.addEventListener('input', function () {
+    validateField(input);
+    checkFormValidity();
+  });
 });
 
+// Функция для проверки валидности всей формы и обновления состояния кнопки
+function checkFormValidity() {
+  const isValidForm = Array.from(inputs).every(function (input) {
+    return input.checkValidity();
+  });
 
+  sendBtn.disabled = !isValidForm;
+}
 
+// Обработчик события отправки формы
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Проверка валидности формы перед отправкой
+  if (form.checkValidity()) {
+    const formData = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      comment: form.comment.value.trim()
+    };
+
+    console.log('Form data:', formData);
+    Notiflix.Report.success("Your order has successfully been sent,Thank you!")
+    form.reset();
+  } else {
+    Notiflix.Report.failure('Please enter valid data.');
+  }
+});
