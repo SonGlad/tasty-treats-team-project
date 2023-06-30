@@ -14,15 +14,15 @@ let storedData = load('cardData');
 let allCards;
 let perPagerRozr;
 let listOfCards;
-let filterArr;
-let category = load("category");
-const pageFromStor = load("page");
+let filterArr = [];
+let category = load('category');
+const pageFromStor = load('page');
 
 const paginationConteiner = document.querySelector('.pagination-wrapper');
 if (document.title === 'Favorites' && !storedData) {
   paginationConteiner.classList.add('visually-hidden');
   return;
-};
+}
 
 rend();
 
@@ -30,11 +30,11 @@ itemsPerPage();
 
 if (category !== 'All categories') {
   pagination.reset(filterArr.length);
-  pagination.movePageTo(pageFromStor)
-}else{
+  pagination.movePageTo(pageFromStor);
+} else {
   pagination.reset(storedData.length);
-  pagination.movePageTo(pageFromStor)
-};
+  pagination.movePageTo(pageFromStor);
+}
 
 pagination.on('afterMove', event => {
   const currentPage = event.page;
@@ -98,7 +98,6 @@ export function rend() {
     cardHearts();
     filtrFavoriteCard();
     removeFavorites();
-
   } else {
     if (document.title === 'Favorites') {
       renderBox.innerHTML = '';
@@ -106,9 +105,8 @@ export function rend() {
       displayNone.style.display = 'flex';
     }
     return;
-  };
-};
-
+  }
+}
 
 function removeFavorites() {
   const cardFavouritesBtns = document.querySelectorAll('.card_favourites_btn');
@@ -120,16 +118,14 @@ function removeFavorites() {
       const currentPage = load('page');
       if (currentPage > 1 && listOfCards.length === 1) {
         save('page', currentPage - 1);
-        if(category!=='All categories'){
-          pagination.reset(filterArr.length-1)
-        }else{
-            pagination.reset(storedData.length-1)
+        if (category !== 'All categories') {
+          pagination.reset(filterArr.length - 1);
+        } else {
+          pagination.reset(storedData.length - 1);
         }
-      pagination.movePageTo(currentPage - 1)
-        
+        pagination.movePageTo(currentPage - 1);
       }
       rend();
-    
     });
   });
 }
@@ -145,26 +141,18 @@ function forRend() {
   } else {
     page = 1;
   }
- 
+
   if (load('category')) {
     category = load('category');
   } else {
-   
     category = 'All categories';
   }
-
 
   if (category === 'All categories') {
     filterArr = storedData;
   } else {
     filterArr = storedData.filter(obj => obj.category === category);
-  // pagination.reset(filterArr.length)
-    
-    
-    
-    
-    
-  
+    // pagination.reset(filterArr.length)
   }
   if (document.title === 'Favorites') {
     if (itemsPerPage() >= filterArr.length) {
@@ -180,7 +168,7 @@ function forRend() {
 
   const currentPage = load('page');
   const totalPages = Math.ceil(filterArr.length / itemsPerPage());
-  
+
   if (currentPage > totalPages) {
     save('page', Math.max(totalPages, 1));
     listOfCards = filterArr.slice(
@@ -225,13 +213,11 @@ function removeFavoritesCategory() {
       const currentPage = load('page');
       if (currentPage > 1 && listOfCards.length === 1) {
         save('page', currentPage - 1);
-       
-        pagination.reset(filterArr.length-1)
-        pagination.movePageTo(currentPage - 1)
-        
+
+        pagination.reset(filterArr.length - 1);
+        pagination.movePageTo(currentPage - 1);
       }
       rend();
-    
     });
   });
 }

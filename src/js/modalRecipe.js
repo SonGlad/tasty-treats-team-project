@@ -9,16 +9,14 @@ import { heartsFillStorage } from './utils/hertsFillAll';
 import { save, load, remove } from './utils/localStorageJSON';
 import { rend } from './favorite/favorites_main';
 import { Notify } from 'notiflix';
-
+import instructionsList from '../templates/instructions.hbs ';
 
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
 const ratingBlockTxt = document.querySelector('.rating-block-txt');
 const fechFullRecipe = new FechFullRecipe(); //екземпляр класу
 
-
 let dataArray = load('cardData');
-
 
 async function handleModalRecipe(favoritData) {
   try {
@@ -42,7 +40,7 @@ async function handleModalRecipe(favoritData) {
     } else {
       response.data.btnText = 'Add to favorite';
     }
-    
+
     response.data.youtubeNorm = response.data.youtube.replace(
       /youtube\.com\/watch\?v=/,
       'youtube.com/embed/'
@@ -57,6 +55,13 @@ async function handleModalRecipe(favoritData) {
 
     const tags = document.querySelector('.tags');
     tags.innerHTML = recipeTags(response.data.tags);
+
+    const sentences = response.data.instructions.split('. ');
+    const sentenceObjects = sentences.map(function (sentence) {
+      return { sentence: sentence };
+    });
+    const instructions = document.querySelector('.recipe-text');
+    instructions.innerHTML = instructionsList(sentenceObjects);
 
     const giveRating = document.querySelector('.btn-giveARating');
     modalRatingOpCl(giveRating, modalRecipeBackDrop);
@@ -103,13 +108,11 @@ async function handleModalRecipe(favoritData) {
     modalRecipe.addEventListener('click', event => {
       event.stopPropagation();
     });
-
   } catch (error) {
     console.log(error);
     Notify.failure('Something went wrong. Please try again');
   }
-};
-
+}
 
 export function eventListener() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
@@ -139,8 +142,7 @@ export function eventListener() {
       handleModalRecipe(favoritData);
     });
   });
-};
-
+}
 
 export function eventListenerPopular() {
   const btnOpenModalPopular = document.querySelectorAll('.popular-img');
@@ -150,8 +152,7 @@ export function eventListenerPopular() {
       handleModalRecipe();
     });
   });
-};
-
+}
 
 export function eventListenerFavorites() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
@@ -182,14 +183,12 @@ export function eventListenerFavorites() {
       handleModalRecipe(favoritData);
     });
   });
-};
-
+}
 
 function disableScroll() {
   document.body.classList.add('scroll-lock');
-};
-
+}
 
 function enableScroll() {
   document.body.classList.remove('scroll-lock');
-};
+}
