@@ -88,8 +88,6 @@ export function rend() {
           rating.textContent = 5;
         }
       });
-   
-      
     }
 
     const activeCategory = load('category');
