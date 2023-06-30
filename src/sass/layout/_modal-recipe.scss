@@ -38,20 +38,19 @@
 }
 
 .recipe-backdrop.visible .modal-container{
-  // transform: scale(0.75) translate(-65%, -65%);
   opacity: 0;
   transition-delay: 0ms;
 }
 
 .modal-recipe {
-  @media screen and(max-width:374px) {
-    width: 320px;
-  }
-
   width: 335px;
   padding: 40px 20px;
   border-radius: 15px;
   background-color: var(--white-w);
+
+  @media screen and(max-width:374px) {
+    width: 320px;
+  }
   @media screen and(min-width:768px) {
     width: 685px;
     padding: 32px;
@@ -158,14 +157,14 @@
 }
 
 .list-item {
-  @media screen and(max-width:374px) {
-    width: 267px;
-  }
   position: relative;
   display: flex;
   justify-content: space-between;
-
   width: 277px;
+
+  @media screen and(max-width:374px) {
+    width: 267px;
+  }
   @media screen and(min-width:768px) {
     width: 238px;
   }
@@ -177,7 +176,7 @@
   left: 0;
   bottom: -10px;
   width: 100%;
-  border: 1px solid var(--gray-border-w); //Треба поміняти на 0,1
+  border: 1px solid var(--gray-border-modal-w);
 }
 
 .ingridient {
@@ -236,15 +235,16 @@
 }
 
 .btn-addToFavorite {
-  @media screen and(max-width:374px) {
-    padding: 12px 17px;
-  }
   font-size: 14px;
   padding: 12px 24px;
   background-color: var(--green);
   color: var(--white-w);
   border-radius: 15px;
   transition: var(--trns-general);
+
+  @media screen and(max-width:374px) {
+    padding: 12px 17px;
+  }
   @media screen and(min-width:768px) {
     padding: 14px 28px;
   }
@@ -256,9 +256,6 @@
 }
 
 .btn-giveARating {
-  @media screen and(max-width:374px) {
-    padding: 12px 17px;
-  }
   font-size: 14px;
   font-weight: 500;
   padding: 12px 24px;
@@ -267,6 +264,10 @@
   border-radius: 15px;
   border: 1px solid var(--green);
   transition: var(--trns-general);
+  
+  @media screen and(max-width:374px) {
+    padding: 12px 17px;
+  }
   @media screen and(min-width:768px) {
     padding: 14px 28px;
   }

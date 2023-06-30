@@ -56,7 +56,6 @@
 .team-modal-item {
   --indent: 16px;
   --items: 6;
-
   width: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
 }
 
@@ -217,46 +216,56 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
 .link__cloud {
   transform-origin: 50% 50%;
   animation: rotate normal infinite 60s linear;
   fill: rgba(255, 255, 255, 0.15);
 }
+
 .link__face,
 .link__arrow {
   transform-origin: 50% 50%;
   transition: transform 0.15s cubic-bezier(0.32, 0, 0.67, 0);
 }
+
 .link:hover .link__face,
 .link:hover .link__arrow {
   transform: scale(1.1);
   transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
 }
+
 .link__arrow {
   stroke-width: 0.075em;
 }
+
 .link__text {
   animation: rotateReverse normal infinite 20s linear;
   transform-origin: 50% 50%;
 }
+
 .link:hover .link__text {
   animation-play-state: paused;
 }
+
 .link--alt {
   font-size: 1.15rem;
   letter-spacing: 0;
   word-spacing: 0;
 }
+
 @keyframes rotate {
   to {
     transform: rotate(360deg);
   }
 }
+
 @keyframes rotateReverse {
   to {
     transform: rotate(-360deg);
   }
 }
+
 @media screen and (max-width: 1279px) {
   .team-open-button {
     display: none;
