@@ -47,15 +47,14 @@ async function handleModalRecipe(favoritData) {
     );
 
     const mass = [response.data]; //запихаємо в масив щоб передати у hbs
-    mass.forEach((item) => {
-      
-      item.notFound = 'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg';
+    mass.forEach(item => {
+      item.notFound =
+        'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg';
     });
     modalRecipe.innerHTML = cardModalRecipe(mass);
 
     const player = document.getElementById('vimeo-player');
 
-  
     const ingridientsList = document.querySelector('.recipe-ingridient');
 
     ingridientsList.innerHTML = listIngredients(response.data.ingredients);
@@ -151,15 +150,15 @@ export function eventListener() {
   });
 }
 
-export function eventListenerPopular() {
-  const btnOpenModalPopular = document.querySelectorAll('.popular-img');
-  btnOpenModalPopular.forEach(event => {
-    event.addEventListener('click', () => {
-      fechFullRecipe.ID = event.id;
-      handleModalRecipe();
-    });
-  });
-}
+// export function eventListenerPopular() {
+//   const btnOpenModalPopular = document.querySelectorAll('.popular-img');
+//   btnOpenModalPopular.forEach(event => {
+//     event.addEventListener('click', () => {
+//       fechFullRecipe.ID = event.id;
+//       handleModalRecipe();
+//     });
+//   });
+// }
 
 export function eventListenerFavorites() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
