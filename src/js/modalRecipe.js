@@ -47,10 +47,17 @@ async function handleModalRecipe(favoritData) {
     );
 
     const mass = [response.data]; //запихаємо в масив щоб передати у hbs
+    mass.forEach((item) => {
+      
+      item.notFound = 'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg';
+    });
     modalRecipe.innerHTML = cardModalRecipe(mass);
 
     const player = document.getElementById('vimeo-player');
+
+  
     const ingridientsList = document.querySelector('.recipe-ingridient');
+
     ingridientsList.innerHTML = listIngredients(response.data.ingredients);
 
     const tags = document.querySelector('.tags');

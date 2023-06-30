@@ -80,6 +80,16 @@ export function rend() {
         'beforeend',
         favoritesCategory(uniqueCategories)
       );
+      const starRatingValue = document.querySelectorAll('.star-rating_value');
+      starRatingValue.forEach(rating => {
+        const ratingValue = Number(rating.textContent);
+        console.log(ratingValue);
+        if (ratingValue >= 5) {
+          rating.textContent = 5;
+        }
+      });
+   
+      
     }
 
     const activeCategory = load('category');
