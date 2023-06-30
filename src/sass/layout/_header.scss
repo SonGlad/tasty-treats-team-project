@@ -56,16 +56,16 @@
 }
 
 .logo-first {
- color: var(--green);
- font-size: 16px;
- font-weight: 600;
- line-height: calc(18/16);
- letter-spacing: -0.64px;
-  @media screen and (min-width:768px) {
-     font-size: 18px;
-     line-height: calc(20/18);
-     letter-spacing: -0.72px;
-  }
+    color: var(--green);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: calc(18/16);
+    letter-spacing: -0.64px;
+    @media screen and (min-width:768px){
+        font-size: 18px;
+        line-height: calc(20/18);
+        letter-spacing: -0.72px;
+    }
 }
 
 .logo-second {

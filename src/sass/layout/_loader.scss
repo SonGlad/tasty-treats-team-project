@@ -48,7 +48,6 @@
 }
 .container-for-loader{
   position: relative;
-  // min-height: 287px;
   margin-top: 24px;
   @media screen and (min-width: 768px) {
     margin-top: 32px;
@@ -70,33 +69,23 @@
 
 
 @media screen and (min-width: 768px) {
-.loader{
-  top: 150px;
-  left: 200px;
+  .loader{
+    top: 150px;
+    left: 200px;
+  }
+  .loader-txt{
+    top: 250px;
+    left: 190px;
+  }
 }
-.loader-txt{
-  top: 250px;
-  left: 190px;
-}
-}
-
-// @media screen and (min-width: 1280px) {
-//   .loader{
-//     top: 150px;
-//     left: 200px;
-//   }
-
-// }
-
-
 
 @media screen and (min-width: 1280px) {
-.loader{
-  top: 150px;
-  left: 300px;
-}
-.loader-txt{
-  top: 250px;
-  left: 290px;
-}
+  .loader{
+    top: 150px;
+    left: 300px;
+  }
+  .loader-txt{
+    top: 250px;
+    left: 290px;
+  }
 }
