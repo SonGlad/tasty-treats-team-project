@@ -4,7 +4,9 @@
     margin-bottom: 0px;
   }
 }
-
+.upside{
+  transform: rotate(180deg);
+}
 .search-arrow{
   fill: var(--gray-title-w);
 }
