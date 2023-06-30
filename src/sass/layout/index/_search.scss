@@ -93,6 +93,8 @@
   max-width: 335px;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 50;
 }
 
 @media screen and (min-width: 768px){
@@ -163,16 +165,6 @@
 }
 
 .custom-select .options-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  list-style: none; 
-  border-top: none;
-  display: none;
-}
-
-
-.custom-select .options-list {
 
   position: absolute;
   top: 100%;
@@ -208,9 +200,9 @@
 }
 
 .custom-select.open .options-list {
-  border-top: 8px solid var(--white-w);
-  border-bottom: 8px solid var(--white-w);
-  border-right: 4px solid var(--white-w);
+  border-top: 8px solid var(--white-d);
+  border-bottom: 8px solid var(--white-d);
+  border-right: 4px solid var(--white-d);
   display: block;
 }
 
