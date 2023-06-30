@@ -4,15 +4,21 @@
     margin-bottom: 0px;
   }
 }
-.upside{
-  transform: rotate(180deg);
+
+.upside {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
+
 .search-arrow{
   fill: var(--gray-title-w);
+  transition: transform 0.3s ease;
 }
+
 .svg-search{
   fill: var(--gray-title-w);
 }
+
 .text-search{
   color: var(--gray-title-w);
   font-size: 14px;
