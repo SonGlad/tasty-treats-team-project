@@ -1,15 +1,12 @@
 import { save, load, remove } from './localStorageJSON';
 import { rend } from '../favorite/favorites_main';
 
-
-
 let favoritData;
 
 export default function setLocalStorage(favoritData) {
   if (!favoritData) {
     // якщо запуск з cards 28
     const hearts = document.querySelectorAll('.card_favourites_btn');
-
 
     function handleClick(event) {
       const parentContainer = event.currentTarget.parentNode;
@@ -31,10 +28,8 @@ export default function setLocalStorage(favoritData) {
         ident: ident,
       };
 
-
       let dataArray = [];
       const storedData = load('cardData');
-
 
       if (storedData) {
         dataArray = storedData;
@@ -53,19 +48,17 @@ export default function setLocalStorage(favoritData) {
 
         if (dataArray.length === 0) {
           remove('cardData');
+          remove('category');
         } else {
           save('cardData', dataArray);
         }
         return;
       }
 
-
       dataArray.push(data);
-
 
       save('cardData', dataArray);
     }
-
 
     hearts.forEach(heart => {
       heart.addEventListener('click', handleClick);
@@ -112,4 +105,4 @@ export default function setLocalStorage(favoritData) {
     }
   }
   return;
-};
+}

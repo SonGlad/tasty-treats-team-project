@@ -1,15 +1,12 @@
 import { save, load, remove } from './localStorageJSON';
 
-
 let favoritData;
-
 
 export default function setLocalStorageF(favoritData) {
   if (!favoritData) {
     // якщо запуск з cards 28
     const hearts = document.querySelectorAll('.card_favourites_btn');
     const seeRecipyForSet = document.querySelectorAll('.card_btn');
-
 
     function handleClick(event) {
       const parentContainer = event.currentTarget.parentNode;
@@ -47,12 +44,12 @@ export default function setLocalStorageF(favoritData) {
           item.starRating === data.starRating
       );
 
-
       if (index !== -1) {
         dataArray.splice(index, 1);
 
         if (dataArray.length === 0) {
           remove('cardData');
+          remove('category');
         } else {
           save('cardData', dataArray);
         }
@@ -105,4 +102,4 @@ export default function setLocalStorageF(favoritData) {
     }
   }
   return;
-};
+}
