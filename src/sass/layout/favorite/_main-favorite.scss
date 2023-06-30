@@ -6,7 +6,13 @@
 .no-recipe-icon {
   margin: 0 auto;
   margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    width: 97px;
+    height: 83px;
+  }
 }
+
+
 
 .no-recipes {
   text-align: center;
