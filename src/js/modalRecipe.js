@@ -136,17 +136,17 @@ export function eventListener() {
   });
 }
 
-// export function eventListenerPopular() {
-//   const btnOpenModalPopular = document.querySelectorAll('.popular-img');
-//   btnOpenModalPopular.forEach(event => {
-//     event.addEventListener('click', () => {
-//       fechFullRecipe.ID = event.id;
-//       console.log(event.id);
-//       console.log(event);
-//       handleModalRecipe();
-//     });
-//   });
-// };
+export function eventListenerPopular() {
+  const btnOpenModalPopular = document.querySelectorAll('.popular-img');
+  btnOpenModalPopular.forEach(event => {
+    event.addEventListener('click', () => {
+      fechFullRecipe.ID = event.id;
+      console.log(event.id);
+      console.log(event);
+      handleModalRecipe();
+    });
+  });
+}
 
 export function eventListenerFavorites() {
   const btnOpenModal = document.querySelectorAll('.card_btn');

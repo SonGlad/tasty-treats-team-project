@@ -67,7 +67,7 @@ function modalRating() {
 
 function changeColor(starCount) {
   const stars = document.querySelectorAll('.rating-star input[type="radio"]');
-
+const ratingValue = document.querySelector(".rating_value")
   for (let i = 0; i < stars.length; i++) {
     const starLabel = stars[i].nextElementSibling;
     const starSVG = starLabel.querySelector('.star-rating');
@@ -77,6 +77,7 @@ function changeColor(starCount) {
       starSVG.classList.remove('active');
     }
   }
+  ratingValue.textContent = starCount.toFixed(1) 
 }
 function disableScroll() {
   document.body.classList.add('scroll-lock');
@@ -96,25 +97,49 @@ modalRating();
 
 // MODAL-VALIDATION //
 
-const modal = document.getElementById('rating-modal-js');
-const emailInput = modal.querySelector('.rating-email-inp');
-const submitButton = modal.querySelector('.rating-email-btn');
+// const sendBtn = document.querySelector(".submit-btn");
+// const emailInput = document.getElementById('email');
 
-submitButton.addEventListener('click', function(event) {
-  event.preventDefault();
+// // Функция для проверки валидности поля электронной почты
+// function validateEmail() {
+//   const emailValue = emailInput.value.trim();
+//   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
 
-  const email = emailInput.value.trim();
+//   if (isValidEmail) {
+//     emailInput.classList.remove('error');
+//   } else {
+//     emailInput.classList.add('error');
+//   }
 
-  if (email === '') {
-    emailInput.classList.add('error');
-    return;
-  }
+//   return isValidEmail;
+// }
 
- 
-  emailInput.value = '';
-});
+// // Обработчик события для поля электронной почты
+// emailInput.addEventListener('input', function () {
+//   validateEmail();
+//   checkFormValidity();
+// });
 
-emailInput.addEventListener('input', function() {
-  emailInput.classList.remove('error');
-});
+// // Функция для проверки валидности всей формы и обновления состояния кнопки
+// function checkFormValidity() {
+//   const isValidForm = validateEmail();
 
+//   sendBtn.disabled = !isValidForm;
+// }
+
+// // Обработчик события отправки формы
+// document.getElementById('rating-modal-js').addEventListener('submit', function (event) {
+//   event.preventDefault();
+
+//   // Проверка валидности формы перед отправкой
+//   if (validateEmail()) {
+//     const formData = {
+//       email: emailInput.value.trim()
+//     };
+
+//     console.log('Form data:', formData);
+//     // Дополнительные действия по отправке формы...
+//   } else {
+//     console.log('Please enter a valid email address.');
+//   }
+// });
