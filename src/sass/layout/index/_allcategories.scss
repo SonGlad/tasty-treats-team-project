@@ -12,14 +12,15 @@
   font-family: var(--main-font);
   font-weight: 500;
   font-size: 18px;
-  color: var(--gray-ul-w);
+  color: var(--gray-title-w);
   margin-bottom: 24px;
   cursor: pointer;
   padding: 14px 10px;
   transition: var(--trns-general);
 }
 
-.all-category-button:hover{
+.all-category-button:hover,
+.all-category-button:focus{
   background-color: var(--green);
   color: var(--white-w);
   border: 1px solid var(--green);

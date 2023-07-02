@@ -3,9 +3,11 @@ const refs = {
   categoryContainer: document.querySelector('.category-container'),
   allCategoryButton: document.querySelector('.all-category-button'),
 };
+
 refs.categoryContainer.addEventListener('click', onBtnCLick);
 
 let lastClickedBtn = null;
+
 
 function onBtnCLick(event) {
   const Btn = event.target;
@@ -28,6 +30,7 @@ function onBtnCLick(event) {
   lastClickedBtn = Btn;
 };
 
+
 function removeActiveClassFromAllButtons() {
   const buttons = refs.categoryList.querySelectorAll('button');
 
@@ -35,6 +38,7 @@ function removeActiveClassFromAllButtons() {
     button.classList.remove('active');
   });
 };
+
 
 refs.categoryList.addEventListener('click', event => {
   if (!event.target.classList.contains('category-btn')) {

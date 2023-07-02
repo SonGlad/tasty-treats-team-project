@@ -12,6 +12,7 @@ import { Notify } from 'notiflix';
 const refs = {
   seacrhInp: document.querySelector('.inp-search'),
   searchBtn: document.querySelector('.btn-search'),
+  cancelBtn: document.querySelector('.btn-cancel'),
   timeFilter: document.querySelector('#timesearch'),
   areaFilter: document.querySelector('#arealist'),
   ingredientsFilter: document.querySelector('#ingredients'),
@@ -49,12 +50,26 @@ pagination.on('afterMove', async event => {
 });
 
 
+refs.cancelBtn.addEventListener('click', resetSearch);
+
+
+function resetSearch(){
+  refs.seacrhInp.value = '';
+  refs.cancelBtn.removeEventListener;
+  refs.cancelBtn.style.display = 'none';
+};
+
+
 refs.seacrhInp.addEventListener(
   'input',
   debounce(() => {
     const query = String(refs.seacrhInp.value.trim());
-
-    searchFetch(query);
+    if(query !== ''){
+      searchFetch(query);
+      refs.cancelBtn.style.display = 'block';
+    } else{
+      refs.cancelBtn.style.display = 'none';
+    }
   }, 300)
 );
 
@@ -93,11 +108,8 @@ async function renderCards(page) {
     }
 
     const roundedData = results.map(result => {
-    let ratingValue = Math.round(result.rating * 10) / 10;
-    if(ratingValue>= 5){
-      ratingValue = 5
+    let ratingValue = result.rating.toFixed(1);
 
-  }
       return {
         ...result,
         rating: ratingValue,
@@ -172,9 +184,11 @@ function categoriesFetch(event) {
   const allCategories = event.target.id;
 
   if (allCategories === 'all-category-btn') {
+    refs.cancelBtn.style.display = 'none';
     refs.seacrhInp.value = '';
     refs.customSelect.forEach(element => {
       element.querySelector('.elem-prev').textContent = 'Select';
+      element.querySelector('.elem-prev').classList.remove('elem-prev-active');
     });
     FetchByFilter.resetCategorie();
     resetPagination();

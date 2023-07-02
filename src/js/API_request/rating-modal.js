@@ -9,6 +9,7 @@ export class addARating {
     this.inputValue = '';
     this.ratingValue = 1;
   }
+
   async addRating() {
     try {
       const URL = `https://tasty-treats-backend.p.goit.global/api/recipes/${this.id}/rating`;
@@ -42,7 +43,7 @@ export class addARating {
   }
 
   setRatingValue(rating) {
-    this.ratingValue = rating;
+    this.ratingValue = Number(rating);
   }
 
   setInpValue(inpValue) {

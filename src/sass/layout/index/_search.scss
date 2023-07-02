@@ -37,17 +37,13 @@
   width: 100%;
   outline: 0;
   max-width: 335px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 48px;
-  padding-right: 122px;
+  padding: 14px 48px;
   border-radius: 15px;
   border: 1px solid var(--gray-border-w);
   @media screen and (min-width: 768px) {
     max-width: 278px;
   }
 }
-
 
 .option-select{
   border-radius: 14px;
@@ -67,6 +63,35 @@
   left: 18;
 }
 
+.btn-search .svg-search-icon{
+  fill: var(--gray-title-w);
+  transition: var(--trns-general);
+}
+
+.inp-search:hover ~ .btn-search .svg-search-icon,
+.inp-search:focus ~ .btn-search .svg-search-icon,
+.inp-search:active ~ .btn-search .svg-search-icon {
+  fill: var(--green);
+  transition: var(--trns-general);
+}
+
+.btn-cancel{
+  display: none;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 15;
+  right: 18;
+}
+
+.btn-cancel .svg-cancel-icon{
+  stroke: var(--gray-descrip-w);
+}
+
 .list-item{
   display: flex;
   flex-wrap: wrap;
@@ -78,7 +103,6 @@
   border-radius: 15px;
   border: 1px solid var(--gray-border-w);
 }
-
 
 .time{
   margin-right: 14px;
@@ -96,13 +120,10 @@
 
 }
 
-
 .con-select{
   max-width: 335px;
   display: flex;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 50;
 }
 
 @media screen and (min-width: 768px){
@@ -248,6 +269,10 @@
   font-family: Inter;
   font-weight: 500;
   line-height: 18px;
+}
+
+.elem-prev-active{
+  color: var(--black);
 }
 
 .option{

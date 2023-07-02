@@ -1,6 +1,4 @@
-.star-modal{
-  fill: rgba(5, 5, 5, 0.1);
-}
+
 .recipe-backdrop {
   position: fixed;
   top: 0;
@@ -281,6 +279,10 @@
 
 .scroll-lock {
   overflow: hidden;
+}
+
+.star-modal{
+  fill: rgba(5, 5, 5, 0.1);
 }
 
 .card_star-rating-modal{

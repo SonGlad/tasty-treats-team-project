@@ -64,10 +64,10 @@ function modalRating() {
   });
 
   const stars = document.querySelectorAll('.rating-star input[type="radio"]');
-  stars.forEach(star => {
-    star.addEventListener('click', () => {
-      const starCount = parseInt(star.value);
-      changeColor(starCount);
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const starCount = parseInt(star.value);
+        changeColor(starCount);
     });
   });
 };
@@ -75,8 +75,8 @@ function modalRating() {
 
 function changeColor(starCount) {
   const stars = document.querySelectorAll('.rating-star input[type="radio"]');
-const ratingValue = document.querySelector(".rating_value")
-  for (let i = 0; i < stars.length; i++) {
+  const ratingValue = document.querySelector(".rating_value")
+  for (let i = 0; i < stars.length; i += 1) {
     const starLabel = stars[i].nextElementSibling;
     const starSVG = starLabel.querySelector('.star-rating');
     if (i < starCount) {
@@ -85,13 +85,13 @@ const ratingValue = document.querySelector(".rating_value")
       starSVG.classList.remove('active');
     }
   }
-  ratingValue.textContent = starCount.toFixed(1) 
+  ratingValue.textContent = starCount.toFixed(1); 
 };
 
 
-function disableScroll() {
-  document.body.classList.add('scroll-lock');
-};
+// function disableScroll() {
+//   document.body.classList.add('scroll-lock');
+// };
 
 
 function enableScroll() {
