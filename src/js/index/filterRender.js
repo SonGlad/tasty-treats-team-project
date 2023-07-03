@@ -108,7 +108,7 @@ async function renderCards(page) {
     }
 
     const roundedData = results.map(result => {
-    let ratingValue = result.rating.toFixed(1);
+    let ratingValue = Math.floor(result.rating * 10) / 10;
 
       return {
         ...result,
