@@ -24,13 +24,15 @@
 }
 
 .team-modal-container {
-  height: 712px;
+  height: 750px;
+  height: auto;
+  overflow: scroll;
   position: fixed;
   top: 50%;
   left: 50%;
   z-index: 999;
   transform: translate(-50%, -50%);
-  max-width: 1000px;
+  max-width: 1050px;
   width: 100%;
   padding: 80px 32px;
   background-color: #f3efe6;
@@ -42,11 +44,27 @@
   transition: all var(--trns-modal);
   transition-delay: 150ms;
 }
+
+@media screen and (max-width: 1279px){
+  .team-modal-container {
+    max-width: 685px;
+    height: 700px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .team-modal-container {
+    max-width: 380px;
+    height: 750px;
+  }
+}
+  
 .footer-backdrop.is-hidden .modal {
   transform: scale(0.75) translate(-65%, -65%);
   opacity: 0;
   transition-delay: 0ms;
 }
+
 @media screen and (max-width: 1279px) {
   .team-open-button {
     display: none;
@@ -58,6 +76,23 @@
   --items: 6;
   width: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
 }
+
+@media screen and (max-width: 1279px) {
+  .team-modal-item {
+    --indent: 16px;
+    --items: 4;
+    width: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .team-modal-item {
+    --indent: 16px;
+    --items: 2;
+    width: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+  }
+}
+
 
 .team-modal {
   display: flex;

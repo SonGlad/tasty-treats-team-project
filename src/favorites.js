@@ -13,3 +13,6 @@ import './js/favorite/favorites_main';
 import './js/modalRating';
 
 import './js/TeamModalOpCl';
+
+import './js/utils/validation';
+

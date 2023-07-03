@@ -6,16 +6,13 @@ export default function setLocalStorageF(favoritData) {
   if (!favoritData) {
     // якщо запуск з cards 28
     const hearts = document.querySelectorAll('.card_favourites_btn');
-    const seeRecipyForSet = document.querySelectorAll('.card_btn');
 
     function handleClick(event) {
       const parentContainer = event.currentTarget.parentNode;
       const src = parentContainer.querySelector('.card_background').src;
       const title = parentContainer.querySelector('.card_title').textContent;
-      const description =
-        parentContainer.querySelector('.card_description').textContent;
-      const starRating =
-        parentContainer.querySelector('.star-rating_value').textContent;
+      const description = parentContainer.querySelector('.card_description').textContent;
+      const starRating = parentContainer.querySelector('.star-rating_value').textContent;
       const category = parentContainer.id;
       const ident = parentContainer.querySelector('.card_btn').id;
 
@@ -88,7 +85,7 @@ export default function setLocalStorageF(favoritData) {
               item.src === favoritData.src &&
               item.title === favoritData.title &&
               item.description === favoritData.description &&
-              item.starRating === favoritData.starRating
+              item.starRating === favoritData.starRating 
           );
           dataArray.splice(index, 1);
           if (dataArray.length === 0) {
@@ -102,4 +99,4 @@ export default function setLocalStorageF(favoritData) {
     }
   }
   return;
-}
+};
