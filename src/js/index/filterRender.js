@@ -8,7 +8,6 @@ import { pagination } from '/src/js/pagination';
 import { eventListener } from '../modalRecipe';
 import { Notify } from 'notiflix';
 
-
 const refs = {
   seacrhInp: document.querySelector('.inp-search'),
   searchBtn: document.querySelector('.btn-search'),
@@ -26,17 +25,14 @@ const refs = {
   imgOops: document.querySelector('.notfound-cook'),
 };
 
-
 const FetchByFilter = new fetchAllRecipes();
 FetchByFilter.setLimitValue();
 const limit = FetchByFilter.setLimitValue();
 const page = pagination.getCurrentPage();
 
-
 resetPagination();
 renderCards(page);
 resetPagination();
-
 
 pagination.on('afterMove', async event => {
   const currentPage = event.page;
@@ -49,42 +45,36 @@ pagination.on('afterMove', async event => {
   }
 });
 
-
 refs.cancelBtn.addEventListener('click', resetSearch);
 
-
-function resetSearch(){
+function resetSearch() {
   refs.seacrhInp.value = '';
   refs.cancelBtn.removeEventListener;
   refs.cancelBtn.style.display = 'none';
-};
-
+}
 
 refs.seacrhInp.addEventListener(
   'input',
   debounce(() => {
     const query = String(refs.seacrhInp.value.trim());
-    if(query !== ''){
+    if (query !== '') {
       searchFetch(query);
       refs.cancelBtn.style.display = 'block';
-    } else{
+    } else {
       refs.cancelBtn.style.display = 'none';
     }
   }, 300)
 );
-
 
 refs.timeFilter.addEventListener('click', timeFetch);
 refs.areaFilter.addEventListener('click', areaFetch);
 refs.ingredientsFilter.addEventListener('click', ingredientsFetch);
 refs.categories.addEventListener('click', categoriesFetch);
 
-
 function searchFetch(query) {
   FetchByFilter.setSearchValue(query);
   resetPagination();
-};
-
+}
 
 async function renderCards(page) {
   try {
@@ -108,7 +98,7 @@ async function renderCards(page) {
     }
 
     const roundedData = results.map(result => {
-    let ratingValue = result.rating.toFixed(1);
+      let ratingValue = result.rating.toFixed(1);
 
       return {
         ...result,
@@ -129,7 +119,6 @@ async function renderCards(page) {
     fillStars();
     cardHearts();
     return response;
-
   } catch (err) {
     refs.conCards.classList.remove('visually-hidden');
     refs.imgOops.classList.remove('visually-hidden');
@@ -139,8 +128,7 @@ async function renderCards(page) {
     Notify.failure('Something went wrong. Please try again');
     console.log(err);
   }
-};
-
+}
 
 function timeFetch(event) {
   if (event.target.tagName === 'BUTTON') {
@@ -151,8 +139,7 @@ function timeFetch(event) {
   } else {
     return;
   }
-};
-
+}
 
 function areaFetch(event) {
   try {
@@ -167,8 +154,7 @@ function areaFetch(event) {
     Notify.failure('Something went wrong. Please try again');
     console.log(err);
   }
-};
-
+}
 
 function ingredientsFetch(event) {
   if (event.target.tagName === 'BUTTON') {
@@ -176,8 +162,7 @@ function ingredientsFetch(event) {
     FetchByFilter.setIngredientsValue(ingredient);
     resetPagination();
   }
-};
-
+}
 
 function categoriesFetch(event) {
   const categories = event.target.textContent;
@@ -196,13 +181,11 @@ function categoriesFetch(event) {
   }
   FetchByFilter.setCategoryValue(categories);
   resetPagination();
-};
-
+}
 
 function resetCards() {
   refs.cardsList.innerHTML = '';
-};
-
+}
 
 function resetPagination() {
   try {
@@ -223,16 +206,14 @@ function resetPagination() {
     console.log(error);
     Notify.failure('Something went wrong. Please try again');
   }
-};
-
+}
 
 function show() {
   refs.pagination.classList.add('show');
   refs.pagination.classList.remove('hide');
-};
-
+}
 
 function hide() {
   refs.pagination.classList.add('hide');
   refs.pagination.classList.remove('show');
-};
+}

@@ -8,5 +8,5 @@ const popular1 = document.querySelector('.container-recipies1');
 fetchPopular().then(recipes => {
   popular.insertAdjacentHTML('beforeend', TemplatePopular(recipes));
   popular1.insertAdjacentHTML('beforeend', TemplatePopular(recipes));
-  // eventListenerPopular();
+  eventListenerPopular();
 });
