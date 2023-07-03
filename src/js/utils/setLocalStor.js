@@ -80,12 +80,13 @@ export default function setLocalStorage(favoritData) {
         } else {
           target.textContent = 'Add to favorite';
           dataArray = storedData;
+
           const index = dataArray.findIndex(
             item =>
               item.src === favoritData.src &&
               item.title === favoritData.title &&
               item.description === favoritData.description &&
-              item.starRating === favoritData.starRating
+              parseFloat(item.starRating) === parseFloat(favoritData.starRating)
           );
           dataArray.splice(index, 1);
 

@@ -26,8 +26,9 @@ async function handleModalRecipe(favoritData) {
     modalRecipeBackDrop.classList.remove('visible');
 
     const response = await fechFullRecipe.getRecipe();
+    const IDForFavorite = response.data._id;
+    // Визначаємо чи є така картка в локалсторедже і відповідно встановлюємо текст кнопки
 
-    const IDForFavorite = response.data._id; // Визначаємо чи є така картка в локалсторедже і відповідно встановлюємо текст кнопки
     const storedData = load('cardData');
     if (storedData) {
       dataArray = storedData;
@@ -83,7 +84,21 @@ async function handleModalRecipe(favoritData) {
     giveRating.id = mass[0]._id;
 
     ratingBlockTxt.textContent = mass[0].description;
-    setLocalStorage(favoritData);
+
+    if (!favoritData) {
+      const favoritDataPopular = {
+        category: response.data.category,
+        src: response.data.thumb,
+        title: response.data.title,
+        description: response.data.description,
+        starRating: response.data.rating,
+        ident: response.data._id,
+      };
+
+      setLocalStorage(favoritDataPopular);
+    } else {
+      setLocalStorage(favoritData);
+    }
 
     fillStars();
     const btnClose = document.querySelector('.btn-close');
@@ -129,6 +144,8 @@ async function handleModalRecipe(favoritData) {
     console.log(error);
     Notify.failure('Something went wrong. Please try again');
   }
+
+  return favoritData;
 }
 
 export function eventListener() {
@@ -160,15 +177,15 @@ export function eventListener() {
   });
 }
 
-// export function eventListenerPopular() {
-//   const btnOpenModalPopular = document.querySelectorAll('.popular-img');
-//   btnOpenModalPopular.forEach(event => {
-//     event.addEventListener('click', () => {
-//       fechFullRecipe.ID = event.id;
-//       handleModalRecipe();
-//     });
-//   });
-// }
+export function eventListenerPopular() {
+  const btnOpenModalPopular = document.querySelectorAll('.popular-img');
+  btnOpenModalPopular.forEach(event => {
+    event.addEventListener('click', () => {
+      fechFullRecipe.ID = event.id;
+      handleModalRecipe();
+    });
+  });
+}
 
 export function eventListenerFavorites() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
@@ -176,6 +193,7 @@ export function eventListenerFavorites() {
   btnOpenModal.forEach(event => {
     event.addEventListener('click', () => {
       const parentContainer = event.parentNode;
+      console.log(parentContainer);
       const targetContainer = parentContainer.parentNode;
       const targetNulContainer = targetContainer.parentNode;
       const src = targetNulContainer.querySelector('.card_background').src;
