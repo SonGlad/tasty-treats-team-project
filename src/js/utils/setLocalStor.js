@@ -12,10 +12,8 @@ export default function setLocalStorage(favoritData) {
       const parentContainer = event.currentTarget.parentNode;
       const src = parentContainer.querySelector('.card_background').src;
       const title = parentContainer.querySelector('.card_title').textContent;
-      const description =
-        parentContainer.querySelector('.card_description').textContent;
-      const starRating =
-        parentContainer.querySelector('.star-rating_value').textContent;
+      const description = parentContainer.querySelector('.card_description').textContent;
+      const starRating = parentContainer.querySelector('.star-rating_value').textContent;
       const category = parentContainer.id;
       const ident = parentContainer.querySelector('.card_btn').id;
 
@@ -106,4 +104,4 @@ export default function setLocalStorage(favoritData) {
     }
   }
   return;
-}
+};

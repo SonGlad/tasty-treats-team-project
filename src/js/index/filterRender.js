@@ -98,7 +98,8 @@ async function renderCards(page) {
     }
 
     const roundedData = results.map(result => {
-      let ratingValue = result.rating.toFixed(1);
+
+    let ratingValue = Math.floor(result.rating * 10) / 10;
 
       return {
         ...result,
@@ -133,7 +134,6 @@ async function renderCards(page) {
 function timeFetch(event) {
   if (event.target.tagName === 'BUTTON') {
     const time = parseInt(event.target.textContent);
-
     FetchByFilter.setTimeValue(time);
     resetPagination();
   } else {
@@ -147,7 +147,6 @@ function areaFetch(event) {
       const area = event.target.textContent;
 
       FetchByFilter.setAreaValue(area);
-      // renderCards(page);
       resetPagination();
     }
   } catch (err) {

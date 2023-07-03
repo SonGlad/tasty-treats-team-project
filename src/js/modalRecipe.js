@@ -11,6 +11,7 @@ import { rend } from './favorite/favorites_main';
 import { Notify } from 'notiflix';
 import instructionsList from '../templates/instructions.hbs ';
 
+
 const modalRecipeBackDrop = document.querySelector('.recipe-backdrop');
 const modalRecipe = document.querySelector('#modal-recipe');
 const ratingBlockTxt = document.querySelector('.rating-block-txt');
@@ -70,8 +71,16 @@ async function handleModalRecipe(favoritData) {
     const instructions = document.querySelector('.recipe-text');
     instructions.innerHTML = instructionsList(sentenceObjects);
 
+    
+    
     const giveRating = document.querySelector('.btn-giveARating');
+
+    giveRating.addEventListener('click', () => {
+      player.src = '';
+    });
+
     modalRatingOpCl(giveRating, modalRecipeBackDrop);
+    
     giveRating.id = mass[0]._id;
 
     ratingBlockTxt.textContent = mass[0].description;
@@ -107,6 +116,7 @@ async function handleModalRecipe(favoritData) {
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
         modalRecipeBackDrop.classList.add('visible');
+        player.src = '';
         if (document.title === 'Favorites') {
           rend();
         }
@@ -117,6 +127,7 @@ async function handleModalRecipe(favoritData) {
 
     modalRecipeBackDrop.addEventListener('click', e => {
       modalRecipeBackDrop.classList.add('visible');
+      player.src = '';
 
       heartsFillStorage();
       if (document.title === 'Favorites') {
@@ -139,6 +150,7 @@ async function handleModalRecipe(favoritData) {
 
 export function eventListener() {
   const btnOpenModal = document.querySelectorAll('.card_btn');
+  
   btnOpenModal.forEach(event => {
     event.addEventListener('click', () => {
       const parentContainer = event.parentNode;
@@ -146,10 +158,8 @@ export function eventListener() {
       const targetNulContainer = targetContainer.parentNode;
       const src = targetNulContainer.querySelector('.card_background').src;
       const title = targetNulContainer.querySelector('.card_title').textContent;
-      const description =
-        targetNulContainer.querySelector('.card_description').textContent;
-      const starRating =
-        targetNulContainer.querySelector('.star-rating_value').textContent;
+      const description = targetNulContainer.querySelector('.card_description').textContent;
+      const starRating = targetNulContainer.querySelector('.star-rating_value').textContent;
       const category = targetNulContainer.id;
       const ident = targetNulContainer.querySelector('.card_btn').id;
 
@@ -188,10 +198,8 @@ export function eventListenerFavorites() {
       const targetNulContainer = targetContainer.parentNode;
       const src = targetNulContainer.querySelector('.card_background').src;
       const title = targetNulContainer.querySelector('.card_title').textContent;
-      const description =
-        targetNulContainer.querySelector('.card_description').textContent;
-      const starRating =
-        targetNulContainer.querySelector('.star-rating_value').textContent;
+      const description = targetNulContainer.querySelector('.card_description').textContent;
+      const starRating = targetNulContainer.querySelector('.star-rating_value').textContent;
       const category = targetNulContainer.id;
       const ident = targetNulContainer.querySelector('.card_btn').id;
 
@@ -207,12 +215,15 @@ export function eventListenerFavorites() {
       handleModalRecipe(favoritData);
     });
   });
-}
+};
+
 
 function disableScroll() {
   document.body.classList.add('scroll-lock');
-}
+};
+
 
 function enableScroll() {
   document.body.classList.remove('scroll-lock');
-}
+};
+

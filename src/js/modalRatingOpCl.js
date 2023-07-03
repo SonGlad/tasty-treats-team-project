@@ -1,7 +1,6 @@
-// import {  addRatingtoBtn } from "../js/API_request/rating-modal"
+const  ratingEmailBtn = document.querySelector(".rating-email-btn");
 
 
-const  ratingEmailBtn = document.querySelector(".rating-email-btn")  
 export function modalRatingOpCl(giveRating, modalRecipeBackDrop) {
     const ratingBackdrop = document.querySelector('.rating-backdrop');
     
